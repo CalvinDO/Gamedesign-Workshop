@@ -6,21 +6,23 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent agent;
-    private CharacterController characterController;
+    private PlayerController playerController;
     public float seeCharacterRange;
+    public EnemyStats stats;
 
 
     void Start()
     {
-        this.characterController = GameObject.Find("Character").GetComponent<CharacterController>();
+        stats = gameObject.GetComponent<EnemyStats>();
+        this.playerController = GameObject.Find("Character").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Vector3.Distance(this.transform.position, this.characterController.transform.position) < this.seeCharacterRange) {
-            this.agent.destination = this.characterController.transform.position;
+        this.agent.speed = this.stats.movementSpeed;
+        if (Vector3.Distance(this.transform.position, this.playerController.transform.position) < this.seeCharacterRange) {
+            this.agent.destination = this.playerController.transform.position;
         }
     }
 }

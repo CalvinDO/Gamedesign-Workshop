@@ -6,7 +6,7 @@ public class EnemyAttackor : MonoBehaviour {
     public float cooldownTime;
     public float remainingTime;
 
-    private CharacterController characterController;
+    private PlayerController playerController;
 
     void Start() {
         this.remainingTime = cooldownTime;
@@ -17,7 +17,7 @@ public class EnemyAttackor : MonoBehaviour {
 
         this.remainingTime -= Time.deltaTime;
 
-        if (this.characterController == null) { 
+        if (this.playerController == null) { 
             return;
         }
         if (this.remainingTime <= 0) {
@@ -27,23 +27,23 @@ public class EnemyAttackor : MonoBehaviour {
 
 
     void OnTriggerEnter(Collider other) {
-        this.characterController = other.gameObject.GetComponent<CharacterController>();
+        this.playerController = other.gameObject.GetComponent<PlayerController>();
 
-        Debug.Log(this.characterController);
+        Debug.Log(this.playerController);
     }
 
     void OnTriggerExit(Collider other) {
-        this.characterController = null;
+        this.playerController = null;
        
     }
 
     void Attack() {
 
         Debug.Log("enemy attack");
-        if (this.characterController == null) {
+        if (this.playerController == null) {
             return;
         }
-        this.characterController.health -= 5;
+        playerController.GetComponent<PlayerStats>().currentHealth -= 5;
 
         this.remainingTime = this.cooldownTime;
     }

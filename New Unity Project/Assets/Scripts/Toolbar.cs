@@ -6,7 +6,7 @@ public class Toolbar : MonoBehaviour
 {
     public GameObject formListGO;
     public GameObject active;
-    public CharacterController player;
+    public PlayerController player;
     public GameObject attackForms;
     private List<GameObject> formList = new List<GameObject>();
     private List<GameObject> attackFormList = new List<GameObject>();
