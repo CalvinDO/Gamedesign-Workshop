@@ -28,6 +28,11 @@ public class CharacterController : MonoBehaviour
         }
 
         this.text.text = "" + health;
+
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x, 0, Input.mousePosition.y);
+        this.rb.transform.LookAt(mousePosition);
+        Debug.Log(Input.mousePosition);
+
     }
 
     private Vector3 GetScaledDirectionInput() {
