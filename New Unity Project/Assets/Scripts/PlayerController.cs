@@ -21,6 +21,17 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+       
+        if (this.health <= 0) {
+            GameObject.Destroy(this.gameObject);
+        }
+
+        this.text.text = "" + health;
+
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x, 0, Input.mousePosition.y);
+        this.rb.transform.LookAt(mousePosition);
+        Debug.Log(Input.mousePosition);
+
        this.text.text = "" + stats.currentHealth;
     }
 
