@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attackor : MonoBehaviour
 {
     private bool isPressingAttack;
+    private bool isPressingHeal;
     private EnemyController nearbyEnemy;
 
     void Start()
@@ -31,14 +32,38 @@ public class Attackor : MonoBehaviour
             this.isPressingAttack = false;
         }
 
+        // just copied for Mouse 2 (heal testing)
+        if (Input.GetKey(KeyCode.Mouse1)) {
+
+            if (!this.isPressingHeal) {
+                this.Heal();
+            }
+
+            this.isPressingHeal = true;
+        }
+        else {
+            this.isPressingHeal = false;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse1)) {
+            this.isPressingHeal = false;
+        }
+
         
     }
-
     void Attack() {
         if (this.nearbyEnemy == null) {
             return;
         }
-        GameObject.Destroy(this.nearbyEnemy.gameObject);
+        nearbyEnemy.gameObject.GetComponent<EnemyStats>().currentHealth -= 20;
+        nearbyEnemy.gameObject.AddComponent<Burn>();
+    }
+
+    void Heal(){
+        if(!gameObject.transform.parent.gameObject.TryGetComponent<Heal>(out Heal healing)){
+            gameObject.transform.parent.gameObject.AddComponent<Heal>();
+            
+        }
     }
 
     void OnTriggerEnter(Collider other) {

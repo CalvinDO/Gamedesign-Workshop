@@ -5,29 +5,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Range(0, 1)]
-    public float movementSpeed;
     public Rigidbody rb;
-
-    public float health = 100;
     public Text text;
+    public PlayerStats stats;
 
 
     void Start()
     {
+        stats = gameObject.GetComponent<PlayerStats>();
         //this.textmeshPro = this.GetComponentInChildren<TextMeshPro>();
     }
 
     // Update is called once per frame
     void Update() {
-       
-        if (this.health <= 0) {
-            GameObject.Destroy(this.gameObject);
-        }
-
-        this.text.text = "" + health;
+       this.text.text = "" + stats.currentHealth;
     }
 
     private Vector3 GetScaledDirectionInput() {
@@ -47,7 +41,7 @@ public class CharacterController : MonoBehaviour
         }
 
         Vector3 normalizedDirectionInput = directionInput.normalized;
-        Vector3 scaledDirectionInput = normalizedDirectionInput * movementSpeed;
+        Vector3 scaledDirectionInput = normalizedDirectionInput * stats.movementSpeed/10;
 
         return scaledDirectionInput;
     }
