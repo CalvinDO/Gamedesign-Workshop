@@ -6,7 +6,7 @@ public class EnemyAttackor : MonoBehaviour {
     public float cooldownTime;
     public float remainingTime;
 
-    private PlayerController playerController;
+    private GWPawnController playerController;
 
     void Start() {
         this.remainingTime = cooldownTime;
@@ -27,7 +27,7 @@ public class EnemyAttackor : MonoBehaviour {
 
 
     void OnTriggerEnter(Collider other) {
-        this.playerController = other.gameObject.GetComponent<PlayerController>();
+        this.playerController = other.gameObject.GetComponent<GWPawnController>();
 
         Debug.Log(this.playerController);
     }
@@ -43,7 +43,7 @@ public class EnemyAttackor : MonoBehaviour {
         if (this.playerController == null) {
             return;
         }
-        playerController.GetComponent<PlayerStats>().currentHealth -= 5;
+        playerController.GetComponent<GWPawnStats>().currentHealth -= 5;
 
         this.remainingTime = this.cooldownTime;
     }

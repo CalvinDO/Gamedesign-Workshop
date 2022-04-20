@@ -11,7 +11,7 @@ public class Burn : MonoBehaviour
     private IStats stats;
     void Start()
     {
-        if(gameObject.TryGetComponent<PlayerStats>(out PlayerStats pStats)){
+        if(gameObject.TryGetComponent<GWPawnStats>(out GWPawnStats pStats)){
             stats = pStats;
         }
         if(gameObject.TryGetComponent<EnemyStats>(out EnemyStats eStats)){

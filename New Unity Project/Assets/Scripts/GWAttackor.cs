@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attackor : MonoBehaviour
+public class GWAttackor : MonoBehaviour
 {
     private bool isPressingAttack;
     private bool isPressingHeal;
-    private EnemyController nearbyEnemy;
+    private GWEnemyController nearbyEnemy;
 
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0)) {
@@ -55,27 +54,27 @@ public class Attackor : MonoBehaviour
         if (this.nearbyEnemy == null) {
             return;
         }
-        nearbyEnemy.gameObject.GetComponent<EnemyStats>().currentHealth -= 20;
-        nearbyEnemy.gameObject.AddComponent<Burn>();
+        this.nearbyEnemy.gameObject.GetComponent<EnemyStats>().currentHealth -= 20;
+        this.nearbyEnemy.gameObject.AddComponent<Burn>();
     }
 
     void Heal(){
        
-        if (!this.transform.root.gameObject.TryGetComponent<Heal>(out Heal healing)){
-            this.transform.root.gameObject.AddComponent<Heal>();
+        if (!GWPawnController.instance.gameObject.TryGetComponent<GWHeal>(out GWHeal healing)){
+            GWPawnController.instance.gameObject.AddComponent<GWHeal>();
             
         }
     }
 
     void OnTriggerEnter(Collider other) {
-        this.nearbyEnemy = other.gameObject.GetComponent<EnemyController>();
+        this.nearbyEnemy = other.gameObject.GetComponent<GWEnemyController>();
 
         Debug.Log(this.nearbyEnemy);
     }
 
     void OnTriggerExit(Collider other) {
 
-        if (this.nearbyEnemy == other.gameObject.GetComponent<EnemyController>()) {
+        if (this.nearbyEnemy == other.gameObject.GetComponent<GWEnemyController>()) {
             this.nearbyEnemy = null;
         }
     }
