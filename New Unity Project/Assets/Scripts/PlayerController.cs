@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [Range(0, 1)]
+    
     public Rigidbody rb;
     public Text text;
     public PlayerStats stats;
@@ -15,53 +15,62 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        stats = gameObject.GetComponent<PlayerStats>();
+        this.stats = this.gameObject.GetComponent<PlayerStats>();
         //this.textmeshPro = this.GetComponentInChildren<TextMeshPro>();
     }
 
     // Update is called once per frame
-    void Update() {
-       
-        if (this.health <= 0) {
+    void Update()
+    {
+
+        if (this.stats.currentHealth <= 0)
+        {
             GameObject.Destroy(this.gameObject);
         }
 
-        this.text.text = "" + health;
+        this.text.text = "" + this.stats.currentHealth;
 
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, 0, Input.mousePosition.y);
         this.rb.transform.LookAt(mousePosition);
         Debug.Log(Input.mousePosition);
 
-       this.text.text = "" + stats.currentHealth;
+        this.text.text = "" + stats.currentHealth;
     }
 
-    private Vector3 GetScaledDirectionInput() {
+    private Vector3 GetScaledDirectionInput()
+    {
         Vector3 directionInput = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.D))
+        {
             directionInput += Vector3.right;
         }
-        if (Input.GetKey(KeyCode.S)) {
+        if (Input.GetKey(KeyCode.S))
+        {
             directionInput += Vector3.back;
         }
-        if (Input.GetKey(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.A))
+        {
             directionInput += Vector3.left;
         }
-        if (Input.GetKey(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.W))
+        {
             directionInput += Vector3.forward;
         }
 
         Vector3 normalizedDirectionInput = directionInput.normalized;
-        Vector3 scaledDirectionInput = normalizedDirectionInput * stats.movementSpeed/10;
+        Vector3 scaledDirectionInput = normalizedDirectionInput * stats.movementSpeed / 10;
 
         return scaledDirectionInput;
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         this.MoveCharacter();
     }
 
-    private void MoveCharacter() {
+    private void MoveCharacter()
+    {
         this.rb.position += this.GetScaledDirectionInput();
     }
 }
