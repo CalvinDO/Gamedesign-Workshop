@@ -5,7 +5,7 @@ using UnityEngine;
 public class Heal : MonoBehaviour
 {
     private int maxTicks = 20;
-    private int currentTicks;
+    public int currentTicks;
     private float healAmount = 1;
 
     private IStats stats;
