@@ -5,7 +5,7 @@ using UnityEngine;
 public class Burn : MonoBehaviour
 {
     private int maxTicks = 5;
-    private int currentTicks;
+    public int currentTicks;
     private float burnDmg = 10;
 
     private IStats stats;

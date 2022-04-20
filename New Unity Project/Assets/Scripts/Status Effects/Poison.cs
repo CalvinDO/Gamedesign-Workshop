@@ -5,7 +5,7 @@ using UnityEngine;
 public class Poison : MonoBehaviour
 {
     private int maxTicks = 7;
-    private int currentTicks;
+    public int currentTicks;
     private float percentDmg = 7;
 
     private IStats stats;
