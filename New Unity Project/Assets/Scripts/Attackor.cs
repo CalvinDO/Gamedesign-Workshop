@@ -60,8 +60,9 @@ public class Attackor : MonoBehaviour
     }
 
     void Heal(){
-        if(!gameObject.transform.parent.gameObject.TryGetComponent<Heal>(out Heal healing)){
-            gameObject.transform.parent.gameObject.AddComponent<Heal>();
+       
+        if (!this.transform.root.gameObject.TryGetComponent<Heal>(out Heal healing)){
+            this.transform.root.gameObject.AddComponent<Heal>();
             
         }
     }

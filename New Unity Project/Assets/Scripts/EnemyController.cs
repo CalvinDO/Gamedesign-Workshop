@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         this.text.text = "" + stats.currentHealth;
         this.agent.speed = this.stats.movementSpeed;
         if (Vector3.Distance(this.transform.position, this.playerController.transform.position) < this.seeCharacterRange) {

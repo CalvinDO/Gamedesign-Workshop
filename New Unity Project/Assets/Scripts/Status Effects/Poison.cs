@@ -2,24 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Poison : MonoBehaviour
+public class Poison : StatusEffect
 {
     private int maxTicks = 7;
     public int currentTicks;
     private float percentDmg = 7;
 
-    private IStats stats;
-    void Start()
-    {
-        if(gameObject.TryGetComponent<PlayerStats>(out PlayerStats pStats)){
-            stats = pStats;
-        }
-        if(gameObject.TryGetComponent<EnemyStats>(out EnemyStats eStats)){
-            stats = eStats;
-        }
-        if(stats==null){
-            Debug.Log("stats was null");
-        }
+
+    public override void Init() {
+        base.Init();
+
         currentTicks = 0;
         InvokeRepeating("DealPoisonDmg", 1f, 1f);
     }

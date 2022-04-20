@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public Text text;
     public PlayerStats stats;
-
+    public GameObject movingCharacter;
 
     void Start()
     {
@@ -31,8 +31,7 @@ public class PlayerController : MonoBehaviour
         this.text.text = "" + this.stats.currentHealth;
 
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, 0, Input.mousePosition.y);
-        this.rb.transform.LookAt(mousePosition);
-        Debug.Log(Input.mousePosition);
+        this.movingCharacter.transform.LookAt(mousePosition);
 
         this.text.text = "" + stats.currentHealth;
     }

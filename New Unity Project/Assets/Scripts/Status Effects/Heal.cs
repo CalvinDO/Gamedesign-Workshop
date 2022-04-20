@@ -2,24 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heal : MonoBehaviour
+public class Heal : StatusEffect
 {
     private int maxTicks = 20;
     public int currentTicks;
     private float healAmount = 1;
 
-    private IStats stats;
-    void Start()
-    {
-        if(gameObject.TryGetComponent<PlayerStats>(out PlayerStats pStats)){
-            stats = pStats;
-        }
-        if(gameObject.TryGetComponent<EnemyStats>(out EnemyStats eStats)){
-            stats = eStats;
-        }
-        if(stats==null){
-            Debug.Log("stats was null");
-        }
+    
+
+    public override void Init() {
+        base.Init();
+
         currentTicks = 0;
         InvokeRepeating("ApplyHealing", 1f, 0.5f);
     }

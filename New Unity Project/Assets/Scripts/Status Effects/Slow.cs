@@ -2,20 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slow : MonoBehaviour
+public class Slow : StatusEffect
 {
-    private IStats stats;
-    void Start()
-    {
-        if(gameObject.TryGetComponent<PlayerStats>(out PlayerStats pStats)){
-            stats = pStats;
-        }
-        if(gameObject.TryGetComponent<EnemyStats>(out EnemyStats eStats)){
-            stats = eStats;
-        }
-        if(stats==null){
-            Debug.Log("stats was null");
-        }
+
+    public override void Init() {
+        base.Init();
+
         StartCoroutine(ApplySlow(3f));
     }
 

@@ -30,8 +30,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037052678194698087}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.289999, y: -1.1110001, z: -23.57}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1037052678194698080}
   seeCharacterRange: 24.67
-  stats: {fileID: 0}
+  stats: {fileID: 1355184676842458768}
   text: {fileID: 4443691553670813954}
 --- !u!195 &1037052678194698080
 NavMeshAgent:

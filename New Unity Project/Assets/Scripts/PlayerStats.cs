@@ -14,6 +14,13 @@ public class PlayerStats : MonoBehaviour, IStats
         this.currentHealth = maxHealth;
         this.movementSpeed = 1f;
     }
+
+    void Awake() {
+       // this.maxHealth = 150;
+        //this.currentHealth = maxHealth;
+        //this.movementSpeed = 1f;
+    }
+
     void Update()
     {
         if(this.currentHealth <= 0){
