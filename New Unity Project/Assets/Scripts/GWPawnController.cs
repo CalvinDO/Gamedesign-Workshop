@@ -14,6 +14,8 @@ public class GWPawnController : MonoBehaviour {
 
     public static GWPawnController instance;
 
+    public Vector3 velocity;
+
     void Awake() {
         GWPawnController.instance = this;
     }
@@ -33,7 +35,7 @@ public class GWPawnController : MonoBehaviour {
 
         this.LookatMouse();
 
-        Debug.Log(this.stats.currentHealth + "  vs:  " + GWPawnController.instance.stats.currentHealth);
+
     }
 
     private void LookatMouse() {
@@ -67,11 +69,20 @@ public class GWPawnController : MonoBehaviour {
         return scaledDirectionInput;
     }
 
+
+    //float timeLastFrame = (float) Time.timeAsDouble;
+    
     void FixedUpdate() {
+        //Debug.Log(Time.timeAsDouble - timeLastFrame);
+        //timeLastFrame = (float)Time.timeAsDouble;
         this.MovePawn();
     }
 
     private void MovePawn() {
-        this.rb.position += this.GetScaledDirectionInput();
+        this.velocity = this.GetScaledDirectionInput();
+
+        this.rb.position += this.velocity;
+
+
     }
 }

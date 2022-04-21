@@ -66,10 +66,11 @@ public class GWAttackor : MonoBehaviour
         }
     }
 
+
+
     void OnTriggerEnter(Collider other) {
         this.nearbyEnemy = other.gameObject.GetComponent<GWEnemyController>();
 
-        Debug.Log(this.nearbyEnemy);
     }
 
     void OnTriggerExit(Collider other) {
