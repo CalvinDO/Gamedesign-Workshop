@@ -8,12 +8,8 @@ public class GWAttackor : MonoBehaviour
     private bool isPressingHeal;
     private GWEnemyController nearbyEnemy;
 
-    void Start()
-    {
-        
-    }
 
-    void Update()
+    virtual public void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0)) {
 
@@ -51,7 +47,10 @@ public class GWAttackor : MonoBehaviour
         
     }
     void Attack() {
+
         if (this.nearbyEnemy == null) {
+            Debug.Log("attack but enemy null");
+
             return;
         }
         this.nearbyEnemy.gameObject.GetComponent<EnemyStats>().currentHealth -= 20;
@@ -68,7 +67,7 @@ public class GWAttackor : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerStay(Collider other) {
         this.nearbyEnemy = other.gameObject.GetComponent<GWEnemyController>();
 
     }

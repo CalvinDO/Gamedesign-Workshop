@@ -57,7 +57,6 @@ public class GWEnemyAttackor : MonoBehaviour {
             case GWAttackState.Roaming:
 
                 if (this.pawnController != null) {
-                    Debug.Log("pawncontroller != null");
                     this.attackState = GWAttackState.Loading;
                 }
 
@@ -75,7 +74,6 @@ public class GWEnemyAttackor : MonoBehaviour {
                     this.remainingLoadTime = this.loadTime;
                 }
 
-                Debug.Log(GWPawnController.instance.velocity);
 
                 this.futureAttackPos = GWPawnController.instance.transform.position + GWPawnController.instance.velocity * this.attackTime * 50;
                
