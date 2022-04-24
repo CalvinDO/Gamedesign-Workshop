@@ -38,8 +38,7 @@ public class GWEnemyAttackor : MonoBehaviour {
         this.remainingAttackTime = this.attackTime;
     }
 
-    // Update is called once per frame
-    void Update() {
+    public virtual void Update() {
 
         //this.remainingTime -= Time.deltaTime;
 
@@ -48,9 +47,6 @@ public class GWEnemyAttackor : MonoBehaviour {
             this.Attack();
         }
         */
-
-
-
 
         switch (this.attackState) {
 
@@ -129,6 +125,7 @@ public class GWEnemyAttackor : MonoBehaviour {
     }
 
     void OnTriggerStay(Collider other) {
+
         this.pawnController = other.gameObject.GetComponent<GWPawnController>();
 
         if (this.pawnController == null) {
@@ -138,14 +135,10 @@ public class GWEnemyAttackor : MonoBehaviour {
     }
 
     void OnTriggerExit(Collider other) {
-
-
         this.pawnController = null;
-
-
     }
 
-    void Attack() {
+    public virtual void Attack() {
 
         this.weapon.Attack();
 

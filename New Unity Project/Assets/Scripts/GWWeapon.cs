@@ -8,16 +8,9 @@ public class GWWeapon : MonoBehaviour {
     private GWPawnController pawnController;
     public MeshRenderer meshRenderer;
 
+   
 
-    void Start() {
 
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
-    
     void OnTriggerEnter(Collider other) {
 
         this.pawnController = other.gameObject.GetComponent<GWPawnController>();
@@ -31,8 +24,6 @@ public class GWWeapon : MonoBehaviour {
     }
 
     void OnTriggerExit(Collider other) {
-
-        
             this.pawnController = null;
     }
     
@@ -44,4 +35,6 @@ public class GWWeapon : MonoBehaviour {
 
         this.pawnController.GetComponent<GWPawnStats>().currentHealth -= 5;
     }
+
+  
 }
