@@ -7,6 +7,8 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
     public GWProjectile projectile;
 
+    public GameObject AimLaser;
+
 
     /*
     void Start() {
@@ -26,9 +28,10 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
                 if (this.pawnController != null) {
                     this.attackState = GWAttackState.Loading;
+
                 }
 
-                this.weapon.gameObject.SetActive(false);
+                this.AimLaser.SetActive(false);
 
                 break;
             case GWAttackState.Loading:
@@ -40,7 +43,13 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
                 if (this.remainingLoadTime <= 0) {
 
+                    this.projectile.transform.parent = this.transform;
+
+                    this.projectile.transform.localPosition = Vector3.zero + Vector3.up;
+                    this.projectile.transform.localRotation = Quaternion.identity;
+
                     this.attackState = GWAttackState.Attacking;
+                    this.AimLaser.SetActive(true);
 
                     this.remainingLoadTime = this.loadTime;
                 }
@@ -52,25 +61,29 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
                 Vector3 v = this.projectile.transform.forward * this.projectile.flySpeed * 50;
                 float t = d.magnitude / v.magnitude;
                 Vector3 posAfterT = GWPawnController.instance.transform.position +  GWPawnController.instance.velocity * t * 50;
+                
                 this.transform.LookAt(posAfterT);
                 this.futureAttackPos = posAfterT;
 
-                //this.futureAttackPos = GWPawnController.instance.transform.position + GWPawnController.instance.velocity * this.attackTime * 50;
-                //this.transform.LookAt(this.futureAttackPos);
-                //this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.y,  0);
-
-                this.weapon.gameObject.SetActive(false);
-
+                
                 break;
             case GWAttackState.Attacking:
 
-                this.Attack();
+                this.remainingAttackTime -= Time.deltaTime;
 
-                this.attackState = GWAttackState.Roaming;
-                this.enemy.agent.isStopped = false;
+                
 
-                this.remainingAttackTime = this.attackTime;
+                if (this.remainingAttackTime <= 0) {
 
+                    this.Attack();
+
+                    this.attackState = GWAttackState.Roaming;
+                    this.enemy.agent.isStopped = false;
+
+                    this.remainingAttackTime = this.attackTime;
+
+                    this.AimLaser.SetActive(false);
+                }
 
                 break;
             default:

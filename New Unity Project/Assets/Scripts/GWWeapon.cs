@@ -33,7 +33,8 @@ public class GWWeapon : MonoBehaviour {
             return;
         }
 
-        this.pawnController.GetComponent<GWPawnStats>().currentHealth -= 5;
+        this.pawnController.Hurt(-5);
+        //this.pawnController.GetComponent<GWPawnStats>().currentHealth -= 5;
     }
 
   

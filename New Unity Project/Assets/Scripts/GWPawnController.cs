@@ -16,6 +16,18 @@ public class GWPawnController : MonoBehaviour {
 
     public Vector3 velocity;
 
+    public GWAttackState attackState;
+
+    public GWAttackor activeAttackor;
+
+    public float cooldownTime;
+    public float remainingTime;
+
+    public float loadTime;
+    public float remainingLoadTime;
+
+    private bool isMovementBlocked;
+
     void Awake() {
         GWPawnController.instance = this;
     }
@@ -23,6 +35,8 @@ public class GWPawnController : MonoBehaviour {
     void Start() {
         this.stats = this.gameObject.GetComponent<GWPawnStats>();
         //this.textmeshPro = this.GetComponentInChildren<TextMeshPro>();
+
+        this.remainingLoadTime = this.loadTime;
     }
 
     void Update() {
@@ -35,7 +49,67 @@ public class GWPawnController : MonoBehaviour {
 
         this.LookatMouse();
 
+        switch (this.attackState) {
 
+            case GWAttackState.Roaming:
+
+                Material weaponMat = this.activeAttackor.visualAttackor.material;
+                Color weaponColor = weaponMat.color;
+                weaponColor.a = 0;
+                weaponMat.color = weaponColor;
+
+                if (Input.GetKeyDown(KeyCode.Mouse0)) {
+
+                    this.activeAttackor.gameObject.SetActive(true);
+                    this.isMovementBlocked = true;
+
+                    this.attackState = GWAttackState.Loading;
+                }
+
+
+                break;
+            case GWAttackState.Loading:
+
+                this.remainingLoadTime -= Time.deltaTime;
+
+                if (this.remainingLoadTime <= 0) {
+
+                    this.attackState = GWAttackState.Attacking;
+
+                    this.remainingLoadTime = this.loadTime;
+                }
+
+                float factor = this.remainingLoadTime / this.loadTime;
+
+                weaponMat = this.activeAttackor.visualAttackor.material;
+                weaponColor = weaponMat.color;
+                weaponColor.a = 1 - factor;
+                weaponMat.color = weaponColor;
+
+
+
+                //this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.y,  0);
+                // this.weapon.gameObject.SetActive(false);
+
+                break;
+            case GWAttackState.Attacking:
+
+                this.activeAttackor.Attack();
+
+                this.attackState = GWAttackState.Roaming;
+
+                this.isMovementBlocked = false;
+
+                break;
+            default:
+                break;
+
+        }
+
+    }
+
+    public void Hurt(float damage) {
+        this.stats.currentHealth -= damage;
     }
 
     private void LookatMouse() {
@@ -43,7 +117,7 @@ public class GWPawnController : MonoBehaviour {
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 mouseCenterVector = mousePosition - screenCenter;
         Vector3 lookatVector = new Vector3(mouseCenterVector.x, 0, mouseCenterVector.y);
-        
+
         this.movingPawn.transform.LookAt(lookatVector);
     }
 
@@ -71,7 +145,7 @@ public class GWPawnController : MonoBehaviour {
 
 
     //float timeLastFrame = (float) Time.timeAsDouble;
-    
+
     void FixedUpdate() {
         //Debug.Log(Time.timeAsDouble - timeLastFrame);
         //timeLastFrame = (float)Time.timeAsDouble;
@@ -79,10 +153,13 @@ public class GWPawnController : MonoBehaviour {
     }
 
     private void MovePawn() {
+
+        if (this.isMovementBlocked) {
+            return;
+        }
+
         this.velocity = this.GetScaledDirectionInput();
 
         this.rb.position += this.velocity;
-
-
     }
 }

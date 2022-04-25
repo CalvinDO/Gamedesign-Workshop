@@ -8,9 +8,12 @@ public class GWAttackor : MonoBehaviour
     private bool isPressingHeal;
     private GWEnemyController nearbyEnemy;
 
+    public MeshRenderer visualAttackor;
+
 
     virtual public void Update()
     {
+        /*
         if (Input.GetKey(KeyCode.Mouse0)) {
 
             if (!this.isPressingAttack) {
@@ -26,6 +29,7 @@ public class GWAttackor : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse0)) {
             this.isPressingAttack = false;
         }
+        */
 
         // just copied for Mouse 2 (heal testing)
         if (Input.GetKey(KeyCode.Mouse1)) {
@@ -44,9 +48,9 @@ public class GWAttackor : MonoBehaviour
             this.isPressingHeal = false;
         }
 
-        
     }
-    void Attack() {
+
+    public void Attack() {
 
         if (this.nearbyEnemy == null) {
             Debug.Log("attack but enemy null");

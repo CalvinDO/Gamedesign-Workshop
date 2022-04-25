@@ -26,24 +26,32 @@ public class GWToolbar : MonoBehaviour {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
         if (scroll != 0) {
+            this.attackFormList[formidx].SetActive(false);
+
             if (scroll > 0) {
-                this.attackFormList[formidx].SetActive(false);
                 this.formidx--;
-                if (this.formidx < 0) {
-                    this.formidx = this.formList.Count - 1;
-                }
-                this.attackFormList[formidx].SetActive(true);
             }
             else {
-                this.attackFormList[formidx].SetActive(false);
                 this.formidx++;
                 if (this.formidx > this.formList.Count - 1) {
                     this.formidx = 0;
                 }
-                this.attackFormList[formidx].SetActive(true);
             }
-            this.active.transform.position = this.formList[formidx].transform.position;
 
+
+            if (this.formidx < 0) {
+                this.formidx = this.formList.Count - 1;
+            }
+
+           
         }
+
+        this.attackFormList[formidx].SetActive(true);
+
+
+        this.active.transform.position = this.formList[formidx].transform.position;
+
+        GWPawnController.instance.activeAttackor = this.attackFormList[this.formidx].GetComponent<GWAttackor>();
+
     }
 }

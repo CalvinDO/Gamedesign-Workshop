@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GWProjectile: MonoBehaviour {
+public class GWProjectile : MonoBehaviour {
     [Range(0, 1)]
     public float flySpeed;
 
     private bool isFlying;
 
+    [Range(0, 100)]
+    public float damage;
 
 
     void FixedUpdate() {
@@ -19,5 +21,11 @@ public class GWProjectile: MonoBehaviour {
     public void Shoot() {
         this.isFlying = true;
         this.transform.parent = null;
+    }
+
+    void OnTriggerEnter(Collider other) {
+        GWPawnController pawnController = other.gameObject.GetComponent<GWPawnController>();
+        pawnController.Hurt(this.damage);
+
     }
 }
