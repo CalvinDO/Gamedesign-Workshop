@@ -54,7 +54,7 @@ public class GWAttackor : MonoBehaviour
             return;
         }
         this.nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth -= 20;
-        this.nearbyEnemy.gameObject.AddComponent<GWBurn>();
+        this.nearbyEnemy.gameObject.AddComponent<GWSlow>();
     }
 
     void Heal(){
