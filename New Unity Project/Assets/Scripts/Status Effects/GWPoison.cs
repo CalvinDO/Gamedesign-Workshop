@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Poison : GWStatusEffect {
+public class GWPoison : GWStatusEffect {
     private int maxTicks = 7;
     public int currentTicks;
     private float percentDmg = 7;
@@ -19,7 +19,7 @@ public class Poison : GWStatusEffect {
         this.stats.currentHealth -= this.stats.maxHealth * (0.01f * this.percentDmg);
         this.currentTicks++;
         if (this.currentTicks >= this.maxTicks) {
-            Destroy(this.gameObject.GetComponent<Poison>());
+            Destroy(this.gameObject.GetComponent<GWPoison>());
         }
     }
 }

@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class GWEnemyController : MonoBehaviour {
     public NavMeshAgent agent;
     public float seeCharacterRange;
-    public EnemyStats stats;
+    public GWEnemyStats stats;
     public Text text;
     public Rigidbody rb;
 
     void Start() {
-        this.stats = gameObject.GetComponent<EnemyStats>();
+        this.stats = gameObject.GetComponent<GWEnemyStats>();
     }
 
     void Update() {

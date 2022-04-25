@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Burn : MonoBehaviour
+public class GWBurn : MonoBehaviour
 {
     private int maxTicks = 5;
     public int currentTicks;
     private float burnDmg = 10;
 
-    private IStats stats;
+    private GWIStats stats;
     void Start()
     {
         if(gameObject.TryGetComponent<GWPawnStats>(out GWPawnStats pStats)){
             stats = pStats;
         }
-        if(gameObject.TryGetComponent<EnemyStats>(out EnemyStats eStats)){
+        if(gameObject.TryGetComponent<GWEnemyStats>(out GWEnemyStats eStats)){
             stats = eStats;
         }
         if(stats==null){
@@ -27,7 +27,7 @@ public class Burn : MonoBehaviour
     void DealBurnDmg(){
         stats.currentHealth -= burnDmg;
         currentTicks++;
-        if(this.currentTicks>=maxTicks) Destroy(gameObject.GetComponent<Burn>());
+        if(this.currentTicks>=maxTicks) Destroy(gameObject.GetComponent<GWBurn>());
     }
 
 }

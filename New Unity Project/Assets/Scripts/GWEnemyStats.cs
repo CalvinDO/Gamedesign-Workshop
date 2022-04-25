@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStats : MonoBehaviour, IStats
+public class GWEnemyStats : MonoBehaviour, GWIStats
 {
     public float maxHealth {get; set;}
     public float currentHealth {get; set;}

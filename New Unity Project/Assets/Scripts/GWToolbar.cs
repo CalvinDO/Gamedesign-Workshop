@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Toolbar : MonoBehaviour {
+public class GWToolbar : MonoBehaviour {
     public GameObject formListGO;
     public GameObject active;
     public GameObject attackForms;

@@ -1,4 +1,4 @@
-public interface IStats
+public interface GWIStats
 {
     public float maxHealth {get; set;}
     public float currentHealth {get; set;}
