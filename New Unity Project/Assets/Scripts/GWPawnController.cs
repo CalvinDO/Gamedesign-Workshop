@@ -65,9 +65,8 @@ public class GWPawnController : MonoBehaviour {
 
                     this.attackState = GWAttackState.Loading;
                 }
-
-
                 break;
+                
             case GWAttackState.Loading:
 
                 this.remainingLoadTime -= Time.deltaTime;

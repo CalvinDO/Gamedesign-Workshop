@@ -31,6 +31,7 @@ public class GWSpellSlot : MonoBehaviour
                     activeTime -= Time.deltaTime;
                 }
                 else {
+                    spell.BeginCooldown(gameObject);
                     state = SpellState.COOLDOWN;
                     cooldownTime = spell.activeTime;
                 }

@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad1ca51015415a43882c7c0b160c0e8, type: 3}
-  m_Name: Spell1
+  m_Script: {fileID: 11500000, guid: e14cd6626f151f142ab9acdd08bb1434, type: 3}
+  m_Name: WaterWave
   m_EditorClassIdentifier: 
-  type: 0
-  cooldown: 0
-  duration: 0
+  name: Water Wave
+  type: 3
+  cooldownTime: 3
+  activeTime: 1
+  range: 5
