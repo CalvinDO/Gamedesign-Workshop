@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class GWSpell : MonoBehaviour
+//[CreateAssetMenu(fileName = "Create Spell", menuName = "Spell")]
+public class GWSpell : ScriptableObject
 {
+    public new string name;
     public GWEType type;
-    public float cooldown;
-    public float duration;
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
-    }
+    public float cooldownTime;
+    public float activeTime;
+
+    public virtual void Activate(GameObject parent) {}
 }
