@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GWAttackor : MonoBehaviour
-{
+public class GWAttackor : MonoBehaviour {
     private bool isPressingAttack;
     private bool isPressingHeal;
-    private GWEnemyController nearbyEnemy;
+    public List<GWEnemyController> nearbyEnemys;
 
     public MeshRenderer visualAttackor;
 
+    void Awake() {
+        this.nearbyEnemys = new List<GWEnemyController>();
+    }
 
-    virtual public void Update()
-    {
+    virtual public void Update() {
         /*
         if (Input.GetKey(KeyCode.Mouse0)) {
 
@@ -52,34 +53,42 @@ public class GWAttackor : MonoBehaviour
 
     public void Attack() {
 
-        if (this.nearbyEnemy == null) {
-            Debug.Log("attack but enemy null");
+        foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
 
-            return;
+            nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth -= 20;
+            nearbyEnemy.gameObject.AddComponent<GWSlow>();
+            if (nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth <= 0) {
+                this.nearbyEnemys.Remove(nearbyEnemy);
+            }
         }
-        this.nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth -= 20;
-        this.nearbyEnemy.gameObject.AddComponent<GWSlow>();
     }
 
-    void Heal(){
-       
-        if (!GWPawnController.instance.gameObject.TryGetComponent<GWHeal>(out GWHeal healing)){
+    void Heal() {
+
+        if (!GWPawnController.instance.gameObject.TryGetComponent<GWHeal>(out GWHeal healing)) {
             GWPawnController.instance.gameObject.AddComponent<GWHeal>();
-            
+
         }
     }
 
 
 
     void OnTriggerStay(Collider other) {
-        this.nearbyEnemy = other.gameObject.GetComponent<GWEnemyController>();
+
+        if (this.nearbyEnemys.Contains(other.gameObject.GetComponent<GWEnemyController>())) {
+            return;
+        }
+
+        this.nearbyEnemys.Add(other.gameObject.GetComponent<GWEnemyController>());
 
     }
 
     void OnTriggerExit(Collider other) {
 
-        if (this.nearbyEnemy == other.gameObject.GetComponent<GWEnemyController>()) {
-            this.nearbyEnemy = null;
+        GWEnemyController otherEnemyController = other.gameObject.GetComponent<GWEnemyController>();
+
+        if (this.nearbyEnemys.Contains(otherEnemyController)) {
+            this.nearbyEnemys.Remove(otherEnemyController);
         }
     }
 }
