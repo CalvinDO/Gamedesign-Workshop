@@ -14,7 +14,7 @@ public class GWSpellSlot : MonoBehaviour
 
     public KeyCode key;
 
-    // Update is called once per frame
+    // TODO: Add this.
     void Update()
     {
         switch (state)

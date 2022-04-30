@@ -7,18 +7,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
     public GWProjectile projectile;
 
-    public GameObject AimLaser;
-
-
-    /*
-    void Start() {
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
-    */
+    public GameObject aimLaser;
 
     public override void Update() {
 
@@ -31,7 +20,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
                 }
 
-                this.AimLaser.SetActive(false);
+                this.aimLaser.SetActive(false);
 
                 break;
             case GWAttackState.Loading:
@@ -49,7 +38,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
                     this.projectile.transform.localRotation = Quaternion.identity;
 
                     this.attackState = GWAttackState.Attacking;
-                    this.AimLaser.SetActive(true);
+                    this.aimLaser.SetActive(true);
 
                     this.remainingLoadTime = this.loadTime;
                 }
@@ -82,7 +71,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
                     this.remainingAttackTime = this.attackTime;
 
-                    this.AimLaser.SetActive(false);
+                    this.aimLaser.SetActive(false);
                 }
 
                 break;

@@ -53,13 +53,13 @@ public class GWAttackor : MonoBehaviour {
 
     public void Attack() {
 
-        foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
+        foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
 
             nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth -= 20;
             nearbyEnemy.gameObject.AddComponent<GWSlow>();
-            if (nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth <= 0) {
+            if (nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth <= 0) { //Why doesnt this create a nullpointer? Since the Enemy should be Destroyed by GWEnemyState class
                 this.nearbyEnemys.Remove(nearbyEnemy);
-            }
+            } 
         }
     }
 

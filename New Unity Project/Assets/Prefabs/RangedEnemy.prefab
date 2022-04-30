@@ -277,7 +277,7 @@ MonoBehaviour:
   weapon: {fileID: 5508290490985978134}
   futureAttackPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 1259796268122064314}
-  AimLaser: {fileID: 3743118019547123330}
+  aimLaser: {fileID: 3743118019547123330}
 --- !u!1 &3743118019547123330
 GameObject:
   m_ObjectHideFlags: 0

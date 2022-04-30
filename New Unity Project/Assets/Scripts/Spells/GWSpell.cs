@@ -5,16 +5,16 @@ using UnityEngine;
 
 public enum GWEType
 {
-    WIND,EARTH,FIRE,WATER,SAND,IRON,STEAM,ICE,LIGHTNING,PLANT
+    AIR,EARTH,FIRE,WATER,SAND,IRON,STEAM,ICE,LIGHTNING,PLANT
 }
-
+//Class for combinations
+//Include EVERYTHING in a ScriptableObject - Completely describable by parameters
 public class GWSpell : ScriptableObject
 {
     public new string name;
     public GWEType type;
     public float cooldownTime;
     public float activeTime;
-
-    public virtual void Activate(GameObject parent) {}
-    public virtual void BeginCooldown(GameObject parent){}
+    public void Activate(GameObject parent) {}
+    public void BeginCooldown(GameObject parent){}
 }

@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttackor: {fileID: 5183096378446092568}
+  meshRenderer: {fileID: 0}
 --- !u!1 &5183096378446092564
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +130,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   pawnController: {fileID: 0}
   weapon: {fileID: 430997971793421673}
+  futureAttackPos: {x: 0, y: 0, z: 0}
 --- !u!1 &5427770890646278476
 GameObject:
   m_ObjectHideFlags: 0

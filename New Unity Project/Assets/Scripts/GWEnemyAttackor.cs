@@ -40,14 +40,6 @@ public class GWEnemyAttackor : MonoBehaviour {
 
     public virtual void Update() {
 
-        //this.remainingTime -= Time.deltaTime;
-
-        /*
-        if (this.remainingTime <= 0) {
-            this.Attack();
-        }
-        */
-
         switch (this.attackState) {
 
             case GWAttackState.Roaming:
