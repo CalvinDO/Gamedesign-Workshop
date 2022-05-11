@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GWSpellSlot : MonoBehaviour
 {
+
+    /*
     public GWSpell spell;
     public float cooldownTime;
     float activeTime;
@@ -46,4 +48,5 @@ public class GWSpellSlot : MonoBehaviour
             break;
         }
     }
+    */
 }

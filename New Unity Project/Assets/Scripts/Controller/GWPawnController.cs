@@ -60,13 +60,19 @@ public class GWPawnController : MonoBehaviour {
 
                 if (Input.GetKeyDown(KeyCode.Mouse0)) {
 
+                    if (GWSpellMenuContainer.instance.primaryAttack.state != GWInventorySlot.SpellState.READY) {
+
+                        Debug.Log("spell slot is not ready!!!");
+                        break;
+                    }
+
                     this.activeAttackor.gameObject.SetActive(true);
                     this.isMovementBlocked = true;
 
                     this.attackState = GWAttackState.Loading;
                 }
                 break;
-                
+
             case GWAttackState.Loading:
 
                 this.remainingLoadTime -= Time.deltaTime;
