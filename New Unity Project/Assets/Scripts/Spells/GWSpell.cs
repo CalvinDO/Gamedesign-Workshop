@@ -23,7 +23,7 @@ public class GWSpell : ScriptableObject {
 
     
 
-    public void Activate() { }
+    public void Activate() { Debug.Log(this.element + " Spell activated!"); }
     public void BeginCooldown() { }
     /*
     public GWEType GetCombined(GWEType first, GWEType second) {

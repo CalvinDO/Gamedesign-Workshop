@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler {
 
-    
+
     public GWUISpell uiSpell;
 
     private float remainingCooldown;
@@ -20,7 +20,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
         READY, ACTIVE, COOLDOWN
     }
 
-   
+
     public SpellState state = SpellState.READY;
 
     public KeyCode key;
@@ -63,6 +63,13 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
     }
 
     void Awake() {
+        this.Init();
+    }
+
+    void Start() {
+        this.Init();
+    }
+    void Init() {
 
         this.uiSpell = this.transform.GetComponentInChildren<GWUISpell>();
 
@@ -72,7 +79,6 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
         this.SetSpellTimes();
     }
-
 
     public void SetSpellTimes() {
         this.remainingCooldown = this.uiSpell.spellInstance.cooldownTime;
@@ -112,7 +118,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
         if (this.uiSpell == null) {
 
             this.SetUISpell(otherSpell);
-           
+
             otherSpell.GetComponent<GWDraggable>().originInventorySlot = this;
 
             return;
