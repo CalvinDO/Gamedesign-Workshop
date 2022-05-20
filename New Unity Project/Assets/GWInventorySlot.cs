@@ -38,14 +38,14 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
 
     void Update() {
-
+        /*
         if (Input.GetKeyDown(this.key)) {
             this.isPressed = true;
         }
         else {
             this.isPressed = false;
         }
-
+        */
         switch (this.state) {
             case SpellState.READY:
                 if (Input.GetKeyDown(key)) {

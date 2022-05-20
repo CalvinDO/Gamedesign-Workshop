@@ -21,18 +21,18 @@ public class GWAttackSlotContainer : MonoBehaviour
     public static GWInventorySlot GetPressedAttackSlot() {
 
 
-        if (GWAttackSlotContainer.instance.primaryAttack.isPressed) {
+        if (Input.GetKey(GWAttackSlotContainer.instance.primaryAttack.key)) {
             return GWAttackSlotContainer.instance.primaryAttack;
         }
-        if (GWAttackSlotContainer.instance.secondaryAttack.isPressed) {
+        if (Input.GetKey(GWAttackSlotContainer.instance.secondaryAttack.key)) {
             return GWAttackSlotContainer.instance.secondaryAttack;
         }
 
-        if (GWAttackSlotContainer.instance.primaryUtility.isPressed) {
+        if (Input.GetKey(GWAttackSlotContainer.instance.primaryUtility.key)) {
             return GWAttackSlotContainer.instance.primaryUtility;
         }
 
-        if (GWAttackSlotContainer.instance.secondaryUtility.isPressed) {
+        if (Input.GetKey(GWAttackSlotContainer.instance.secondaryUtility.key)) {
             return GWAttackSlotContainer.instance.secondaryUtility;
         }
 

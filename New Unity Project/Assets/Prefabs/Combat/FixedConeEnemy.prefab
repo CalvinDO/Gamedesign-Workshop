@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbd1720bb70a854482f4da745d99a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensibilities: {x: 0.1, y: 0.6, z: 0.6, w: 0.1}
 --- !u!136 &7980078096886513795
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -821,7 +822,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b4c7799b7a139c643b1fd752de71033b, type: 2}
+  - {fileID: 2100000, guid: 5f736df04e01f5144bb80705c8e2115c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -981,6 +982,7 @@ GameObject:
   - component: {fileID: 3194169059055708626}
   - component: {fileID: 4205646125311563642}
   - component: {fileID: 7191607803880849368}
+  - component: {fileID: 1752706146075806692}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1070,3 +1072,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1752706146075806692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074346201233311737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c76362afc2df645bd7560b9cf24d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

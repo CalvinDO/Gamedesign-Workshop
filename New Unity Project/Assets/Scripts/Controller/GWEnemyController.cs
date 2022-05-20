@@ -18,7 +18,7 @@ public class GWEnemyController : MonoBehaviour {
 
 
     void Start() {
-        this.stats = gameObject.GetComponent<GWEnemyStats>();
+        this.stats = this.gameObject.GetComponent<GWEnemyStats>();
     }
 
     void Update() {
@@ -71,7 +71,7 @@ public class GWEnemyController : MonoBehaviour {
             }
         }
 
-        return Vector4.Dot(elementAmounts, this.stats.sensibilities);
+        return Vector4.Dot(elementAmounts * 10, this.stats.sensibilities);
 
     }
 

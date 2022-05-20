@@ -28,6 +28,8 @@ public class GWPawnController : MonoBehaviour {
 
     private bool isMovementBlocked;
 
+
+    private GWInventorySlot attackingInventorySlot;
     void Awake() {
         GWPawnController.instance = this;
     }
@@ -67,11 +69,11 @@ public class GWPawnController : MonoBehaviour {
                 weaponMat.color = weaponColor;
 
 
-                GWInventorySlot attackingInventorySlot = GWAttackSlotContainer.GetPressedAttackSlot();
+                this.attackingInventorySlot = GWAttackSlotContainer.GetPressedAttackSlot();
 
 
 
-                if (attackingInventorySlot == null) {
+                if (this.attackingInventorySlot == null) {
                     break;
                 }
 
@@ -86,6 +88,7 @@ public class GWPawnController : MonoBehaviour {
                 this.isMovementBlocked = true;
 
                 this.attackState = GWAttackState.Loading;
+                this.attackingInventorySlot.state = GWInventorySlot.SpellState.ACTIVE;
 
                 break;
 
@@ -96,6 +99,8 @@ public class GWPawnController : MonoBehaviour {
                 if (this.remainingLoadTime <= 0) {
 
                     this.attackState = GWAttackState.Attacking;
+                    this.attackingInventorySlot.state = GWInventorySlot.SpellState.COOLDOWN;
+
 
                     this.remainingLoadTime = this.loadTime;
                 }
@@ -115,7 +120,7 @@ public class GWPawnController : MonoBehaviour {
                 break;
             case GWAttackState.Attacking:
 
-                this.activeAttackor.Attack(GWAttackSlotContainer.GetPressedAttackSlot());
+                this.activeAttackor.Attack(this.attackingInventorySlot);
 
                 this.attackState = GWAttackState.Roaming;
 

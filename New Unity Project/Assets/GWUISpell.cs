@@ -29,10 +29,18 @@ public class GWUISpell : MonoBehaviour {
     }
     public void Combine(GWUISpell otherSpell) {
 
+        if (otherSpell.spell.element == this.spell.element) {
+
+            otherSpell.draggable.originInventorySlot.Reset();
+
+            return;
+        }
+
         otherSpell.spellInstance.containedElements.ForEach(element => this.elementsDisplay.text += element + "  ");
 
 
         this.spellInstance.containedElements.AddRange(otherSpell.spellInstance.containedElements);
+
         this.spellInstance.element = GWCombinationManager.GetCombination(this.spellInstance.element, otherSpell.spellInstance.element);
 
         this.resultDisplay.text = this.spellInstance.element + "";
