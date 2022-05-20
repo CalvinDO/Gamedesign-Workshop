@@ -5,7 +5,7 @@ using UnityEngine;
 public class GWSpellMenu : MonoBehaviour
 {
 
-    public GWSpellMenuContainer spellMenuContainer;
+    public GWAttackSlotContainer spellMenuContainer;
 
     void Update()
     {

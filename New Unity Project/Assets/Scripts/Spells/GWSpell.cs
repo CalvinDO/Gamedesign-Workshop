@@ -5,7 +5,7 @@ using UnityEngine;
 //[CreateAssetMenu(fileName = "Create Spell"= , menuName = "Spell")]
 
 public enum GWEType {
-    AIR= 0, EARTH= 1, FIRE= 2, WATER= 3, SAND= 4, IRON= 5, STEAM= 6, ICE= 7, LIGHTNING= 8, PLANT = 9
+    EARTH = 0, FIRE = 1, WATER = 2, AIR = 3, SAND = 4, IRON = 5, STEAM = 6, ICE = 7, LIGHTNING = 8, PLANT = 9
 }
 
 //Class for combinations
@@ -21,7 +21,7 @@ public class GWSpell : ScriptableObject {
 
     public Sprite sprite;
 
-    
+  
 
     public void Activate() { Debug.Log(this.element + " Spell activated!"); }
     public void BeginCooldown() { }

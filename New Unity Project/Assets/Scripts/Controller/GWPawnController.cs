@@ -49,6 +49,14 @@ public class GWPawnController : MonoBehaviour {
 
         this.LookatMouse();
 
+        this.ControlAttack();
+    }
+
+    void ControlAttack() {
+
+
+
+
         switch (this.attackState) {
 
             case GWAttackState.Roaming:
@@ -58,19 +66,27 @@ public class GWPawnController : MonoBehaviour {
                 weaponColor.a = 0;
                 weaponMat.color = weaponColor;
 
-                if (Input.GetKeyDown(KeyCode.Mouse0)) {
 
-                    if (GWSpellMenuContainer.instance.primaryAttack.state != GWInventorySlot.SpellState.READY) {
+                GWInventorySlot attackingInventorySlot = GWAttackSlotContainer.GetPressedAttackSlot();
 
-                        Debug.Log("spell slot is not ready!!!");
-                        break;
-                    }
 
-                    this.activeAttackor.gameObject.SetActive(true);
-                    this.isMovementBlocked = true;
 
-                    this.attackState = GWAttackState.Loading;
+                if (attackingInventorySlot == null) {
+                    break;
                 }
+
+                Debug.Log(attackingInventorySlot.gameObject.name);
+                if (attackingInventorySlot.state != GWInventorySlot.SpellState.READY) {
+
+                    Debug.Log("spell slot is not ready!!!");
+                    break;
+                }
+
+                this.activeAttackor.gameObject.SetActive(true);
+                this.isMovementBlocked = true;
+
+                this.attackState = GWAttackState.Loading;
+
                 break;
 
             case GWAttackState.Loading:
@@ -99,7 +115,7 @@ public class GWPawnController : MonoBehaviour {
                 break;
             case GWAttackState.Attacking:
 
-                this.activeAttackor.Attack();
+                this.activeAttackor.Attack(GWAttackSlotContainer.GetPressedAttackSlot());
 
                 this.attackState = GWAttackState.Roaming;
 
@@ -110,7 +126,6 @@ public class GWPawnController : MonoBehaviour {
                 break;
 
         }
-
     }
 
     public void Hurt(float damage) {

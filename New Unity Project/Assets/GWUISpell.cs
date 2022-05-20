@@ -15,19 +15,22 @@ public class GWUISpell : MonoBehaviour {
 
     public Text elementsDisplay;
     public Text resultDisplay;
-    void Awake() {
+
+    
+
+    public void Init() {
+
+        Debug.Log("GWUISpell Init!");
 
         this.image.sprite = this.spell.sprite;
         this.spellInstance = GameObject.Instantiate(this.spell);
         this.spell.containedElements.ForEach(element => this.elementsDisplay.text += element + "  ");
         this.spell.element = this.spell.containedElements[0];
     }
-
     public void Combine(GWUISpell otherSpell) {
 
         otherSpell.spellInstance.containedElements.ForEach(element => this.elementsDisplay.text += element + "  ");
 
-        
 
         this.spellInstance.containedElements.AddRange(otherSpell.spellInstance.containedElements);
         this.spellInstance.element = GWCombinationManager.GetCombination(this.spellInstance.element, otherSpell.spellInstance.element);

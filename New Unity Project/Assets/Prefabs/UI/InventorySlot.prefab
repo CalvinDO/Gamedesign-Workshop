@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4096340828731478109}
   - component: {fileID: 8309904291527553240}
   - component: {fileID: 5222954268486617178}
-  - component: {fileID: 5599063999916941181}
+  - component: {fileID: 7121557500197667390}
   m_Layer: 5
   m_Name: InventorySlot
   m_TagString: Untagged
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 0.5803922}
+  m_Color: {r: 0.9716981, g: 0.050418302, b: 0.050418302, a: 0.6392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -71,16 +71,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5599063999916941181
+--- !u!114 &7121557500197667390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,6 +95,7 @@ MonoBehaviour:
   uiSpell: {fileID: 0}
   state: 0
   key: 0
+  isPressed: 0
   cooldownDisplay: {fileID: 1961753817941823102}
   activeDisplay: {fileID: 7542807929482708875}
 --- !u!1 &2190974566208948102
@@ -278,27 +279,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983574526172083564, guid: db5913385cab5714a9cac2cf8a0b78ea, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1983574526172083564, guid: db5913385cab5714a9cac2cf8a0b78ea, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1983574526172083564, guid: db5913385cab5714a9cac2cf8a0b78ea, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1983574526172083564, guid: db5913385cab5714a9cac2cf8a0b78ea, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1983574526172083564, guid: db5913385cab5714a9cac2cf8a0b78ea, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300.64404
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1983574526172083564, guid: db5913385cab5714a9cac2cf8a0b78ea, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 417.526
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1983574526172083564, guid: db5913385cab5714a9cac2cf8a0b78ea, type: 3}
       propertyPath: m_LocalPosition.x

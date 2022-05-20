@@ -14,6 +14,9 @@ public class GWEnemyController : MonoBehaviour {
 
     public bool isStatic;
 
+
+
+
     void Start() {
         this.stats = gameObject.GetComponent<GWEnemyStats>();
     }
@@ -31,5 +34,48 @@ public class GWEnemyController : MonoBehaviour {
         if (Vector3.Distance(this.transform.position, GWPawnController.instance.transform.position) < this.seeCharacterRange) {
             this.agent.destination = GWPawnController.instance.transform.position;
         }
+    }
+
+    public void RecieveElementAttack(List<GWEType> elements) {
+        this.Hurt(this.GetTotalElementDamage(elements));
+    }
+
+    public float GetTotalElementDamage(List<GWEType> elements) {
+
+
+        Vector4 elementAmounts = Vector4.zero;
+
+        foreach (GWEType element in elements) {
+
+            switch (element) {
+
+                case GWEType.EARTH:
+
+                    elementAmounts[0] += 1;
+                    break;
+
+                case GWEType.FIRE:
+
+                    elementAmounts[1] += 1;
+                    break;
+
+                case GWEType.WATER:
+
+                    elementAmounts[2] += 1;
+                    break;
+
+                case GWEType.AIR:
+
+                    elementAmounts[3] += 1;
+                    break;
+            }
+        }
+
+        return Vector4.Dot(elementAmounts, this.stats.sensibilities);
+
+    }
+
+    public void Hurt(float damage) {
+        this.stats.currentHealth -= damage;
     }
 }

@@ -13,9 +13,10 @@ public class GWDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         this.originInventorySlot = this.transform.parent.GetComponent<GWInventorySlot>();
         this.rectTransform = GetComponent<RectTransform>();
     }
+
     public void OnBeginDrag(PointerEventData eventData) {
 
-        this.transform.SetParent(GWSpellMenuContainer.instance.transform);
+        this.transform.SetParent(GWAttackSlotContainer.instance.transform);
 
 
         this.GetComponent<CanvasGroup>().blocksRaycasts = false;
