@@ -16,7 +16,7 @@ public class GWDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData) {
 
-        this.transform.SetParent(GWAttackSlotContainer.instance.transform);
+        //this.transform.SetParent(GWAttackSlotContainer.instance.transform);
 
 
         this.GetComponent<CanvasGroup>().blocksRaycasts = false;

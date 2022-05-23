@@ -38,6 +38,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
 
     void Update() {
+
         /*
         if (Input.GetKeyDown(this.key)) {
             this.isPressed = true;
@@ -46,13 +47,10 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
             this.isPressed = false;
         }
         */
+
         switch (this.state) {
             case SpellState.READY:
-                if (Input.GetKeyDown(key)) {
-                    this.uiSpell.spellInstance.Activate();
-                    this.state = SpellState.ACTIVE;
-                    this.remainingActive = this.uiSpell.spellInstance.activeTime;
-                }
+                
                 break;
             case SpellState.ACTIVE:
                 if (this.remainingActive > 0) {
@@ -66,6 +64,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
                 }
                 break;
             case SpellState.COOLDOWN:
+                Debug.Log("update GWInventorySlot COOLDOWN State");
                 if (this.remainingCooldown > 0) {
                     this.remainingCooldown -= Time.deltaTime;
                     this.cooldownDisplay.text = "" + this.remainingCooldown;
@@ -79,7 +78,13 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
     }
 
 
-
+    public void SwitchToActive() {
+        if (Input.GetKeyDown(this.key)) {
+            this.uiSpell.spellInstance.Activate();
+            this.state = SpellState.ACTIVE;
+            this.remainingActive = this.uiSpell.spellInstance.activeTime;
+        }
+    }
 
     void Start() {
         this.Init();
@@ -116,10 +121,10 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
         Debug.Log(droppedSpell);
 
         if (droppedSpell.draggable.originInventorySlot == this.transform) {
+            droppedSpell.draggable.originInventorySlot.SetUISpell(droppedSpell);
             return;
         }
 
-        droppedSpell.draggable.originInventorySlot.Reset();
 
         this.Combine(droppedSpell);
 
@@ -138,7 +143,9 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
             this.SetUISpell(otherSpell);
 
-            otherSpell.GetComponent<GWDraggable>().originInventorySlot = this;
+            otherSpell.draggable.originInventorySlot.Reset();
+
+            otherSpell.draggable.originInventorySlot = this;
 
             return;
         }

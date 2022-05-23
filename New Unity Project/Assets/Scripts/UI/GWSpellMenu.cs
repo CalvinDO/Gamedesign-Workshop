@@ -5,13 +5,13 @@ using UnityEngine;
 public class GWSpellMenu : MonoBehaviour
 {
 
-    public GWAttackSlotContainer spellMenuContainer;
+    public GameObject hidableInventorySlots;
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.I)){
 
-            this.spellMenuContainer.gameObject.SetActive(!this.spellMenuContainer.gameObject.activeSelf);
+            this.hidableInventorySlots.gameObject.SetActive(!this.hidableInventorySlots.gameObject.activeSelf);
         }
     }
 }

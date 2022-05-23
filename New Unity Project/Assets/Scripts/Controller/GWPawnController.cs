@@ -77,12 +77,17 @@ public class GWPawnController : MonoBehaviour {
                     break;
                 }
 
-                Debug.Log(attackingInventorySlot.gameObject.name);
-                if (attackingInventorySlot.state != GWInventorySlot.SpellState.READY) {
+
+
+
+                if (this.attackingInventorySlot.state != GWInventorySlot.SpellState.READY) {
 
                     Debug.Log("spell slot is not ready!!!");
                     break;
                 }
+
+
+                this.attackingInventorySlot.SwitchToActive();
 
                 this.activeAttackor.gameObject.SetActive(true);
                 this.isMovementBlocked = true;

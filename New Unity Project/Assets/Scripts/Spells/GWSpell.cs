@@ -13,7 +13,6 @@ public enum GWEType {
 [CreateAssetMenu]
 public class GWSpell : ScriptableObject {
 
-    public GWForm form;
     public GWEType element;
     public List<GWEType> containedElements;
     public float cooldownTime;

@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="GWMainCamera" Collapsed="true">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Camera\GWMainCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWEnemyAttackor" Collapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEAAAAACAAADIAAQAQAAAACIgAAYAAwAIAAAAIAAI=</HashCode>
+      <FileName>Assets\Scripts\Combat\Enemy\GWEnemyAttackor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWEnemyStats" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIACAAAAAAAAAAAAAAAAAEAAAIgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combat\Enemy\GWEnemyStats.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GWProjectile" Collapsed="true">
+    <Position X="15.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAhAAAAAAAAAAAQAAAAAAEQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combat\Enemy\GWProjectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWRangedEnemyShooter" Collapsed="true">
+    <Position X="5.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAEAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combat\Enemy\GWRangedEnemyShooter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWWeapon" Collapsed="true">
+    <Position X="18.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAABAAAQAACAAAAIAAAIAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combat\Enemy\GWWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWAttackor" Collapsed="true">
+    <Position X="2.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAABCAAACAAAAAAIAAAIAAAAAAAACAAEQ=</HashCode>
+      <FileName>Assets\Scripts\Combat\Pawn\GWAttackor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWPawnStats" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIACAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Combat\Pawn\GWPawnStats.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GWStatusEffect" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combat\GWStatusEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWTargetedAttackor" Collapsed="true">
+    <Position X="2.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combat\GWTargetedAttackor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWCombinationManager" Collapsed="true">
+    <Position X="15.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAIAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Combinations\GWCombinationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWElementCombinationTable" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAACAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combinations\GWElementCombinationTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWEnemyController" Collapsed="true">
+    <Position X="11.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAQACAAAQQEAAAAAAAAAAAACAAIAAAAAAIAgAA=</HashCode>
+      <FileName>Assets\Scripts\Controller\GWEnemyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWPawnController">
+    <Position X="11.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAQAiAACCIFRAAQAAAAAIBAAAAIgEYBAAAAgEA=</HashCode>
+      <FileName>Assets\Scripts\Controller\GWPawnController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransparencyManager" Collapsed="true">
+    <Position X="11.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Environment\TransparencyManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWBurning" Collapsed="true">
+    <Position X="13.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Interactive (Placeholder)\GWBurning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWCombustive" Collapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Interactive (Placeholder)\GWCombustive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWFrozen" Collapsed="true">
+    <Position X="15.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Interactive (Placeholder)\GWFrozen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWIronContact" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Interactive (Placeholder)\GWIronContact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWVined" Collapsed="true">
+    <Position X="17" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Interactive (Placeholder)\GWVined.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWWet" Collapsed="true">
+    <Position X="10" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Interactive (Placeholder)\GWWet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWBurn">
+    <Position X="11" Y="1" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAQACAAAAAAAAgAAAAACAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Status Effects\GWBurn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWHeal" Collapsed="true">
+    <Position X="3" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAACAAAAAAAAAACAAQACAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Status Effects\GWHeal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWPoison" Collapsed="true">
+    <Position X="5.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgBAAAACAAAAAAAAAACAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Status Effects\GWPoison.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWSlow" Collapsed="true">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\Status Effects\GWSlow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWSpell" Collapsed="true">
+    <Position X="17" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAIAACBAAAAAAAAIABAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\GWSpell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWSpellSlot" Collapsed="true">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Spells\GWSpellSlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWAttackSlotContainer">
+    <Position X="7.5" Y="1" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACAAAAAAAAAAAAAEECBAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\GWAttackSlotContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWDraggable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAJAEAAAAAAAACAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\UI\GWDraggable.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GWInventorySlot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAABAACAAhAAAAAGECAAAAAAggIAEAAATCQAABAA=</HashCode>
+      <FileName>Assets\Scripts\UI\GWInventorySlot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GWSpellMenu" Collapsed="true">
+    <Position X="18.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\GWSpellMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWToolbar" Collapsed="true">
+    <Position X="11.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAEAAAAABACAACAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\GWToolbar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWUISpacialLookat" Collapsed="true">
+    <Position X="13.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\GWUISpacialLookat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWUISpell" Collapsed="true">
+    <Position X="15.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEQAAAAAAAAEAAAAAAACACDEAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\GWUISpell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GWIStats" Collapsed="true">
+    <Position X="10" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combat\GWIStats.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GWAttackState" Collapsed="true">
+    <Position X="10" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Combat\Enemy\GWEnemyAttackor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GWEType" Collapsed="true">
+    <Position X="11.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAABAAAAAgIAEAAAAgAAAAQAAAAAEAAAAAAQAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\Spells\GWSpell.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

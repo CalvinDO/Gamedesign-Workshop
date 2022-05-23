@@ -4,6 +4,9 @@ using UnityEngine;
 
 
 [CreateAssetMenu]
+
+
+//diese Klasse macht elementcombinationen
 public class GWElementCombinationTable : ScriptableObject {
 
     public List<GWEType> firstElements;
