@@ -30,6 +30,14 @@ public class GWPawnController : MonoBehaviour {
 
 
     private GWInventorySlot attackingInventorySlot;
+
+
+
+    public Transform upperBoundTransform;
+    public CapsuleCollider characterCollider;
+
+
+
     void Awake() {
         GWPawnController.instance = this;
     }

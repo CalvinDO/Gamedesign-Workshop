@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4024052494678536024}
   - component: {fileID: 3901266455087993033}
   - component: {fileID: 4067960194255263751}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,38 @@ Transform:
   - {fileID: 8411590314780287734}
   - {fileID: 6876053156194293223}
   m_Father: {fileID: 1501262632149974873}
-  m_RootOrder: 1
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1898124627773206868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4670076416118697918}
+  m_Layer: 8
+  m_Name: PawnTopExtend
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4670076416118697918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898124627773206868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2600463730176628464}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951809976706148262
 GameObject:
@@ -480,7 +511,7 @@ GameObject:
   - component: {fileID: 4952510679861260288}
   - component: {fileID: 6685618405904643604}
   - component: {fileID: 4123918779676530704}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +533,7 @@ Transform:
   - {fileID: 2021185194128524464}
   - {fileID: 7298010306041689744}
   m_Father: {fileID: 1501262632149974873}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6685618405904643604
 MeshFilter:
@@ -793,7 +824,7 @@ GameObject:
   - component: {fileID: 215647144085528521}
   - component: {fileID: 2735769686218556098}
   - component: {fileID: 2149474582726264346}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,6 +1210,8 @@ MonoBehaviour:
   remainingTime: 0
   loadTime: 0.7
   remainingLoadTime: 0
+  upperBoundTransform: {fileID: 4670076416118697918}
+  characterCollider: {fileID: 370914387103196910}
 --- !u!114 &5320052059460557394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,7 +1920,7 @@ RectTransform:
   m_Children:
   - {fileID: 5467231540220260786}
   m_Father: {fileID: 1501262632149974873}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2208,6 +2241,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2600463730176628464}
   - {fileID: 4952510679861260288}
   - {fileID: 2018592667426816614}
   - {fileID: 5467231542298325852}
@@ -2487,6 +2521,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8011237421833592787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2600463730176628464}
+  m_Layer: 8
+  m_Name: HelperTransforms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2600463730176628464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011237421833592787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4670076416118697918}
+  m_Father: {fileID: 1501262632149974873}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8204799585929804159
 GameObject:
   m_ObjectHideFlags: 0

@@ -93,17 +93,10 @@
       <FileName>Assets\Scripts\Controller\GWEnemyController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GWPawnController">
-    <Position X="11.75" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gAQAAAAQAiAACCIFRAAQAAAAAIBAAAAIgEYBAAAAgEA=</HashCode>
-      <FileName>Assets\Scripts\Controller\GWPawnController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TransparencyManager" Collapsed="true">
     <Position X="11.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAACAAAAAAAAAAADAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Environment\TransparencyManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -217,7 +210,7 @@
   <Class Name="GWSpellMenu" Collapsed="true">
     <Position X="18.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\UI\GWSpellMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -240,6 +233,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEQAAAAAAAAEAAAAAAACACDEAAAAAA=</HashCode>
       <FileName>Assets\Scripts\UI\GWUISpell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GWPawnController">
+    <Position X="11.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAQAiAACCIFRAAQCAACAIBAAAAIgEYBAAAAgEA=</HashCode>
+      <FileName>Assets\Scripts\Controller\GWPawnController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="GWIStats" Collapsed="true">

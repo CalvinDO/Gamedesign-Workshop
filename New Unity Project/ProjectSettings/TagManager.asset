@@ -16,7 +16,7 @@ TagManager:
   - EnemyCollider
   - CharacterCollider
   - EnemyAttackorTrigger
-  - 
+  - OnlyVisual
   - 
   - 
   - 
