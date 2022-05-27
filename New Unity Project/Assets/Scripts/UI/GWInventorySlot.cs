@@ -16,7 +16,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
 
     public  GWSpell Spell {
-        get { return this.uiSpell.spell; }
+        get { return this.uiSpell.spellInstance; }
     }
 
 

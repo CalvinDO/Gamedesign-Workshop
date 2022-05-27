@@ -20,7 +20,7 @@ public class GWSpell : ScriptableObject {
 
     public Sprite sprite;
 
-  
+    public Color color;
 
     public void Activate() { Debug.Log(this.element + " Spell activated!"); }
     public void BeginCooldown() { }

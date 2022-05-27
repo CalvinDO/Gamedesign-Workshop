@@ -8,7 +8,6 @@ public class GWWeapon : MonoBehaviour {
     private GWPawnController pawnController;
     public MeshRenderer meshRenderer;
 
-   
 
 
     void OnTriggerEnter(Collider other) {
@@ -35,7 +34,7 @@ public class GWWeapon : MonoBehaviour {
             return;
         }
 
-        this.pawnController.Hurt(-5);
+        this.pawnController.Hurt(5);
         //this.pawnController.GetComponent<GWPawnStats>().currentHealth -= 5;
     }
 }

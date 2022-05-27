@@ -97,7 +97,8 @@ public class GWPawnController : MonoBehaviour {
 
                 this.attackingInventorySlot.SwitchToActive();
 
-                this.activeAttackor.gameObject.SetActive(true);
+                //this.activeAttackor.gameObject.SetActive(true);
+                
                 this.isMovementBlocked = true;
 
                 this.attackState = GWAttackState.Loading;
@@ -121,7 +122,7 @@ public class GWPawnController : MonoBehaviour {
                 float factor = this.remainingLoadTime / this.loadTime;
 
                 weaponMat = this.activeAttackor.visualAttackor.material;
-                weaponColor = weaponMat.color;
+                weaponColor = weaponMat.color = this.attackingInventorySlot.Spell.color;
                 weaponColor.a = 1 - factor;
                 weaponMat.color = weaponColor;
 
