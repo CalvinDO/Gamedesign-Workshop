@@ -94,11 +94,19 @@ public class GWPawnController : MonoBehaviour {
                     break;
                 }
 
+                try {
+                    if (!this.attackingInventorySlot.Spell) {
+                        break;
+                    }
+                }
+                catch (Exception e) {
+                    break;
+                }
 
                 this.attackingInventorySlot.SwitchToActive();
 
                 //this.activeAttackor.gameObject.SetActive(true);
-                
+
                 this.isMovementBlocked = true;
 
                 this.attackState = GWAttackState.Loading;
@@ -134,8 +142,12 @@ public class GWPawnController : MonoBehaviour {
                 break;
             case GWAttackState.Attacking:
 
-                this.activeAttackor.Attack(this.attackingInventorySlot);
-
+                try {
+                    this.activeAttackor.Attack(this.attackingInventorySlot);
+                }
+                catch (Exception e) {
+                    Debug.LogWarning(e.Message);
+                }
                 this.attackState = GWAttackState.Roaming;
 
                 this.isMovementBlocked = false;

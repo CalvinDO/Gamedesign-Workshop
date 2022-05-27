@@ -22,6 +22,11 @@ public class GWSpell : ScriptableObject {
 
     public Color color;
 
+    //public GWForm form;
+
+    //public GWStatusEffect statusEffect;
+
+
     public void Activate() { Debug.Log(this.element + " Spell activated!"); }
     public void BeginCooldown() { }
     /*
