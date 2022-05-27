@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GWEnemySpawner : MonoBehaviour {
 
@@ -50,7 +51,18 @@ public class GWEnemySpawner : MonoBehaviour {
         GWEnemyController spawnedEnemy = GameObject.Instantiate(this.enemiesCollection[randomIndex], this.spawnedEnemiesContainer.transform);
 
         this.lastSpawnPos = Random.insideUnitSphere * this.spawnRadius + GWPawnController.instance.transform.position;
+
+        NavMeshHit myNavHit;
+        if (NavMesh.SamplePosition(this.lastSpawnPos, out myNavHit, 1000,-1)) {
+            this.lastSpawnPos = myNavHit.position;
+        }
+        else {
+            throw new System.Exception("Could not get SamplePosition on NavMesh!");
+        }
+
+        
         spawnedEnemy.transform.position = this.lastSpawnPos;
+        
 
     }
 }

@@ -20,7 +20,6 @@ public class TransparencyManager : MonoBehaviour {
 
         foreach (Renderer renderer in this.lastRenderers) {
 
-            Debug.Log("make visible");
             Color color = renderer.material.color;
             color.a = 1;
 
@@ -51,7 +50,6 @@ public class TransparencyManager : MonoBehaviour {
 
             if (selectionRenderer) {
 
-                Debug.Log("make invisible");
                 Color color = selectionRenderer.material.color;
                 color.a = 0;
                 selectionRenderer.material.color = color;
