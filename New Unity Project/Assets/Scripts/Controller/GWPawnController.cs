@@ -79,7 +79,7 @@ public class GWPawnController : MonoBehaviour {
 
                 this.attackingInventorySlot.SwitchToActive();
 
-                this.activeAttackor.gameObject.SetActive(true);
+                //this.activeAttackor.gameObject.SetActive(true);
 
                 this.isMovementBlocked = true;
 
@@ -119,7 +119,7 @@ public class GWPawnController : MonoBehaviour {
 
                 this.attackState = GWAttackState.Roaming;
                 this.isMovementBlocked = false;
-                this.activeAttackor.gameObject.SetActive(false);
+                //this.activeAttackor.gameObject.SetActive(false);
 
 
 
@@ -168,7 +168,7 @@ public class GWPawnController : MonoBehaviour {
     public void Hurt(float damage) {
 
         this.attackState = GWAttackState.Roaming;
-        this.activeAttackor.gameObject.SetActive(false);
+        //this.activeAttackor.gameObject.SetActive(false);
         this.isMovementBlocked = false;
 
         if (this.attackState == GWAttackState.Loading) {
