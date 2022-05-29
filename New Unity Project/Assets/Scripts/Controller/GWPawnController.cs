@@ -51,10 +51,6 @@ public class GWPawnController : MonoBehaviour {
 
     void Update() {
 
-        if (this.stats.currentHealth <= 0) {
-            GameObject.Destroy(this.gameObject);
-        }
-
         this.text.text = "" + this.stats.currentHealth;
 
         this.LookatMouse();
@@ -63,9 +59,6 @@ public class GWPawnController : MonoBehaviour {
     }
 
     void ControlAttack() {
-
-
-
 
         switch (this.attackState) {
 
@@ -79,33 +72,14 @@ public class GWPawnController : MonoBehaviour {
 
                 this.attackingInventorySlot = GWAttackSlotContainer.GetPressedAttackSlot();
 
-
-
-                if (this.attackingInventorySlot == null) {
+                if (!this.IsAttackingAllowed()) {
                     break;
                 }
 
-
-
-
-                if (this.attackingInventorySlot.state != GWInventorySlot.SpellState.READY) {
-
-                    Debug.Log("spell slot is not ready!!!");
-                    break;
-                }
-
-                try {
-                    if (!this.attackingInventorySlot.Spell) {
-                        break;
-                    }
-                }
-                catch (Exception e) {
-                    break;
-                }
 
                 this.attackingInventorySlot.SwitchToActive();
 
-                //this.activeAttackor.gameObject.SetActive(true);
+                this.activeAttackor.gameObject.SetActive(true);
 
                 this.isMovementBlocked = true;
 
@@ -120,11 +94,7 @@ public class GWPawnController : MonoBehaviour {
 
                 if (this.remainingLoadTime <= 0) {
 
-                    this.attackState = GWAttackState.Attacking;
-                    this.attackingInventorySlot.state = GWInventorySlot.SpellState.COOLDOWN;
-
-
-                    this.remainingLoadTime = this.loadTime;
+                    this.SwitchToAttacking();
                 }
 
                 float factor = this.remainingLoadTime / this.loadTime;
@@ -134,10 +104,8 @@ public class GWPawnController : MonoBehaviour {
                 weaponColor.a = 1 - factor;
                 weaponMat.color = weaponColor;
 
-
-
                 //this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.y,  0);
-                // this.weapon.gameObject.SetActive(false);
+
 
                 break;
             case GWAttackState.Attacking:
@@ -148,9 +116,12 @@ public class GWPawnController : MonoBehaviour {
                 catch (Exception e) {
                     Debug.LogWarning(e.Message);
                 }
-                this.attackState = GWAttackState.Roaming;
 
+                this.attackState = GWAttackState.Roaming;
                 this.isMovementBlocked = false;
+                this.activeAttackor.gameObject.SetActive(false);
+
+
 
                 break;
             default:
@@ -159,11 +130,64 @@ public class GWPawnController : MonoBehaviour {
         }
     }
 
+    private void SwitchToAttacking() {
+
+        this.attackState = GWAttackState.Attacking;
+        this.attackingInventorySlot.state = GWInventorySlot.SpellState.COOLDOWN;
+
+
+        this.remainingLoadTime = this.loadTime;
+    }
+
+    private bool IsAttackingAllowed() {
+
+        if (this.attackingInventorySlot == null) {
+            return false;
+        }
+
+        Debug.Log(this.attackingInventorySlot.state);
+        if (this.attackingInventorySlot.state != GWInventorySlot.SpellState.READY) {
+
+            Debug.Log("spell slot is not ready!!!");
+            return false;
+        }
+
+        try {
+            if (!this.attackingInventorySlot.Spell) {
+                return false;
+            }
+        }
+        catch (Exception e) {
+            return false;
+        }
+
+
+        return true;
+    }
+
     public void Hurt(float damage) {
+
+        this.attackState = GWAttackState.Roaming;
+        this.activeAttackor.gameObject.SetActive(false);
+        this.isMovementBlocked = false;
+
+        if (this.attackState == GWAttackState.Loading) {
+            this.attackingInventorySlot.Abort();
+        }
+
         this.stats.currentHealth -= damage;
+
+        if (this.stats.currentHealth <= 0) {
+            this.Die();
+        }
+    }
+
+    public void Die() {
+        GameObject.Destroy(this.gameObject);
     }
 
     private void LookatMouse() {
+
         Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 mouseCenterVector = mousePosition - screenCenter;
@@ -173,6 +197,7 @@ public class GWPawnController : MonoBehaviour {
     }
 
     private Vector3 GetScaledDirectionInput() {
+
         Vector3 directionInput = Vector3.zero;
 
         if (Input.GetKey(KeyCode.D)) {
@@ -198,6 +223,7 @@ public class GWPawnController : MonoBehaviour {
     //float timeLastFrame = (float) Time.timeAsDouble;
 
     void FixedUpdate() {
+
         //Debug.Log(Time.timeAsDouble - timeLastFrame);
         //timeLastFrame = (float)Time.timeAsDouble;
         this.MovePawn();

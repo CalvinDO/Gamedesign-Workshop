@@ -64,7 +64,6 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
                 }
                 break;
             case SpellState.COOLDOWN:
-                Debug.Log("update GWInventorySlot COOLDOWN State");
                 if (this.remainingCooldown > 0) {
                     this.remainingCooldown -= Time.deltaTime;
                     this.cooldownDisplay.text = "" + this.remainingCooldown;
@@ -79,7 +78,9 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
 
     public void SwitchToActive() {
+
         if (Input.GetKeyDown(this.key)) {
+
             this.uiSpell.spellInstance.Activate();
             this.state = SpellState.ACTIVE;
             this.remainingActive = this.uiSpell.spellInstance.activeTime;
@@ -88,6 +89,13 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
     void Start() {
         this.Init();
+    }
+
+    public void Abort() {
+
+        this.state = GWInventorySlot.SpellState.ACTIVE;
+
+        this.SetSpellTimes();
     }
 
     void Init() {

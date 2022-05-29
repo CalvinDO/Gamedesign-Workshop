@@ -15,13 +15,13 @@ public class GWWeapon : MonoBehaviour {
         Debug.Log("Weapon collision by: " + this.transform.root.name);
 
         this.pawnController = other.gameObject.GetComponent<GWPawnController>();
-        this.enemyAttackor.pawnController = this.pawnController;
+        this.enemyAttackor.reachablePawnController = this.pawnController;
 
     }
 
     void OnTriggerStay(Collider other) {
         this.pawnController = other.gameObject.GetComponent<GWPawnController>();
-        this.enemyAttackor.pawnController = this.pawnController;
+        this.enemyAttackor.reachablePawnController = this.pawnController;
     }
 
     void OnTriggerExit(Collider other) {

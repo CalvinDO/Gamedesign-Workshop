@@ -15,7 +15,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
             case GWAttackState.Roaming:
 
-                if (this.pawnController != null) {
+                if (this.reachablePawnController != null) {
                     this.attackState = GWAttackState.Loading;
 
                 }

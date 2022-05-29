@@ -14,6 +14,7 @@ public class GWStatusEffect : MonoBehaviour
 
 
     public virtual void Init() {
+
         if (this.gameObject.TryGetComponent<GWPawnStats>(out GWPawnStats pStats)) {
             this.stats = pStats;
         }

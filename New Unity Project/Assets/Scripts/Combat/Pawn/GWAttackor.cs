@@ -9,7 +9,13 @@ public class GWAttackor : MonoBehaviour {
 
     public MeshRenderer visualAttackor;
 
+
+
     void Awake() {
+
+        Debug.Log("attackor awake");
+
+
         this.nearbyEnemys = new List<GWEnemyController>();
     }
 
@@ -53,8 +59,9 @@ public class GWAttackor : MonoBehaviour {
 
     public void Attack(GWInventorySlot inventorySlot) {
 
-        foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
+        Debug.Log("attack " + this.nearbyEnemys.Count + " enemys");
 
+        foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
 
             nearbyEnemy.RecieveElementAttack(inventorySlot.Spell.containedElements);
             nearbyEnemy.gameObject.AddComponent<GWSlow>();

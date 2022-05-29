@@ -14,7 +14,7 @@ public class GWEnemyController : MonoBehaviour {
 
     public bool isStatic;
 
-
+    public GWEnemyAttackor attackor;
 
 
     void Start() {
@@ -70,12 +70,27 @@ public class GWEnemyController : MonoBehaviour {
                     break;
             }
         }
-
+        Debug.Log("total Element damage: " + Vector4.Dot(elementAmounts * 10, this.stats.sensibilities));
         return Vector4.Dot(elementAmounts * 10, this.stats.sensibilities);
 
     }
 
     public void Hurt(float damage) {
+
+       
+
         this.stats.currentHealth -= damage;
+
+        this.attackor.attackState = GWAttackState.Roaming;
+        this.attackor.gameObject.SetActive(false);
+        this.agent.isStopped = false;
+
+        if (this.stats.currentHealth <= 0) {
+            this.Die();
+        }
+    }
+
+    public void Die() {
+        GameObject.Destroy(this.gameObject);
     }
 }

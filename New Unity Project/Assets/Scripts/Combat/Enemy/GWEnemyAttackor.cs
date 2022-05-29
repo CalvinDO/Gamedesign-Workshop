@@ -25,7 +25,7 @@ public class GWEnemyAttackor : MonoBehaviour {
 
     public GWEnemyController enemy;
 
-    public GWPawnController pawnController;
+    public GWPawnController reachablePawnController;
 
     public GWWeapon weapon;
 
@@ -44,7 +44,7 @@ public class GWEnemyAttackor : MonoBehaviour {
 
             case GWAttackState.Roaming:
 
-                if (this.pawnController != null) {
+                if (this.reachablePawnController != null) {
                     this.attackState = GWAttackState.Loading;
                 }
 
@@ -64,7 +64,7 @@ public class GWEnemyAttackor : MonoBehaviour {
 
 
                 this.futureAttackPos = GWPawnController.instance.transform.position + GWPawnController.instance.velocity * this.attackTime * 50;
-               
+
                 this.transform.LookAt(this.futureAttackPos);
 
 
@@ -112,22 +112,22 @@ public class GWEnemyAttackor : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        this.pawnController = other.gameObject.GetComponent<GWPawnController>();
+        this.reachablePawnController = other.gameObject.GetComponent<GWPawnController>();
 
     }
 
     void OnTriggerStay(Collider other) {
 
-        this.pawnController = other.gameObject.GetComponent<GWPawnController>();
+        this.reachablePawnController = other.gameObject.GetComponent<GWPawnController>();
 
-        if (this.pawnController == null) {
+        if (this.reachablePawnController == null) {
             Debug.Log(other.name);
         }
 
     }
 
     void OnTriggerExit(Collider other) {
-        this.pawnController = null;
+        this.reachablePawnController = null;
     }
 
     public virtual void Attack() {

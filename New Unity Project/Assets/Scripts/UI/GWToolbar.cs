@@ -7,26 +7,29 @@ using UnityEngine;
 public class GWToolbar : MonoBehaviour {
     public GameObject formListGO;
     public GameObject active;
-    public GameObject attackForms;
+    public GameObject attackorsContainer;
     private List<GameObject> formList = new List<GameObject>();
-    private List<GameObject> attackFormList = new List<GameObject>();
+    private List<GWAttackor> attackors = new List<GWAttackor>();
     private int formidx = 0;
 
     void Start() {
+
         foreach (Transform child in this.formListGO.transform) {
             this.formList.Add(child.gameObject);
         }
-        foreach (Transform child in this.attackForms.transform) {
-            this.attackFormList.Add(child.gameObject);
+        foreach (Transform child in this.attackorsContainer.transform) {
+            this.attackors.Add(child.GetComponent<GWAttackor>());
         }
-        this.attackFormList[formidx].SetActive(true);
+
+
+        this.attackors[this.formidx].gameObject.SetActive(true);
     }
 
     void Update() {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
         if (scroll != 0) {
-            this.attackFormList[formidx].SetActive(false);
+            this.attackors[formidx].gameObject.SetActive(false);
 
             if (scroll > 0) {
                 this.formidx--;
@@ -43,15 +46,18 @@ public class GWToolbar : MonoBehaviour {
                 this.formidx = this.formList.Count - 1;
             }
 
-           
+            this.attackors[this.formidx].gameObject.SetActive(true);
         }
 
-        this.attackFormList[formidx].SetActive(true);
+        // if (!this.attackors[formidx].hidden) {
+
+        // }
 
 
         this.active.transform.position = this.formList[formidx].transform.position;
 
-        GWPawnController.instance.activeAttackor = this.attackFormList[this.formidx].GetComponent<GWAttackor>();
+        GWPawnController.instance.activeAttackor = this.attackors[this.formidx].GetComponent<GWAttackor>();
+
 
     }
 }

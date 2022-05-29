@@ -1885,7 +1885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   formListGO: {fileID: 5467231541367232930}
   active: {fileID: 5467231541514581950}
-  attackForms: {fileID: 1730765201068872345}
+  attackorsContainer: {fileID: 1730765201068872345}
 --- !u!1 &5467231542298325851
 GameObject:
   m_ObjectHideFlags: 0
