@@ -1,0 +1,35 @@
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GWCityScript : MonoBehaviour
+{
+    [SerializeField] private GWDistrictScript[] districts;
+    // Start is called before the first frame update
+/*     void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+ */
+    public void increaseCorruption()
+    {
+        for(int i = 0; i < districts.Length; i++)
+        {
+            GWDistrictScript chosenDistrict = districts[Random.Range(0, districts.Length)];
+            // call corrupt from chosenDistrict if chosenDistrict corruption >= 0
+            if(chosenDistrict.getCorruption() != -1)
+            {
+                chosenDistrict.corrupt();
+                i += 5;
+            }
+        }
+        
+    }
+}
