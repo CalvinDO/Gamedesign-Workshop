@@ -1,17 +1,63 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GWSpellMenu : MonoBehaviour
-{
+public class GWSpellMenu : MonoBehaviour {
 
     public GameObject hidableInventorySlots;
+    public GameObject hotbarInventorySlots;
 
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.I)){
+    public static GWSpellMenu instance;
+
+    void Awake() {
+        GWSpellMenu.instance = this;
+    }
+
+    void Update() {
+        if (Input.GetKeyUp(KeyCode.I)) {
 
             this.hidableInventorySlots.gameObject.SetActive(!this.hidableInventorySlots.gameObject.activeSelf);
         }
+    }
+
+    public void AddSpell(GWSpell spell) {
+
+        try {
+            this.FillInChildren(spell, this.hidableInventorySlots.transform);
+            this.FillInChildren(spell, this.hotbarInventorySlots.transform);
+
+            throw new Exception("no empty Inventory Slot found!");
+        }
+        catch (FilledException fe) {
+            Debug.Log(fe.Message);
+        }
+        catch (Exception e) {
+            Debug.LogWarning(e.Message);
+        }
+
+    }
+
+
+    public void FillInChildren(GWSpell spell, Transform container) {
+
+        foreach (Transform child in container) {
+
+            GWInventorySlot inventorySlot = child.GetComponent<GWInventorySlot>();
+
+            if (inventorySlot != null) {
+
+                if (!inventorySlot.uiSpell) {
+
+                    Debug.Log(inventorySlot.name + " is empty and will be filled with " + spell.element);
+                    throw new FilledException();
+                }
+            }
+        }
+    }
+}
+
+public class FilledException : Exception {
+    public FilledException() : base("Inventory slot successfully filled!") {
     }
 }

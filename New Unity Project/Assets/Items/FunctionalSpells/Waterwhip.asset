@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 2
   containedElements: 02000000
-  cooldownTime: 1
+  cooldownTime: 2
   activeTime: 1
   sprite: {fileID: 21300000, guid: e29074bf58662f441b784f6136815ae0, type: 3}
   color: {r: 0, g: 0, b: 1, a: 0}
