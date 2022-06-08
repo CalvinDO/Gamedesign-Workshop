@@ -16,32 +16,33 @@ public class GWUISpell : MonoBehaviour {
     public Text elementsDisplay;
     public Text resultDisplay;
 
+    public void SetDataInGenerated(GWSpell spell) {
+        this.spell = spell;
 
+        this.Init();
+    }
 
     public void Init() {
 
         Debug.Log("GWUISpell Init!");
 
-        this.image.sprite = this.spell.sprite;
         this.spellInstance = GameObject.Instantiate(this.spell);
+
+        this.image.sprite = this.spell.sprite;
         this.elementsDisplay.text = "";
-        this.spell.containedElements.ForEach(element => this.elementsDisplay.text += element + "  ");
-        this.spell.element = this.spell.containedElements[0];
+        this.spellInstance.containedElements.ForEach(element => this.elementsDisplay.text += element + "  ");
+        this.spellInstance.element = this.spellInstance.containedElements[0];
         this.resultDisplay.text = this.spellInstance.element + "";
     }
+
 
     public void Combine(GWUISpell otherSpell) {
 
         if (otherSpell.spellInstance.element == this.spellInstance.element) {
-
-
             return;
         }
 
-       
-
         try {
-
             this.spellInstance.element = GWCombinationManager.GetCombination(this.spellInstance.element, otherSpell.spellInstance.element);
 
             otherSpell.spellInstance.containedElements.ForEach(element => this.elementsDisplay.text += element + "  ");

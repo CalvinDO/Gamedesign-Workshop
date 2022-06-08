@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GWCollectableSpell : GWCollectable {
+
     public GWSpell spell;
     public MeshRenderer visualMeshRenderer;
 
@@ -27,9 +28,16 @@ public class GWCollectableSpell : GWCollectable {
 
         Debug.Log("picked up " + this.spell.name);
 
+        try {
+
         GWSpellMenu.instance.AddSpell(this.spell);
+        }
+        catch (System.Exception e) {
+            Debug.LogWarning(e.Message);
+
+            return;
+        }
 
         base.PickUp();
     }
-
 }

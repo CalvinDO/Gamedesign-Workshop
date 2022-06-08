@@ -12,6 +12,8 @@ public class GWToolbar : MonoBehaviour {
     private List<GWAttackor> attackors = new List<GWAttackor>();
     private int formidx = 0;
 
+
+
     void Start() {
 
         foreach (Transform child in this.formListGO.transform) {
@@ -21,11 +23,17 @@ public class GWToolbar : MonoBehaviour {
             this.attackors.Add(child.GetComponent<GWAttackor>());
         }
 
+        //new spell attack system
+
+        return;
 
         this.attackors[this.formidx].gameObject.SetActive(true);
     }
 
     void Update() {
+
+        //new spell attack system
+        return;
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
         if (scroll != 0) {

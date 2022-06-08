@@ -8,6 +8,8 @@ public enum GWEType {
     EARTH = 0, FIRE = 1, WATER = 2, AIR = 3, SAND = 4, IRON = 5, STEAM = 6, ICE = 7, LIGHTNING = 8, PLANT = 9
 }
 
+
+
 //Class for combinations
 //Include EVERYTHING in a ScriptableObject - Completely describable by parameters
 [CreateAssetMenu]
@@ -22,7 +24,7 @@ public class GWSpell : ScriptableObject {
 
     public Color color;
 
-    //public GWForm form;
+    public GWFormType form;
 
     //public GWStatusEffect statusEffect;
 

@@ -36,7 +36,7 @@ public class GWPawnController : MonoBehaviour {
     public Transform upperBoundTransform;
     public CapsuleCollider characterCollider;
 
-
+    public GameObject AttackorsContainer;
 
     void Awake() {
         GWPawnController.instance = this;
@@ -64,10 +64,7 @@ public class GWPawnController : MonoBehaviour {
 
             case GWAttackState.Roaming:
 
-                Material weaponMat = this.activeAttackor.visualAttackor.material;
-                Color weaponColor = weaponMat.color;
-                weaponColor.a = 0;
-                weaponMat.color = weaponColor;
+
 
 
                 this.attackingInventorySlot = GWAttackSlotContainer.GetPressedAttackSlot();
@@ -76,10 +73,29 @@ public class GWPawnController : MonoBehaviour {
                     break;
                 }
 
+                foreach (Transform child in this.AttackorsContainer.transform) {
+
+                    GWAttackor currentAttackor = child.GetComponent<GWAttackor>();
+                    if (currentAttackor.form == this.attackingInventorySlot.uiSpell.spellInstance.form) {
+                        this.activeAttackor = currentAttackor;
+                        break;
+                    }
+                }
+
+                if (!this.IsAttackingAllowed()) {
+                    break;
+                }
+
+
+                Material weaponMat = this.activeAttackor.visualAttackor.material;
+                Color weaponColor = weaponMat.color;
+                weaponColor.a = 0;
+                weaponMat.color = weaponColor;
+
 
                 this.attackingInventorySlot.SwitchToActive();
 
-                //this.activeAttackor.gameObject.SetActive(true);
+                this.activeAttackor.gameObject.SetActive(true);
 
                 this.isMovementBlocked = true;
 
@@ -119,7 +135,7 @@ public class GWPawnController : MonoBehaviour {
 
                 this.attackState = GWAttackState.Roaming;
                 this.isMovementBlocked = false;
-                //this.activeAttackor.gameObject.SetActive(false);
+                this.activeAttackor.gameObject.SetActive(false);
 
 
 
