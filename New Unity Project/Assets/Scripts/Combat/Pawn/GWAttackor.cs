@@ -2,14 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum GWControlType {
+    ROTATION = 0, CLICKCAST = 1, CLICKCENTERED = 2, SWIPECAST = 3, ROTATIONSCROLLER = 4
+}
+
+public enum GWFormType {
+    PROJECTILE = 0, AOE = 1, CONE = 2, ROUNDHOUSE = 3, DISTRIBUTION = 4, HORIZONTAL_BEAM = 5, SHOOT_UP = 6
+}
+
+
 public class GWAttackor : MonoBehaviour {
+
     private bool isPressingAttack;
     private bool isPressingHeal;
     public List<GWEnemyController> nearbyEnemys;
 
     public MeshRenderer visualAttackor;
 
-
+    public GWControlType control;
+    public GWFormType form;
 
     void Awake() {
 

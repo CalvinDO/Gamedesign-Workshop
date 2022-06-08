@@ -15,7 +15,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
     private float remainingActive;
 
 
-    public  GWSpell Spell {
+    public GWSpell Spell {
         get { return this.uiSpell.spellInstance; }
     }
 
@@ -36,6 +36,30 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
     // TODO: Add this. 
 
+    void Start() {
+        this.Init();
+    }
+
+    void Init() {
+
+        this.uiSpell = this.transform.GetComponentInChildren<GWUISpell>();
+
+
+        if (!this.uiSpell) {
+            return;
+        }
+
+        this.uiSpell.Init();
+        this.SetSpellTimes();
+    }
+
+    public void FillWithGeneratedUISpell(GWSpell spell) {
+
+        this.uiSpell = GameObject.Instantiate(GWSpellMenu.instance.uiSpellPrefab, this.transform).GetComponent<GWUISpell>();
+        this.uiSpell.SetDataInGenerated(spell);
+
+        this.SetSpellTimes();
+    }
 
     void Update() {
 
@@ -48,9 +72,10 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
         }
         */
 
+
         switch (this.state) {
             case SpellState.READY:
-                
+
                 break;
             case SpellState.ACTIVE:
                 if (this.remainingActive > 0) {
@@ -87,10 +112,6 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
         }
     }
 
-    void Start() {
-        this.Init();
-    }
-
     public void Abort() {
 
         this.state = GWInventorySlot.SpellState.ACTIVE;
@@ -98,19 +119,6 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
         this.SetSpellTimes();
     }
 
-    void Init() {
-
-        this.uiSpell = this.transform.GetComponentInChildren<GWUISpell>();
-        
-
-
-        if (!this.uiSpell) {
-            return;
-        }
-
-        this.uiSpell.Init();
-        this.SetSpellTimes();
-    }
 
     public void SetSpellTimes() {
         this.remainingCooldown = this.uiSpell.spellInstance.cooldownTime;

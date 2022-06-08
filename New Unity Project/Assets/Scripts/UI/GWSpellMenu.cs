@@ -8,6 +8,9 @@ public class GWSpellMenu : MonoBehaviour {
     public GameObject hidableInventorySlots;
     public GameObject hotbarInventorySlots;
 
+    public GameObject uiSpellPrefab;
+
+
     public static GWSpellMenu instance;
 
     void Awake() {
@@ -32,10 +35,6 @@ public class GWSpellMenu : MonoBehaviour {
         catch (FilledException fe) {
             Debug.Log(fe.Message);
         }
-        catch (Exception e) {
-            Debug.LogWarning(e.Message);
-        }
-
     }
 
 
@@ -50,6 +49,9 @@ public class GWSpellMenu : MonoBehaviour {
                 if (!inventorySlot.uiSpell) {
 
                     Debug.Log(inventorySlot.name + " is empty and will be filled with " + spell.element);
+
+                    inventorySlot.FillWithGeneratedUISpell(spell);
+                    
                     throw new FilledException();
                 }
             }
