@@ -6,7 +6,7 @@ using UnityEngine;
 public enum GWAttackState {
     Roaming = 0,
     Loading = 1,
-    Attacking = 2
+    Active = 2
 }
 
 public class GWEnemyAttackor : MonoBehaviour {
@@ -57,7 +57,7 @@ public class GWEnemyAttackor : MonoBehaviour {
 
                 if (this.remainingLoadTime <= 0) {
 
-                    this.attackState = GWAttackState.Attacking;
+                    this.attackState = GWAttackState.Active;
 
                     this.remainingLoadTime = this.loadTime;
                 }
@@ -73,7 +73,7 @@ public class GWEnemyAttackor : MonoBehaviour {
                 this.weapon.gameObject.SetActive(false);
 
                 break;
-            case GWAttackState.Attacking:
+            case GWAttackState.Active:
 
                 this.enemy.agent.isStopped = true;
 

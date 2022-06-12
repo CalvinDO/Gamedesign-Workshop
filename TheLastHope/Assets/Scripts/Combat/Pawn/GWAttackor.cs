@@ -69,9 +69,10 @@ public class GWAttackor : MonoBehaviour {
 
     }
 
-    public void Attack(GWInventorySlot inventorySlot) {
+    public void Activate(GWInventorySlot inventorySlot) {
 
         Debug.Log("attack " + this.nearbyEnemys.Count + " enemys");
+
 
         foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
 

@@ -104,17 +104,14 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
     public void SwitchToActive() {
 
-        if (Input.GetKeyDown(this.key)) {
-
-            this.uiSpell.spellInstance.Activate();
-            this.state = SpellState.ACTIVE;
-            this.remainingActive = this.uiSpell.spellInstance.activeTime;
-        }
+        this.uiSpell.spellInstance.Activate();
+        this.state = SpellState.ACTIVE;
+        this.remainingActive = this.uiSpell.spellInstance.activeTime;
     }
 
-    public void Abort() {
+    public void AbortAttack() {
 
-        this.state = GWInventorySlot.SpellState.ACTIVE;
+        this.state = GWInventorySlot.SpellState.READY;
 
         this.SetSpellTimes();
     }

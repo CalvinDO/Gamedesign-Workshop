@@ -18,7 +18,7 @@ public class GWPawnController : MonoBehaviour {
 
     public GWAttackState attackState;
 
-    public GWAttackor activeAttackor;
+    public GWAttackor summoningAttackor;
 
     public float cooldownTime;
     public float remainingTime;
@@ -65,42 +65,36 @@ public class GWPawnController : MonoBehaviour {
             case GWAttackState.Roaming:
 
 
-
-
                 this.attackingInventorySlot = GWAttackSlotContainer.GetPressedAttackSlot();
 
                 if (!this.IsAttackingAllowed()) {
+
                     break;
                 }
+
 
                 foreach (Transform child in this.AttackorsContainer.transform) {
 
                     GWAttackor currentAttackor = child.GetComponent<GWAttackor>();
                     if (currentAttackor.form == this.attackingInventorySlot.uiSpell.spellInstance.form) {
-                        this.activeAttackor = currentAttackor;
+                        this.summoningAttackor = currentAttackor;
                         break;
                     }
                 }
 
-                if (!this.IsAttackingAllowed()) {
-                    break;
-                }
 
-
-                Material weaponMat = this.activeAttackor.visualAttackor.material;
+                Material weaponMat = this.summoningAttackor.visualAttackor.material;
                 Color weaponColor = weaponMat.color;
                 weaponColor.a = 0;
                 weaponMat.color = weaponColor;
 
 
-                this.attackingInventorySlot.SwitchToActive();
-
-                this.activeAttackor.gameObject.SetActive(true);
+                this.summoningAttackor.gameObject.SetActive(true);
 
                 this.isMovementBlocked = true;
 
                 this.attackState = GWAttackState.Loading;
-                this.attackingInventorySlot.state = GWInventorySlot.SpellState.ACTIVE;
+                
 
                 break;
 
@@ -115,7 +109,7 @@ public class GWPawnController : MonoBehaviour {
 
                 float factor = this.remainingLoadTime / this.loadTime;
 
-                weaponMat = this.activeAttackor.visualAttackor.material;
+                weaponMat = this.summoningAttackor.visualAttackor.material;
                 weaponColor = weaponMat.color = this.attackingInventorySlot.Spell.color;
                 weaponColor.a = 1 - factor;
                 weaponMat.color = weaponColor;
@@ -124,10 +118,11 @@ public class GWPawnController : MonoBehaviour {
 
 
                 break;
-            case GWAttackState.Attacking:
+            case GWAttackState.Active:
 
                 try {
-                    this.activeAttackor.Attack(this.attackingInventorySlot);
+                    this.summoningAttackor.Activate(this.attackingInventorySlot);
+                    this.attackingInventorySlot.SwitchToActive();
                 }
                 catch (Exception e) {
                     Debug.LogWarning(e.Message);
@@ -135,9 +130,7 @@ public class GWPawnController : MonoBehaviour {
 
                 this.attackState = GWAttackState.Roaming;
                 this.isMovementBlocked = false;
-                this.activeAttackor.gameObject.SetActive(false);
-
-
+                this.summoningAttackor.gameObject.SetActive(false);
 
                 break;
             default:
@@ -146,11 +139,12 @@ public class GWPawnController : MonoBehaviour {
         }
     }
 
+
+
     private void SwitchToAttacking() {
 
-        this.attackState = GWAttackState.Attacking;
-        this.attackingInventorySlot.state = GWInventorySlot.SpellState.COOLDOWN;
-
+        this.attackState = GWAttackState.Active;
+        this.attackingInventorySlot.state = GWInventorySlot.SpellState.ACTIVE;
 
         this.remainingLoadTime = this.loadTime;
     }
@@ -164,16 +158,19 @@ public class GWPawnController : MonoBehaviour {
         Debug.Log(this.attackingInventorySlot.state);
         if (this.attackingInventorySlot.state != GWInventorySlot.SpellState.READY) {
 
-            Debug.Log("spell slot is not ready!!!");
+            Debug.Log("pawncontroller says: Attacking NOT allowed!");
+
             return false;
         }
 
         try {
             if (!this.attackingInventorySlot.Spell) {
+                Debug.Log("pawncontroller says: Attacking NOT allowed!");
                 return false;
             }
         }
         catch (Exception e) {
+            Debug.Log("pawncontroller says: Attacking NOT allowed!");
             return false;
         }
 
@@ -188,7 +185,7 @@ public class GWPawnController : MonoBehaviour {
         this.isMovementBlocked = false;
 
         if (this.attackState == GWAttackState.Loading) {
-            this.attackingInventorySlot.Abort();
+            this.AbortAttack();
         }
 
         this.stats.currentHealth -= damage;
@@ -196,6 +193,22 @@ public class GWPawnController : MonoBehaviour {
         if (this.stats.currentHealth <= 0) {
             this.Die();
         }
+    }
+
+    private void SetTimes() {
+        this.remainingLoadTime = this.loadTime;
+    }
+
+    public void AbortAttack() {
+
+        this.attackState = GWAttackState.Roaming;
+
+        this.SetTimes();
+
+        this.attackingInventorySlot.AbortAttack();
+
+        this.summoningAttackor.gameObject.SetActive(false);
+        this.summoningAttackor = null;
     }
 
     public void Die() {

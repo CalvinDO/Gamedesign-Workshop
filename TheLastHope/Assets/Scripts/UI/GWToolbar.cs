@@ -64,7 +64,7 @@ public class GWToolbar : MonoBehaviour {
 
         this.active.transform.position = this.formList[formidx].transform.position;
 
-        GWPawnController.instance.activeAttackor = this.attackors[this.formidx].GetComponent<GWAttackor>();
+        GWPawnController.instance.summoningAttackor = this.attackors[this.formidx].GetComponent<GWAttackor>();
 
 
     }

@@ -17,8 +17,10 @@ public class GWSpell : ScriptableObject {
 
     public GWEType element;
     public List<GWEType> containedElements;
-    public float cooldownTime;
+
+    public float buildUpTime;
     public float activeTime;
+    public float cooldownTime;
 
     public Sprite sprite;
 

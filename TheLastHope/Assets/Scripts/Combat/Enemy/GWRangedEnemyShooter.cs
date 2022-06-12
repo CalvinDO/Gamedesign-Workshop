@@ -37,7 +37,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
                     this.projectile.transform.localPosition = Vector3.zero + Vector3.up;
                     this.projectile.transform.localRotation = Quaternion.identity;
 
-                    this.attackState = GWAttackState.Attacking;
+                    this.attackState = GWAttackState.Active;
                     this.aimLaser.SetActive(true);
 
                     this.remainingLoadTime = this.loadTime;
@@ -56,7 +56,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
                 
                 break;
-            case GWAttackState.Attacking:
+            case GWAttackState.Active:
 
                 this.remainingAttackTime -= Time.deltaTime;
 
