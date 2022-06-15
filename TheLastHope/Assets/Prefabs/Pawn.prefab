@@ -1003,11 +1003,11 @@ MonoBehaviour:
   movingPawn: {fileID: 6173705337739551727}
   velocity: {x: 0, y: 0, z: 0}
   attackState: 0
-  activeAttackor: {fileID: 0}
+  summoningAttackor: {fileID: 0}
   cooldownTime: 0
   remainingTime: 0
-  loadTime: 0.7
-  remainingLoadTime: 0
+  buildUpTime: 0
+  remainingBuildUpTime: 0
   upperBoundTransform: {fileID: 4670076416118697918}
   characterCollider: {fileID: 370914387103196910}
   AttackorsContainer: {fileID: 1730765201068872345}
@@ -1167,7 +1167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5467231542298325852
 RectTransform:
   m_ObjectHideFlags: 0

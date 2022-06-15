@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,24 @@ public class GWAttackor : MonoBehaviour {
 
     public GWControlType control;
     public GWFormType form;
+
+    private GWInventorySlot correspondingInventorySlot;
+    private GWSpell spell;
+
+
+    private float remainingActive;
+
+    private bool onlyOneTimeEffect;
+    private float effectInterval;
+
+    private bool isSummoned;
+    private bool alreadyUsed;
+
+
+    private float nextEffect;
+
+    private GWAttackor summonedAttackorClone;
+
 
     void Awake() {
 
@@ -67,16 +86,74 @@ public class GWAttackor : MonoBehaviour {
             this.isPressingHeal = false;
         }
 
+
+        if (this.isSummoned) {
+
+            if (!this.alreadyUsed) {
+
+                if (!this.onlyOneTimeEffect) {
+
+                    if (this.nextEffect < 0) {
+
+                        this.Damage();
+                        this.nextEffect = this.effectInterval;
+                    }
+                }
+                else {
+                    this.Damage();
+                    this.alreadyUsed = true;
+                }
+            }
+
+            if (this.remainingActive < 0) {
+
+                this.Inactivate();
+            }
+
+            this.remainingActive -= Time.deltaTime;
+        }
+
+        Debug.Log("spell: " + this.spell);
+        
+    }
+
+    public void Inactivate() {
+
+        try {
+
+            Material weaponMat = this.visualAttackor.material;
+            Color weaponColor = weaponMat.color = this.spell.color;
+            weaponColor.a = 0;
+            weaponMat.color = weaponColor;
+        }
+        catch (Exception e) {
+            Debug.LogWarning(e.Message);
+        }
+
+
+        GameObject.Destroy(this.gameObject);
     }
 
     public void Activate(GWInventorySlot inventorySlot) {
 
         Debug.Log("attack " + this.nearbyEnemys.Count + " enemys");
 
+        this.correspondingInventorySlot = inventorySlot;
 
+        this.onlyOneTimeEffect = inventorySlot.uiSpell.spellInstance.onlyOneTimeEffect;
+        this.effectInterval = inventorySlot.uiSpell.spellInstance.effectInterval;
+        this.remainingActive = inventorySlot.remainingActive;
+        this.spell = inventorySlot.uiSpell.spellInstance;
+
+        this.summonedAttackorClone = GameObject.Instantiate(this.gameObject, null).GetComponent<GWAttackor>();
+        this.summonedAttackorClone.isSummoned = true;
+        this.summonedAttackorClone.nextEffect = this.correspondingInventorySlot.uiSpell.spell.effectInterval;
+    }
+
+    private void Damage() {
         foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
 
-            nearbyEnemy.RecieveElementAttack(inventorySlot.Spell.containedElements);
+            nearbyEnemy.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
             nearbyEnemy.gameObject.AddComponent<GWSlow>();
 
             if (nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth <= 0) {
@@ -86,6 +163,8 @@ public class GWAttackor : MonoBehaviour {
             }
         }
     }
+
+
 
     void Heal() {
 

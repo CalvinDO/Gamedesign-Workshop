@@ -6,7 +6,7 @@ public class GWCollectableSpell : GWCollectable {
 
     public GWSpell spell;
     public MeshRenderer visualMeshRenderer;
-
+    public Material defaultMaterial;
 
 
     void OnDrawGizmos() {
@@ -15,8 +15,12 @@ public class GWCollectableSpell : GWCollectable {
 
     void SetColor() {
 
-        Material mat = this.visualMeshRenderer.material;
+        Material mat = this.defaultMaterial;
         mat.color = this.spell.color;
+        Color color = mat.color;
+        color.a = 0.25f;
+        mat.color = color;
+        this.visualMeshRenderer.material = mat;
     }
 
     void Start() {

@@ -22,6 +22,9 @@ public class GWSpell : ScriptableObject {
     public float activeTime;
     public float cooldownTime;
 
+    public bool onlyOneTimeEffect;
+    public float effectInterval;
+
     public Sprite sprite;
 
     public Color color;

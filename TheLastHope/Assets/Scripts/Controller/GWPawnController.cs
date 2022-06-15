@@ -23,8 +23,8 @@ public class GWPawnController : MonoBehaviour {
     public float cooldownTime;
     public float remainingTime;
 
-    public float loadTime;
-    public float remainingLoadTime;
+    public float buildUpTime;
+    public float remainingBuildUpTime;
 
     private bool isMovementBlocked;
 
@@ -46,7 +46,7 @@ public class GWPawnController : MonoBehaviour {
         this.stats = this.gameObject.GetComponent<GWPawnStats>();
         //this.textmeshPro = this.GetComponentInChildren<TextMeshPro>();
 
-        this.remainingLoadTime = this.loadTime;
+        this.remainingBuildUpTime = this.buildUpTime;
     }
 
     void Update() {
@@ -73,6 +73,10 @@ public class GWPawnController : MonoBehaviour {
                 }
 
 
+                this.buildUpTime = this.attackingInventorySlot.uiSpell.spell.buildUpTime;
+                this.remainingBuildUpTime = this.buildUpTime;
+
+
                 foreach (Transform child in this.AttackorsContainer.transform) {
 
                     GWAttackor currentAttackor = child.GetComponent<GWAttackor>();
@@ -94,20 +98,20 @@ public class GWPawnController : MonoBehaviour {
                 this.isMovementBlocked = true;
 
                 this.attackState = GWAttackState.Loading;
-                
+
 
                 break;
 
             case GWAttackState.Loading:
 
-                this.remainingLoadTime -= Time.deltaTime;
+                this.remainingBuildUpTime -= Time.deltaTime;
 
-                if (this.remainingLoadTime <= 0) {
+                if (this.remainingBuildUpTime <= 0) {
 
                     this.SwitchToAttacking();
                 }
 
-                float factor = this.remainingLoadTime / this.loadTime;
+                float factor = this.remainingBuildUpTime / this.buildUpTime;
 
                 weaponMat = this.summoningAttackor.visualAttackor.material;
                 weaponColor = weaponMat.color = this.attackingInventorySlot.Spell.color;
@@ -131,6 +135,7 @@ public class GWPawnController : MonoBehaviour {
                 this.attackState = GWAttackState.Roaming;
                 this.isMovementBlocked = false;
                 this.summoningAttackor.gameObject.SetActive(false);
+                this.summoningAttackor = null;
 
                 break;
             default:
@@ -146,7 +151,7 @@ public class GWPawnController : MonoBehaviour {
         this.attackState = GWAttackState.Active;
         this.attackingInventorySlot.state = GWInventorySlot.SpellState.ACTIVE;
 
-        this.remainingLoadTime = this.loadTime;
+        this.remainingBuildUpTime = this.buildUpTime;
     }
 
     private bool IsAttackingAllowed() {
@@ -196,7 +201,7 @@ public class GWPawnController : MonoBehaviour {
     }
 
     private void SetTimes() {
-        this.remainingLoadTime = this.loadTime;
+        this.remainingBuildUpTime = this.buildUpTime;
     }
 
     public void AbortAttack() {

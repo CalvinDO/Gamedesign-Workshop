@@ -12,7 +12,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
     public GWUISpell uiSpell;
 
     private float remainingCooldown;
-    private float remainingActive;
+    public float remainingActive;
 
 
     public GWSpell Spell {

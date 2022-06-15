@@ -5,6 +5,7 @@ using UnityEngine;
 public class GWCollectable : MonoBehaviour
 {
     
+
     void OnTriggerEnter() {
 
         this.PickUp();

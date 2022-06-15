@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 0
   containedElements: 00000000
-  cooldownTime: 2
+  buildUpTime: 0.61
   activeTime: 1
+  cooldownTime: 2
+  onlyOneTimeEffect: 0
+  effectInterval: 0.46
   sprite: {fileID: 21300000, guid: 57515710cbdad62408d468be65876c20, type: 3}
   color: {r: 0, g: 1, b: 0, a: 0}
   form: 3
