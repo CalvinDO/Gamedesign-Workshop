@@ -138,16 +138,17 @@ public class GWAttackor : MonoBehaviour {
 
         Debug.Log("attack " + this.nearbyEnemys.Count + " enemys");
 
-        this.correspondingInventorySlot = inventorySlot;
-
-        this.onlyOneTimeEffect = inventorySlot.uiSpell.spellInstance.onlyOneTimeEffect;
-        this.effectInterval = inventorySlot.uiSpell.spellInstance.effectInterval;
-        this.remainingActive = inventorySlot.remainingActive;
-        this.spell = inventorySlot.uiSpell.spellInstance;
 
         this.summonedAttackorClone = GameObject.Instantiate(this.gameObject, null).GetComponent<GWAttackor>();
         this.summonedAttackorClone.isSummoned = true;
         this.summonedAttackorClone.nextEffect = this.correspondingInventorySlot.uiSpell.spell.effectInterval;
+
+        this.summonedAttackorClone.correspondingInventorySlot = inventorySlot;
+
+        this.summonedAttackorClone.onlyOneTimeEffect = inventorySlot.uiSpell.spellInstance.onlyOneTimeEffect;
+        this.summonedAttackorClone.effectInterval = inventorySlot.uiSpell.spellInstance.effectInterval;
+        this.summonedAttackorClone.remainingActive = inventorySlot.remainingActive;
+        this.summonedAttackorClone.spell = inventorySlot.uiSpell.spellInstance;
     }
 
     private void Damage() {
