@@ -108,6 +108,7 @@ public class GWAttackor : MonoBehaviour {
             if (this.remainingActive < 0) {
 
                 this.Inactivate();
+                return;
             }
 
             this.remainingActive -= Time.deltaTime;
@@ -137,7 +138,8 @@ public class GWAttackor : MonoBehaviour {
     public void Activate(GWInventorySlot inventorySlot) {
 
         Debug.Log("attack " + this.nearbyEnemys.Count + " enemys");
-
+            
+        
 
         this.summonedAttackorClone = GameObject.Instantiate(this.gameObject, null).GetComponent<GWAttackor>();
         this.summonedAttackorClone.isSummoned = true;
