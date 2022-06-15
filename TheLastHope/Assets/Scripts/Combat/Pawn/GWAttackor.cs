@@ -41,6 +41,7 @@ public class GWAttackor : MonoBehaviour {
 
     private GWAttackor summonedAttackorClone;
 
+    public GWAttackor originalAttackor;
 
     void Awake() {
 
@@ -114,9 +115,6 @@ public class GWAttackor : MonoBehaviour {
 
             this.remainingActive -= Time.deltaTime;
         }
-
-      
-        
     }
 
     public void Inactivate() {
@@ -132,7 +130,7 @@ public class GWAttackor : MonoBehaviour {
             Debug.LogWarning(e.Message);
         }
 
-
+        this.originalAttackor = null;
         GameObject.Destroy(this.gameObject);
     }
 
@@ -152,6 +150,8 @@ public class GWAttackor : MonoBehaviour {
         this.summonedAttackorClone.effectInterval = inventorySlot.uiSpell.spellInstance.effectInterval;
         this.summonedAttackorClone.remainingActive = inventorySlot.remainingActive;
         this.summonedAttackorClone.spell = inventorySlot.uiSpell.spellInstance;
+
+        this.summonedAttackorClone.originalAttackor = this;
     }
 
     private void Damage() {
