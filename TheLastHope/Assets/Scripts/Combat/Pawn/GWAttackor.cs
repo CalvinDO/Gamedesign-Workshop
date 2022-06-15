@@ -88,6 +88,7 @@ public class GWAttackor : MonoBehaviour {
 
 
         if (this.isSummoned) {
+        Debug.Log("spell: " + this.spell);
 
             if (!this.alreadyUsed) {
 
@@ -114,7 +115,7 @@ public class GWAttackor : MonoBehaviour {
             this.remainingActive -= Time.deltaTime;
         }
 
-        Debug.Log("spell: " + this.spell);
+      
         
     }
 
