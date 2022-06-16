@@ -73,6 +73,7 @@ MonoBehaviour:
   text: {fileID: 4443691553670813954}
   rb: {fileID: 1037052678194698082}
   isStatic: 0
+  attackor: {fileID: 1037052678790456679}
 --- !u!195 &1037052678194698080
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ MonoBehaviour:
   remainingAttackTime: 0
   attackState: 0
   enemy: {fileID: 1037052678194698081}
-  pawnController: {fileID: 0}
+  reachablePawnController: {fileID: 0}
   weapon: {fileID: 5508290490985978134}
   futureAttackPos: {x: 0, y: 0, z: 0}
 --- !u!1 &4594271653819063972

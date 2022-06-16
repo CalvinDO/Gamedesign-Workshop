@@ -124,13 +124,17 @@ public class GWPawnController : MonoBehaviour {
                 break;
             case GWAttackState.Active:
 
+
+                this.summoningAttackor.Activate(this.attackingInventorySlot);
+
+
                 try {
-                    this.summoningAttackor.Activate(this.attackingInventorySlot);
                     this.attackingInventorySlot.SwitchToActive();
                 }
                 catch (Exception e) {
                     Debug.LogWarning(e.Message);
                 }
+
 
                 this.attackState = GWAttackState.Roaming;
                 this.isMovementBlocked = false;
