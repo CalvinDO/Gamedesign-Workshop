@@ -770,6 +770,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1847bff9a36f3fa45a9e38b542688db7, type: 3}
+--- !u!1 &223485619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223485620}
+  m_Layer: 0
+  m_Name: ProjectilePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &223485620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223485619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 833239886}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &284707853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1951,54 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 207e544ac00decc469922af488abe7ce, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ee692d6579effb47967c803fd7de321, type: 3}
+--- !u!1 &833239884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833239886}
+  - component: {fileID: 833239885}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &833239885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833239884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8204699e979313f4aaf65029d557f9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSpellPool: {fileID: 971808340}
+  projectilePool: {fileID: 223485620}
+--- !u!4 &833239886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833239884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 971808340}
+  - {fileID: 223485620}
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &864606546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2221,8 +2300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d2ee9f7b2fb424a82ad6d8168eb723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 52
-  spawnInterval: 3
+  stopSpawning: 0
+  spawnRadius: 20
+  spawnInterval: 4.3
   remainingTimeTillSpawn: 0
   spawnedEnemiesContainer: {fileID: 29492107}
   enemiesCollection:
@@ -2464,6 +2544,37 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 207e544ac00decc469922af488abe7ce, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ee692d6579effb47967c803fd7de321, type: 3}
+--- !u!1 &971808339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 971808340}
+  m_Layer: 0
+  m_Name: ActiveSpellPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &971808340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971808339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 833239886}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &987377149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5885,7 +5996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5467231540528415936, guid: 5603b5f03c4ad5f4eb0453a7800f07d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.03
       objectReference: {fileID: 0}
     - target: {fileID: 5467231540528415936, guid: 5603b5f03c4ad5f4eb0453a7800f07d6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5893,7 +6004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5467231540528415936, guid: 5603b5f03c4ad5f4eb0453a7800f07d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5.71
       objectReference: {fileID: 0}
     - target: {fileID: 5467231540528415936, guid: 5603b5f03c4ad5f4eb0453a7800f07d6, type: 3}
       propertyPath: m_LocalRotation.w

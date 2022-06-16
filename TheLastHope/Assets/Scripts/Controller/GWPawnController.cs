@@ -113,10 +113,13 @@ public class GWPawnController : MonoBehaviour {
 
                 float factor = this.remainingBuildUpTime / this.buildUpTime;
 
-                weaponMat = this.summoningAttackor.visualAttackor.material;
+                weaponMat = new Material(this.summoningAttackor.visualAttackor.material.shader);
+
+                weaponMat.CopyPropertiesFromMaterial(this.summoningAttackor.visualAttackor.material);
                 weaponColor = weaponMat.color = this.attackingInventorySlot.Spell.color;
                 weaponColor.a = 1 - factor;
                 weaponMat.color = weaponColor;
+                this.summoningAttackor.visualAttackor.material.CopyPropertiesFromMaterial(weaponMat);
 
                 //this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.y,  0);
 
@@ -125,16 +128,16 @@ public class GWPawnController : MonoBehaviour {
             case GWAttackState.Active:
 
 
-                this.summoningAttackor.Activate(this.attackingInventorySlot);
 
 
                 try {
                     this.attackingInventorySlot.SwitchToActive();
                 }
                 catch (Exception e) {
-                    Debug.LogWarning(e.Message);
+                    Debug.LogWarning("Tried switching attackingInvSlot to active, but: " + e.Message);
                 }
 
+                this.summoningAttackor.Activate(this.attackingInventorySlot);
 
                 this.attackState = GWAttackState.Roaming;
                 this.isMovementBlocked = false;

@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class GWEnemySpawner : MonoBehaviour {
 
+    public bool stopSpawning;
+
     [Range(0, 300)]
     public float spawnRadius;
 
@@ -26,6 +28,11 @@ public class GWEnemySpawner : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if (this.stopSpawning) {
+            return;
+        }
+
         if (this.remainingTimeTillSpawn < 0) {
             this.SpawnRandom();
             this.remainingTimeTillSpawn = this.spawnInterval;

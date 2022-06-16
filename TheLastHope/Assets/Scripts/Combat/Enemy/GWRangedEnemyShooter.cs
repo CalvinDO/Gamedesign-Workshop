@@ -6,6 +6,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
 
     public GWProjectile projectile;
+    public GWProjectile flyingProjectile;
 
     public GameObject aimLaser;
 
@@ -31,16 +32,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
 
                 if (this.remainingLoadTime <= 0) {
-
-                    this.projectile.transform.parent = this.transform;
-
-                    this.projectile.transform.localPosition = Vector3.zero + Vector3.up;
-                    this.projectile.transform.localRotation = Quaternion.identity;
-
-                    this.attackState = GWAttackState.Active;
-                    this.aimLaser.SetActive(true);
-
-                    this.remainingLoadTime = this.loadTime;
+                    this.ActivateLaser();
                 }
 
 
@@ -49,18 +41,18 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
                 Vector3 d = GWPawnController.instance.transform.position - this.transform.position;
                 Vector3 v = this.projectile.transform.forward * this.projectile.flySpeed * 50;
                 float t = d.magnitude / v.magnitude;
-                Vector3 posAfterT = GWPawnController.instance.transform.position +  GWPawnController.instance.velocity * t * 50;
-                
+                Vector3 posAfterT = GWPawnController.instance.transform.position + GWPawnController.instance.velocity * t * 50;
+
                 this.transform.LookAt(posAfterT);
                 this.futureAttackPos = posAfterT;
 
-                
+
                 break;
             case GWAttackState.Active:
 
                 this.remainingAttackTime -= Time.deltaTime;
 
-                
+
 
                 if (this.remainingAttackTime <= 0) {
 
@@ -81,10 +73,23 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
         }
     }
 
+    public void ActivateLaser() {
 
+        this.projectile.transform.parent = this.transform;
+
+        this.projectile.transform.localPosition = Vector3.zero + Vector3.up;
+        this.projectile.transform.localRotation = Quaternion.identity;
+
+        this.attackState = GWAttackState.Active;
+        this.aimLaser.SetActive(true);
+
+        this.remainingLoadTime = this.loadTime;
+    }
     public override void Attack() {
 
-        this.projectile.Shoot();
+        this.flyingProjectile = GameObject.Instantiate(this.projectile, GWPoolManager.instance.projectilePool);
+        this.flyingProjectile.transform.SetPositionAndRotation(this.projectile.transform.position, this.projectile.transform.rotation);
+        this.flyingProjectile.Shoot();
 
         this.remainingTime = this.cooldownTime;
     }

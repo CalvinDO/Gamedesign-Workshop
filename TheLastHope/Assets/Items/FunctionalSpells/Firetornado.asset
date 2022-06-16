@@ -15,10 +15,10 @@ MonoBehaviour:
   element: 1
   containedElements: 01000000
   buildUpTime: 2
-  activeTime: 2
-  cooldownTime: 3
+  activeTime: 10
+  cooldownTime: 5
   onlyOneTimeEffect: 0
-  effectInterval: 0.33
+  effectInterval: 0.5
   sprite: {fileID: 21300000, guid: 07cf55a585a153c4aadad694f960794a, type: 3}
   color: {r: 1, g: 0, b: 0, a: 0.28235295}
   form: 1

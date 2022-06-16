@@ -20,12 +20,12 @@ public class GWProjectile : MonoBehaviour {
 
     public void Shoot() {
         this.isFlying = true;
-        this.transform.parent = null;
     }
 
     void OnTriggerEnter(Collider other) {
         GWPawnController pawnController = other.gameObject.GetComponent<GWPawnController>();
         pawnController.Hurt(this.damage);
 
+        GameObject.Destroy(this.gameObject);
     }
 }

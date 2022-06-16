@@ -12,6 +12,9 @@ public class GWTargetedAttackor : GWAttackor {
     public override void Update() {
         base.Update();
 
+        if (this.isSummoned) {
+            return;
+        }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;

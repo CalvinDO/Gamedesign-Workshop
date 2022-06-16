@@ -33,13 +33,13 @@ public class GWAttackor : MonoBehaviour {
     private bool onlyOneTimeEffect;
     private float effectInterval;
 
-    private bool isSummoned;
+    public bool isSummoned;
     private bool alreadyUsed;
 
 
     private float nextEffect;
 
-    private GWAttackor summonedAttackorClone;
+    private GWAttackor upbildingAttackorClone;
 
     public GWAttackor originalAttackor;
 
@@ -91,15 +91,19 @@ public class GWAttackor : MonoBehaviour {
         if (this.isSummoned) {
             if (!this.alreadyUsed) {
 
-                this.Damage();
                 if (!this.onlyOneTimeEffect) {
 
+                    this.nextEffect -= Time.deltaTime;
+
                     if (this.nextEffect < 0) {
+                        this.Damage();
                         this.nextEffect = this.effectInterval;
                     }
                 }
                 else {
+                    this.Damage();
                     this.alreadyUsed = true;
+                    return;
                 }
             }
 
@@ -108,8 +112,10 @@ public class GWAttackor : MonoBehaviour {
                 this.Inactivate();
                 return;
             }
+            else {
+                this.remainingActive -= Time.deltaTime;
+            }
 
-            this.remainingActive -= Time.deltaTime;
         }
     }
 
@@ -126,34 +132,49 @@ public class GWAttackor : MonoBehaviour {
             Debug.LogWarning(e.Message);
         }
 
-        this.originalAttackor.summonedAttackorClone = null;
+        this.originalAttackor.upbildingAttackorClone = null;
         GameObject.Destroy(this.gameObject);
     }
 
     public void Activate(GWInventorySlot inventorySlot) {
 
-        Debug.Log("attack count: " + this.nearbyEnemys.Count + " enemys");
+        this.upbildingAttackorClone = GameObject.Instantiate(this, GWPoolManager.instance.activeSpellPool).GetComponent<GWAttackor>();
+        this.upbildingAttackorClone.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
 
 
 
-        this.summonedAttackorClone = GameObject.Instantiate(this, null).GetComponent<GWAttackor>();
-        this.summonedAttackorClone.isSummoned = true;
+        this.upbildingAttackorClone.visualAttackor.material = new Material(this.visualAttackor.material.shader);
+        this.upbildingAttackorClone.visualAttackor.material.CopyPropertiesFromMaterial(this.visualAttackor.material);
 
-        this.summonedAttackorClone.correspondingInventorySlot = inventorySlot;
+        this.upbildingAttackorClone.isSummoned = true;
 
-        this.summonedAttackorClone.nextEffect = inventorySlot.uiSpell.spell.effectInterval;
+        this.upbildingAttackorClone.correspondingInventorySlot = inventorySlot;
 
-        this.summonedAttackorClone.onlyOneTimeEffect = inventorySlot.uiSpell.spellInstance.onlyOneTimeEffect;
-        this.summonedAttackorClone.effectInterval = inventorySlot.uiSpell.spellInstance.effectInterval;
-        this.summonedAttackorClone.remainingActive = inventorySlot.remainingActive;
-        this.summonedAttackorClone.spell = inventorySlot.uiSpell.spellInstance;
+        this.upbildingAttackorClone.nextEffect = inventorySlot.uiSpell.spell.effectInterval;
 
-        Debug.Log("summonedAttackorClonr spell: " + this.summonedAttackorClone.spell);
-        this.summonedAttackorClone.originalAttackor = this;
+        this.upbildingAttackorClone.onlyOneTimeEffect = inventorySlot.uiSpell.spellInstance.onlyOneTimeEffect;
+        this.upbildingAttackorClone.effectInterval = inventorySlot.uiSpell.spellInstance.effectInterval;
+        this.upbildingAttackorClone.remainingActive = inventorySlot.remainingActive;
+        this.upbildingAttackorClone.spell = inventorySlot.uiSpell.spellInstance;
+
+        this.upbildingAttackorClone.nearbyEnemys = this.nearbyEnemys;
+        this.nearbyEnemys = new List<GWEnemyController>();
+
+        this.upbildingAttackorClone.originalAttackor = this;
+
+
+
+
+        this.upbildingAttackorClone = null;
+
+
     }
 
     private void Damage() {
+
         List<GWEnemyController> killedEnemys = new List<GWEnemyController>();
+
+        Debug.Log("damage count: " + this.nearbyEnemys.Count + " enemys");
 
         foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
 
@@ -171,6 +192,7 @@ public class GWAttackor : MonoBehaviour {
         foreach (GWEnemyController killedEnemy in killedEnemys) {
 
             GameObject.Destroy(killedEnemy);
+            this.nearbyEnemys.Remove(killedEnemy);
         }
     }
 
