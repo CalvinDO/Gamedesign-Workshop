@@ -6,6 +6,7 @@ public class GWPoolManager : MonoBehaviour
 {
     public Transform activeSpellPool;
     public Transform projectilePool;
+    public Transform risingDamageTextPool;
 
     public static GWPoolManager instance;
 

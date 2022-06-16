@@ -99,12 +99,13 @@ public class GWAttackor : MonoBehaviour {
                         this.Damage();
                         this.nextEffect = this.effectInterval;
                     }
-                }
+                }/*
                 else {
                     this.Damage();
                     this.alreadyUsed = true;
                     return;
                 }
+                */
             }
 
             if (this.remainingActive < 0) {
@@ -164,11 +165,14 @@ public class GWAttackor : MonoBehaviour {
 
 
 
+        this.upbildingAttackorClone.Damage();
 
         this.upbildingAttackorClone = null;
 
 
+        
     }
+
 
     private void Damage() {
 
@@ -193,6 +197,11 @@ public class GWAttackor : MonoBehaviour {
 
             GameObject.Destroy(killedEnemy);
             this.nearbyEnemys.Remove(killedEnemy);
+        }
+
+
+        if (this.onlyOneTimeEffect) {
+            this.alreadyUsed = true;
         }
     }
 

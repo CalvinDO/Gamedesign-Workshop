@@ -16,6 +16,8 @@ public class GWEnemyController : MonoBehaviour {
 
     public GWEnemyAttackor attackor;
 
+    public GameObject risingDamageTextPrefab;
+
 
     void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
@@ -77,8 +79,12 @@ public class GWEnemyController : MonoBehaviour {
 
     public void Hurt(float damage) {
 
-       
 
+        GameObject newRisingDamageText = GameObject.Instantiate(this.risingDamageTextPrefab, GWPoolManager.instance.risingDamageTextPool);
+        newRisingDamageText.gameObject.SetActive(true);
+        newRisingDamageText.transform.SetPositionAndRotation(this.risingDamageTextPrefab.transform.position, this.risingDamageTextPrefab.transform.rotation);
+
+        newRisingDamageText.GetComponentInChildren<GWUIRisingDamageText>().SetHurt(damage);
         this.stats.currentHealth -= damage;
 
         this.attackor.attackState = GWAttackState.Roaming;
