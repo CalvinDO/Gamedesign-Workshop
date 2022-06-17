@@ -23,8 +23,19 @@ public class GWProjectile : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
+
+
         GWPawnController pawnController = other.gameObject.GetComponent<GWPawnController>();
-        pawnController.Hurt(this.damage);
+        GWEnemyController enemyController = other.gameObject.GetComponent<GWEnemyController>();
+
+        if (pawnController) {
+            pawnController.Hurt(this.damage);
+        }
+        else {
+            enemyController.Hurt(this.damage);
+        }
+
+
 
         GameObject.Destroy(this.gameObject);
     }

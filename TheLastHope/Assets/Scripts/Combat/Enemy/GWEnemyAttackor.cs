@@ -31,6 +31,7 @@ public class GWEnemyAttackor : MonoBehaviour {
 
     public Vector3 futureAttackPos;
 
+    public Animator animator;
 
     void Start() {
         this.remainingTime = this.cooldownTime;
@@ -131,6 +132,8 @@ public class GWEnemyAttackor : MonoBehaviour {
     }
 
     public virtual void Attack() {
+
+        this.animator.SetTrigger("meleeAttack");
 
         this.weapon.Attack();
 

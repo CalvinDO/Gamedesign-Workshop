@@ -89,6 +89,11 @@ public class GWAttackor : MonoBehaviour {
 
 
         if (this.isSummoned) {
+            Material weaponMat = this.visualAttackor.material;
+            Color weaponColor = weaponMat.color;
+            weaponColor.a = 0.5f;
+            weaponMat.color = weaponColor;
+
             if (!this.alreadyUsed) {
 
                 if (!this.onlyOneTimeEffect) {
@@ -137,7 +142,7 @@ public class GWAttackor : MonoBehaviour {
         GameObject.Destroy(this.gameObject);
     }
 
-    public void Activate(GWInventorySlot inventorySlot) {
+    public virtual void Activate(GWInventorySlot inventorySlot) {
 
         this.upbildingAttackorClone = GameObject.Instantiate(this, GWPoolManager.instance.activeSpellPool).GetComponent<GWAttackor>();
         this.upbildingAttackorClone.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);

@@ -18,6 +18,7 @@ public class GWEnemyController : MonoBehaviour {
 
     public GameObject risingDamageTextPrefab;
 
+    public Transform meshParent;
 
     void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
@@ -36,6 +37,8 @@ public class GWEnemyController : MonoBehaviour {
         if (Vector3.Distance(this.transform.position, GWPawnController.instance.transform.position) < this.seeCharacterRange) {
             this.agent.destination = GWPawnController.instance.transform.position;
         }
+
+        this.meshParent.transform.LookAt(GWPawnController.instance.transform);
     }
 
     public void RecieveElementAttack(List<GWEType> elements) {

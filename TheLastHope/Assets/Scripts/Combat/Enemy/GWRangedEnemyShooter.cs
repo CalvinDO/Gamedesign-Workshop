@@ -87,6 +87,8 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
     }
     public override void Attack() {
 
+        this.animator.SetTrigger("rangedAttack");
+
         this.flyingProjectile = GameObject.Instantiate(this.projectile, GWPoolManager.instance.projectilePool);
         this.flyingProjectile.transform.SetPositionAndRotation(this.projectile.transform.position, this.projectile.transform.rotation);
         this.flyingProjectile.Shoot();
