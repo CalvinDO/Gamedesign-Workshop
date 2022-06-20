@@ -5,6 +5,7 @@ using UnityEngine;
 public class GWBarrierScript : MonoBehaviour
 {
     [SerializeField] private GWDistrictScript district;
+    [SerializeField] private GWEType element;
 /*     // Start is called before the first frame update
     void Start()
     {

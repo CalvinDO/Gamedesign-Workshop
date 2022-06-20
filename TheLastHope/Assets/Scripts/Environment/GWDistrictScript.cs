@@ -5,6 +5,7 @@ using UnityEngine;
 public class GWDistrictScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] barriers;
+    [SerializeField] private GWSpawner spawner;
     [SerializeField] private int corruption; // -1 equals cleared
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,7 @@ public class GWDistrictScript : MonoBehaviour
         }
 
         //Spawn Enemies
+        spawner.spawning();
     }
 
     public void corrupt()

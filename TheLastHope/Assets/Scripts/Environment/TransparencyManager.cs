@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TransparencyManager : MonoBehaviour {
     // Start is called before the first frame update
-    [SerializeField] private string tagName = "Environment";
+    //[SerializeField] private string tagName = "Environment";
 
     [SerializeField] private string[] layer;
 
@@ -32,7 +32,7 @@ public class TransparencyManager : MonoBehaviour {
 
 
         //var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        RaycastHit hit;
+        //RaycastHit hit;
 
 
         Debug.DrawLine(Camera.main.transform.position, GWPawnController.instance.transform.position, Color.red);
