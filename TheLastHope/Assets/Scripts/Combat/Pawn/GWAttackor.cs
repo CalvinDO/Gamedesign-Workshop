@@ -188,6 +188,8 @@ public class GWAttackor : MonoBehaviour {
         foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
 
             nearbyEnemy.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
+
+            //Aus Testing: Slow wird immer applied!!!
             nearbyEnemy.gameObject.AddComponent<GWSlow>();
 
             if (nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth <= 0) {
