@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GWDistrictScript : MonoBehaviour
 {
+    [SerializeField] private GWCityScript city;
     [SerializeField] private GameObject[] barriers;
     [SerializeField] private GWSpawner spawner;
     [SerializeField] private int corruption; // -1 equals cleared
@@ -36,6 +37,7 @@ public class GWDistrictScript : MonoBehaviour
         {
             Destroy(barrier);
         }
+        city.increaseCorruption();
     }
 
     public void closeBarriers() // called on collision 

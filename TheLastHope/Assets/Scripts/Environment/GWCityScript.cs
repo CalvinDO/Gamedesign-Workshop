@@ -29,7 +29,6 @@ public class GWCityScript : MonoBehaviour
                 chosenDistrict.corrupt();
                 i += 5;
             }
-        } 
-        
+        }     
     }
 }
