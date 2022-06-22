@@ -8,16 +8,13 @@ public class GWSpawner : MonoBehaviour
     [SerializeField] private GameObject districtLeader;
     [SerializeField] private GWDistrictScript district;
     [SerializeField] private List<GameObject> spawnPoints;
+
      // Start is called before the first frame update
     void Start()
     {
     }
-/*
+
     // Update is called once per frame
-    void Update()
-    {
-        
-    } */
 
     public void spawning()
     {
@@ -25,7 +22,8 @@ public class GWSpawner : MonoBehaviour
         {
             if(point.tag == "DistrictLeader")
             {
-                spawnEnemy(this.districtLeader, point.transform.position);
+                Vector3 pos = new Vector3(point.transform.position.x,0,point.transform.position.z);
+                district.livingLeader = Instantiate(this.districtLeader, pos, Quaternion.identity);
             }else{
                 int enemy = Random.Range(0, (enemyList.Count - 1));
                 for(int i = 0; i < (2 * (district.getCorruption() + 1)); i++)
