@@ -7,6 +7,8 @@ public class GWDistrictScript : MonoBehaviour
     [SerializeField] private GameObject[] barriers;
     [SerializeField] private GWSpawner spawner;
     [SerializeField] private int corruption; // -1 equals cleared
+
+    public GameObject livingLeader;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,21 +22,19 @@ public class GWDistrictScript : MonoBehaviour
     }
 
     // Update is called once per frame
-/*     void Update()
+    void Update()
     {
-        
-    } */
+        if(!livingLeader && !spawner)
+        {
+            openBarriers();
+        }
+    } 
 
     public void openBarriers() // called on boss kill
     {
         foreach(GameObject barrier in barriers)
         {
-            Renderer barrierRenderer = barrier.gameObject.GetComponent<Renderer>();
-            Color color = Color.green;
-            color.a = 0;
-            barrierRenderer.material.color = color;
-            BoxCollider col = barrier.GetComponent(typeof(BoxCollider)) as BoxCollider;
-            Destroy(col);
+            Destroy(barrier);
         }
     }
 
