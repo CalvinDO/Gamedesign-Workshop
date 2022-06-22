@@ -89,9 +89,10 @@ public class GWAttackor : MonoBehaviour {
 
 
         if (this.isSummoned) {
+
             Material weaponMat = this.visualAttackor.material;
             Color weaponColor = weaponMat.color;
-            weaponColor.a = 0.5f;
+            weaponColor.a = 0.5f + 0.2f * MathF.Sin(this.remainingActive * 5);
             weaponMat.color = weaponColor;
 
             if (!this.alreadyUsed) {
@@ -169,13 +170,18 @@ public class GWAttackor : MonoBehaviour {
         this.upbildingAttackorClone.originalAttackor = this;
 
 
+        try {
 
-        this.upbildingAttackorClone.Damage();
+            this.upbildingAttackorClone.Damage();
+        }
+        catch (Exception e) {
+
+        }
 
         this.upbildingAttackorClone = null;
 
 
-        
+
     }
 
 
@@ -186,16 +192,18 @@ public class GWAttackor : MonoBehaviour {
         Debug.Log("damage count: " + this.nearbyEnemys.Count + " enemys");
 
         foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
+            
+            try {
+                nearbyEnemy.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
 
-            nearbyEnemy.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
+                //Aus Testing: Slow wird immer applied!!!
+                nearbyEnemy.gameObject.AddComponent<GWSlow>();
 
-            //Aus Testing: Slow wird immer applied!!!
-            nearbyEnemy.gameObject.AddComponent<GWSlow>();
-
-            if (nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth <= 0) {
-
-                killedEnemys.Add(nearbyEnemy);
-
+                if (nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth <= 0) {
+                    killedEnemys.Add(nearbyEnemy);
+                }
+            }
+            catch (Exception e) {
             }
         }
 

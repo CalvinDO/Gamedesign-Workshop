@@ -120,11 +120,11 @@ public class GWEnemyAttackor : MonoBehaviour {
     void OnTriggerStay(Collider other) {
 
         this.reachablePawnController = other.gameObject.GetComponent<GWPawnController>();
-
+        /*
         if (this.reachablePawnController == null) {
             Debug.Log(other.name);
         }
-
+        */
     }
 
     void OnTriggerExit(Collider other) {

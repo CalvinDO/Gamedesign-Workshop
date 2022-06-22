@@ -38,6 +38,12 @@ public class GWPawnController : MonoBehaviour {
 
     public GameObject AttackorsContainer;
 
+    public Animator animator;
+
+    private Material weaponMat;
+    private Color weaponColor;
+
+
     void Awake() {
         GWPawnController.instance = this;
     }
@@ -64,7 +70,6 @@ public class GWPawnController : MonoBehaviour {
 
             case GWAttackState.Roaming:
 
-
                 this.attackingInventorySlot = GWAttackSlotContainer.GetPressedAttackSlot();
 
                 if (!this.IsAttackingAllowed()) {
@@ -73,35 +78,10 @@ public class GWPawnController : MonoBehaviour {
                 }
 
 
-                this.buildUpTime = this.attackingInventorySlot.uiSpell.spell.buildUpTime;
-                this.remainingBuildUpTime = this.buildUpTime;
+                this.SwitchToLoading();
 
-
-                foreach (Transform child in this.AttackorsContainer.transform) {
-
-                    GWAttackor currentAttackor = child.GetComponent<GWAttackor>();
-                    if (currentAttackor.form == this.attackingInventorySlot.uiSpell.spellInstance.form) {
-                        this.summoningAttackor = currentAttackor;
-                        break;
-                    }
-                }
-
-
-                Material weaponMat = this.summoningAttackor.visualAttackor.material;
-                Color weaponColor = weaponMat.color;
-                weaponColor.a = 0;
-                weaponMat.color = weaponColor;
-
-
-                this.summoningAttackor.gameObject.SetActive(true);
-
-                this.isMovementBlocked = true;
-
-                this.attackState = GWAttackState.Loading;
-
-
+               
                 break;
-
             case GWAttackState.Loading:
 
                 this.remainingBuildUpTime -= Time.deltaTime;
@@ -113,22 +93,19 @@ public class GWPawnController : MonoBehaviour {
 
                 float factor = this.remainingBuildUpTime / this.buildUpTime;
 
-                weaponMat = new Material(this.summoningAttackor.visualAttackor.material.shader);
+                this.weaponMat = new Material(this.summoningAttackor.visualAttackor.material.shader);
 
-                weaponMat.CopyPropertiesFromMaterial(this.summoningAttackor.visualAttackor.material);
-                weaponColor = weaponMat.color = this.attackingInventorySlot.Spell.Color;
-                weaponColor.a = 1 - factor;
-                weaponMat.color = weaponColor;
-                this.summoningAttackor.visualAttackor.material.CopyPropertiesFromMaterial(weaponMat);
+                this.weaponMat.CopyPropertiesFromMaterial(this.summoningAttackor.visualAttackor.material);
+                this.weaponColor = this.weaponMat.color = this.attackingInventorySlot.Spell.Color;
+                this.weaponColor.a = 1 - factor;
+                this.weaponMat.color = this.weaponColor;
+                this.summoningAttackor.visualAttackor.material.CopyPropertiesFromMaterial(this.weaponMat);
 
                 //this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.y,  0);
 
 
                 break;
             case GWAttackState.Active:
-
-
-
 
                 try {
                     this.attackingInventorySlot.SwitchToActive();
@@ -151,7 +128,68 @@ public class GWPawnController : MonoBehaviour {
         }
     }
 
+    private void SwitchToLoading() {
 
+        this.buildUpTime = this.attackingInventorySlot.uiSpell.spell.buildUpTime;
+        this.remainingBuildUpTime = this.buildUpTime;
+
+
+        foreach (Transform child in this.AttackorsContainer.transform) {
+
+            GWAttackor currentAttackor = child.GetComponent<GWAttackor>();
+            if (currentAttackor.form == this.attackingInventorySlot.uiSpell.spellInstance.form) {
+                this.summoningAttackor = currentAttackor;
+                break;
+            }
+        }
+
+
+        this.weaponMat = this.summoningAttackor.visualAttackor.material;
+        this.weaponColor = this.weaponMat.color;
+        this.weaponColor.a = 0;
+        this.weaponMat.color = this.weaponColor;
+
+
+
+
+        this.summoningAttackor.gameObject.SetActive(true);
+
+        this.isMovementBlocked = true;
+
+
+        this.attackState = GWAttackState.Loading;
+
+        this.SetSpellAnimation();
+
+    }
+
+    private void SetSpellAnimation() {
+
+        switch(this.attackingInventorySlot.Spell.form){
+
+            case GWFormType.PROJECTILE:
+                this.animator.SetTrigger("shootSpell"); 
+                break;
+            case GWFormType.AOE:
+                this.animator.SetTrigger("throwSpell");
+                break;
+            case GWFormType.CONE:
+                this.animator.SetTrigger("shootSpell");
+                break;
+            case GWFormType.ROUNDHOUSE:
+                this.animator.SetTrigger("stampSpell");
+                break;
+            case GWFormType.DISTRIBUTION:
+                this.animator.SetTrigger("throwSpell");
+                break;
+            case GWFormType.HORIZONTAL_BEAM:
+                this.animator.SetTrigger("throwSpell");
+                break;
+            case GWFormType.SHOOT_UP:
+                this.animator.SetTrigger("throwSpell");
+                break;
+        }
+    }
 
     private void SwitchToAttacking() {
 
@@ -204,7 +242,10 @@ public class GWPawnController : MonoBehaviour {
 
         if (this.stats.currentHealth <= 0) {
             this.Die();
+            return;
         }
+
+        this.animator.SetTrigger("hurt");
     }
 
     private void SetTimes() {
@@ -224,7 +265,11 @@ public class GWPawnController : MonoBehaviour {
     }
 
     public void Die() {
-        GameObject.Destroy(this.gameObject);
+
+        this.animator.SetTrigger("die");
+
+        Time.timeScale = 0;
+       // GameObject.Destroy(this.gameObject);
     }
 
     private void LookatMouse() {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,7 +43,12 @@ public class GWEnemyController : MonoBehaviour {
     }
 
     public void RecieveElementAttack(List<GWEType> elements) {
+        try {
+
         this.Hurt(this.GetTotalElementDamage(elements));
+        } catch(Exception e) {
+            return;
+        }
     }
 
     public float GetTotalElementDamage(List<GWEType> elements) {
@@ -81,7 +87,6 @@ public class GWEnemyController : MonoBehaviour {
     }
 
     public void Hurt(float damage) {
-
 
         GameObject newRisingDamageText = GameObject.Instantiate(this.risingDamageTextPrefab, GWPoolManager.instance.risingDamageTextPool);
         newRisingDamageText.gameObject.SetActive(true);
