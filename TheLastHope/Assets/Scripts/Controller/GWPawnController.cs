@@ -116,7 +116,7 @@ public class GWPawnController : MonoBehaviour {
                 weaponMat = new Material(this.summoningAttackor.visualAttackor.material.shader);
 
                 weaponMat.CopyPropertiesFromMaterial(this.summoningAttackor.visualAttackor.material);
-                weaponColor = weaponMat.color = this.attackingInventorySlot.Spell.color;
+                weaponColor = weaponMat.color = this.attackingInventorySlot.Spell.Color;
                 weaponColor.a = 1 - factor;
                 weaponMat.color = weaponColor;
                 this.summoningAttackor.visualAttackor.material.CopyPropertiesFromMaterial(weaponMat);

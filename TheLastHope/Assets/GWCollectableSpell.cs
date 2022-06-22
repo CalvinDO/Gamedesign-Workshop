@@ -16,7 +16,7 @@ public class GWCollectableSpell : GWCollectable {
     void SetColor() {
 
         Material mat = this.defaultMaterial;
-        mat.color = this.spell.color;
+        mat.color = this.spell.Color;
         Color color = mat.color;
         color.a = 0.25f;
         mat.color = color;

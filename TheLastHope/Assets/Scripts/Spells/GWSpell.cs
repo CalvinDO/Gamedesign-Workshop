@@ -27,7 +27,11 @@ public class GWSpell : ScriptableObject {
 
     public Sprite sprite;
 
-    public Color color;
+    public Color Color {
+        get {
+            //GWElementColorManager.instance.Awake();
+            return GWElementColorManager.instance.GetColor(this.element); }
+    }
 
     public GWFormType form;
 

@@ -50,6 +50,7 @@ MonoBehaviour:
   visualAttackor: {fileID: 1166000112613169858}
   control: 1
   form: 1
+  correspondingInventorySlot: {fileID: 0}
   isSummoned: 0
   originalAttackor: {fileID: 0}
 --- !u!135 &1637465382397750757
@@ -480,6 +481,7 @@ MonoBehaviour:
   visualAttackor: {fileID: 9138557356730774471}
   control: 0
   form: 5
+  correspondingInventorySlot: {fileID: 0}
   isSummoned: 0
   originalAttackor: {fileID: 0}
 --- !u!136 &2944812023693404142
@@ -680,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1276795512655911432
 Transform:
   m_ObjectHideFlags: 0
@@ -714,6 +716,7 @@ MonoBehaviour:
   visualAttackor: {fileID: 8566382837796347759}
   control: 0
   form: 0
+  correspondingInventorySlot: {fileID: 0}
   isSummoned: 0
   originalAttackor: {fileID: 0}
   projectile: {fileID: 988346411944495611}
@@ -863,6 +866,7 @@ MonoBehaviour:
   visualAttackor: {fileID: 5662351005063817421}
   control: 2
   form: 3
+  correspondingInventorySlot: {fileID: 0}
   isSummoned: 0
   originalAttackor: {fileID: 0}
 --- !u!135 &1715260446866402938
@@ -1143,7 +1147,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -1197,6 +1201,7 @@ MonoBehaviour:
   visualAttackor: {fileID: 6738765542977781409}
   control: 3
   form: 4
+  correspondingInventorySlot: {fileID: 0}
   isSummoned: 0
   originalAttackor: {fileID: 0}
 --- !u!65 &3988668050329223581
@@ -1899,6 +1904,7 @@ MonoBehaviour:
   visualAttackor: {fileID: 1951699592497442122}
   control: 0
   form: 2
+  correspondingInventorySlot: {fileID: 0}
   isSummoned: 0
   originalAttackor: {fileID: 0}
 --- !u!136 &270530004709047984
@@ -2078,6 +2084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flySpeed: 0.307
   damage: 20
+  correspondingInventorySlot: {fileID: 0}
+  meshRenderer: {fileID: 7155833994272067424}
 --- !u!135 &213900803232187003
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2257,6 +2265,7 @@ MonoBehaviour:
   visualAttackor: {fileID: 7729829460461297941}
   control: 4
   form: 6
+  correspondingInventorySlot: {fileID: 0}
   isSummoned: 0
   originalAttackor: {fileID: 0}
 --- !u!136 &4446054009552520372

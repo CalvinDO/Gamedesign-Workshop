@@ -51,6 +51,21 @@ ModelImporter:
   - first:
       74: 1033776320911192496
     second: metarig|STANDING_UP.001
+  - first:
+      74: -5818300754354601910
+    second: metarig|GETTINGJ_HIT
+  - first:
+      74: 2829551172423069326
+    second: metarig|SPELL_1
+  - first:
+      74: 5055916312724256668
+    second: metarig|SPELL_2
+  - first:
+      74: -6277229444554676277
+    second: metarig|SPELL_3
+  - first:
+      74: -8417140697225625389
+    second: metarig|STANDINGUP
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -65,7 +80,10 @@ ModelImporter:
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'thigh.L' : position error =
+      1.041715 mm\n\t'shin.L' : position error = 72.534302 mm\n\t'foot.L' : position
+      error = 112.486794 mm\n\t'toe.L' : position error = 56.146889 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

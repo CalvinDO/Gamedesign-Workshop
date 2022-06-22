@@ -11,6 +11,9 @@ public class GWProjectile : MonoBehaviour {
     [Range(0, 100)]
     public float damage;
 
+    public GWInventorySlot correspondingInventorySlot;
+
+    public MeshRenderer meshRenderer;
 
     void FixedUpdate() {
         if (this.isFlying) {
@@ -32,7 +35,8 @@ public class GWProjectile : MonoBehaviour {
             pawnController.Hurt(this.damage);
         }
         else {
-            enemyController.Hurt(this.damage);
+            //enemyController.Hurt(this.damage);
+            enemyController.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
         }
 
 

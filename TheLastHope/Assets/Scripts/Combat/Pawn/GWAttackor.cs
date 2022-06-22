@@ -24,7 +24,7 @@ public class GWAttackor : MonoBehaviour {
     public GWControlType control;
     public GWFormType form;
 
-    private GWInventorySlot correspondingInventorySlot;
+    public GWInventorySlot correspondingInventorySlot;
     private GWSpell spell;
 
 
@@ -130,7 +130,7 @@ public class GWAttackor : MonoBehaviour {
         try {
 
             Material weaponMat = this.visualAttackor.material;
-            Color weaponColor = weaponMat.color = this.spell.color;
+            Color weaponColor = weaponMat.color = this.spell.Color;
             weaponColor.a = 0;
             weaponMat.color = weaponColor;
         }
