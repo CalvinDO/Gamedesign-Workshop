@@ -25,7 +25,7 @@ public class GWDistrictScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!livingLeader && !spawner)
+        if(!livingLeader && !spawner && barriers[0])
         {
             openBarriers();
         }
@@ -37,6 +37,7 @@ public class GWDistrictScript : MonoBehaviour
         {
             Destroy(barrier);
         }
+        this.corruption = -1;
         city.increaseCorruption();
     }
 

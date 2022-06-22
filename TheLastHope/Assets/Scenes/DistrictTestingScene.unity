@@ -3399,6 +3399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85d5517ef55e2945ad05e4321a9b404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  city: {fileID: 1159593779}
   barriers:
   - {fileID: 1025399698}
   - {fileID: 4283267}
@@ -11364,6 +11365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85d5517ef55e2945ad05e4321a9b404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  city: {fileID: 1159593779}
   barriers:
   - {fileID: 884030058}
   - {fileID: 1048213690}
@@ -12397,6 +12399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85d5517ef55e2945ad05e4321a9b404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  city: {fileID: 1159593779}
   barriers:
   - {fileID: 949083980}
   - {fileID: 2022934978}
@@ -16033,6 +16036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85d5517ef55e2945ad05e4321a9b404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  city: {fileID: 1159593779}
   barriers:
   - {fileID: 1382514161}
   - {fileID: 187862117}
@@ -21728,12 +21732,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2290399221483529406, guid: 69b1399e929c7c34e8fa3ddf581e9c6e, type: 3}
       propertyPath: districts.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2290399221483529406, guid: 69b1399e929c7c34e8fa3ddf581e9c6e, type: 3}
       propertyPath: districts.Array.data[0]
       value: 
       objectReference: {fileID: 1735841563}
+    - target: {fileID: 2290399221483529406, guid: 69b1399e929c7c34e8fa3ddf581e9c6e, type: 3}
+      propertyPath: districts.Array.data[1]
+      value: 
+      objectReference: {fileID: 425731850}
+    - target: {fileID: 2290399221483529406, guid: 69b1399e929c7c34e8fa3ddf581e9c6e, type: 3}
+      propertyPath: districts.Array.data[2]
+      value: 
+      objectReference: {fileID: 1149013470}
+    - target: {fileID: 2290399221483529406, guid: 69b1399e929c7c34e8fa3ddf581e9c6e, type: 3}
+      propertyPath: districts.Array.data[3]
+      value: 
+      objectReference: {fileID: 1280390614}
     - target: {fileID: 5693260561936219998, guid: 69b1399e929c7c34e8fa3ddf581e9c6e, type: 3}
       propertyPath: m_IsActive
       value: 0
