@@ -8,7 +8,7 @@ public class GWCursorManager : MonoBehaviour
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
     void OnMouseEnter() {
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        Cursor.SetCursor(cursorTexture, Input.mousePosition, cursorMode);
     }
 
     void OnMouseExit() {

@@ -39,14 +39,17 @@ public class GWEnemyController : MonoBehaviour {
             this.agent.destination = GWPawnController.instance.transform.position;
         }
 
-        this.meshParent.transform.LookAt(GWPawnController.instance.transform);
+        //this.meshParent.transform.LookAt(GWPawnController.instance.transform);
+
+        this.attackor.animator.SetBool("running", this.agent.velocity.magnitude >= 0.001f);
     }
 
     public void RecieveElementAttack(List<GWEType> elements) {
         try {
 
-        this.Hurt(this.GetTotalElementDamage(elements));
-        } catch(Exception e) {
+            this.Hurt(this.GetTotalElementDamage(elements));
+        }
+        catch (Exception e) {
             return;
         }
     }

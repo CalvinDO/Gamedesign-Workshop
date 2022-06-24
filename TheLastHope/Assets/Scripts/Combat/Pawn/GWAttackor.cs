@@ -18,7 +18,7 @@ public class GWAttackor : MonoBehaviour {
     private bool isPressingAttack;
     private bool isPressingHeal;
     public List<GWEnemyController> nearbyEnemys;
-
+    //public List<GWLoot> lootBoxes;
     public MeshRenderer visualAttackor;
 
     public GWControlType control;
@@ -214,6 +214,12 @@ public class GWAttackor : MonoBehaviour {
             this.nearbyEnemys.Remove(killedEnemy);
         }
 
+        /*
+
+        foreach (GWL) {
+            box.Destroy();
+        }
+        */
 
         if (this.onlyOneTimeEffect) {
             this.alreadyUsed = true;
@@ -233,6 +239,8 @@ public class GWAttackor : MonoBehaviour {
 
 
     void OnTriggerStay(Collider other) {
+
+        
 
         if (this.nearbyEnemys.Contains(other.gameObject.GetComponent<GWEnemyController>())) {
             return;
