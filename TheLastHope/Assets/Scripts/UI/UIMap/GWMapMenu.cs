@@ -5,16 +5,17 @@ using UnityEngine;
 public class GWMapMenu : MonoBehaviour
 {
     [SerializeField] private GameObject ui;
-    [SerializeField] private Material standardMat;
     [SerializeField] private GWDistrictScript[] districts;
+    [SerializeField] private Material[] elementalMaterials;
     private Color[] corColors = {new Color(0.9f,0.9f,0.4f), new Color(0.5f,0.5f,0.5f), new Color(0.8f,0.7f,1f), new Color(0.7f,0.5f,1f), new Color(0.5f,0.2f,1f), new Color(0.3f,0f,0.8f)};
     private List<Material> corruptionMaterials;
     private Shader shader;
-    private bool open = true;
+    private bool open = false;
+    private bool corrupt = false;
     // Start is called before the first frame update
     void Start()
     {
-        shader = standardMat.shader;
+        shader = elementalMaterials[0].shader;
         corruptionMaterials = new List<Material>();
         for(int i = 0; i < corColors.Length; i++)
         {
@@ -22,7 +23,7 @@ public class GWMapMenu : MonoBehaviour
             mat.color = corColors[i];
             corruptionMaterials.Add(mat);
         }
-        Debug.Log(corruptionMaterials);
+        toggleColors(false);
     }
 
     // Update is called once per frame
@@ -39,21 +40,54 @@ public class GWMapMenu : MonoBehaviour
             }
             ui.SetActive(open);
         }
+        if(Input.GetKeyDown(KeyCode.T) && open)
+        {
+            corrupt = !corrupt;
+            toggleColors(corrupt);
+        }
     }
 
     private void showCorruption()
     {
-        foreach(GWDistrictScript district in districts)
-        {
-            district.gameObject.GetComponent<Renderer>().material = corruptionMaterials[(district.getCorruption() + 1)];
-        }
+        toggleColors(true);
     }
 
     private void hideCorruption()
     {
-        foreach(GWDistrictScript district in districts)
+        toggleColors(false);
+    }
+
+    private void toggleColors(bool corrupt)
+    {
+        if(corrupt)
         {
-            district.gameObject.GetComponent<Renderer>().material = standardMat;
+            foreach(GWDistrictScript district in districts)
+            {
+                district.gameObject.GetComponent<Renderer>().material = corruptionMaterials[(district.getCorruption() + 1)];
+            }
+            corrupt = true;
+        }else{
+            foreach(GWDistrictScript district in districts)
+            {
+                Material mat;
+                switch(district.getElement())
+                {
+                    case GWEType.EARTH:
+                        mat = elementalMaterials[0];
+                        break;
+                    case GWEType.FIRE:
+                        mat = elementalMaterials[1];
+                        break;
+                    case GWEType.WATER:
+                        mat = elementalMaterials[2];
+                        break;
+                    default:
+                        mat = elementalMaterials[3];
+                        break;
+                }
+                district.gameObject.GetComponent<Renderer>().material = mat;
+            }
+            corrupt = false;
         }
     }
 }

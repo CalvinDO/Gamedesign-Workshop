@@ -7,6 +7,7 @@ public class GWDistrictScript : MonoBehaviour
     [SerializeField] private GWCityScript city;
     [SerializeField] private GameObject[] barriers;
     [SerializeField] private GWSpawner spawner;
+    [SerializeField] private GWEType element;
     [SerializeField] private int corruption; // -1 equals cleared
 
     public GameObject livingLeader;
@@ -68,5 +69,9 @@ public class GWDistrictScript : MonoBehaviour
     public int getCorruption()
     {
         return corruption;
+    }
+    public GWEType getElement()
+    {
+        return element;
     }
 }
