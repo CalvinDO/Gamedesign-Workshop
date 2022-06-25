@@ -5164,6 +5164,22 @@ PrefabInstance:
       propertyPath: district
       value: 
       objectReference: {fileID: 1149013470}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: districtLeader
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[1]
+      value: 
+      objectReference: {fileID: 328818376325036647, guid: 37ddc38919b8c8b47bc2395e02a2fd7e, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: ee6343e164ce41041bb1f156f01fa7d6, type: 3}
     - target: {fileID: 1014011906885055686, guid: 489aee4119db224499acb37069f3ac41, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7390,6 +7406,22 @@ PrefabInstance:
       propertyPath: district
       value: 
       objectReference: {fileID: 1280390614}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: districtLeader
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: ee6343e164ce41041bb1f156f01fa7d6, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[2]
+      value: 
+      objectReference: {fileID: 328818376325036647, guid: 37ddc38919b8c8b47bc2395e02a2fd7e, type: 3}
     - target: {fileID: 1014011906885055686, guid: 489aee4119db224499acb37069f3ac41, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -17185,6 +17217,22 @@ PrefabInstance:
       propertyPath: district
       value: 
       objectReference: {fileID: 425731850}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: districtLeader
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[1]
+      value: 
+      objectReference: {fileID: 328818376325036647, guid: 37ddc38919b8c8b47bc2395e02a2fd7e, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: ee6343e164ce41041bb1f156f01fa7d6, type: 3}
     - target: {fileID: 1014011906885055686, guid: 489aee4119db224499acb37069f3ac41, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -20351,6 +20399,22 @@ PrefabInstance:
       propertyPath: district
       value: 
       objectReference: {fileID: 1735841563}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: districtLeader
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[1]
+      value: 
+      objectReference: {fileID: 328818376325036647, guid: 37ddc38919b8c8b47bc2395e02a2fd7e, type: 3}
+    - target: {fileID: 1014011906885055685, guid: 489aee4119db224499acb37069f3ac41, type: 3}
+      propertyPath: enemyList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1037052678194698081, guid: ee6343e164ce41041bb1f156f01fa7d6, type: 3}
     - target: {fileID: 1014011906885055686, guid: 489aee4119db224499acb37069f3ac41, type: 3}
       propertyPath: m_RootOrder
       value: 3
