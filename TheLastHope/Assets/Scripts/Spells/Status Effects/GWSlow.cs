@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GWSlow : GWStatusEffect
-{
+public class GWSlow : GWStatusEffect {
+
     public override void Init() {
         base.Init();
 
         this.StartCoroutine(ApplySlow(3f));
     }
 
-    IEnumerator ApplySlow(float time){
-        float previousMovementSpeed = this.stats.movementSpeed;
-        this.stats.movementSpeed = previousMovementSpeed/3;
+    IEnumerator ApplySlow(float time) {
+
+        Debug.Log("slowing down!");
+        this.enemyController.currentMovementSpeed = this.stats.movementSpeed / 3;
         yield return new WaitForSeconds(time);
-        this.stats.movementSpeed = previousMovementSpeed;
+        this.enemyController.currentMovementSpeed = this.stats.movementSpeed;
         Destroy(this.gameObject.GetComponent<GWSlow>());
     }
 }

@@ -58,6 +58,14 @@ public class GWUISpell : MonoBehaviour {
         otherSpell.draggable.originInventorySlot.Reset();
 
 
+        GWElementEffect[] newEffectArray = new GWElementEffect[2];
+
+        newEffectArray[0] = this.spellInstance.effects[0];
+        newEffectArray[1] = otherSpell.spellInstance.effects[0];
+
+        this.spellInstance.effects = newEffectArray;
+
+
         GameObject.Destroy(otherSpell.gameObject);
     }
 }

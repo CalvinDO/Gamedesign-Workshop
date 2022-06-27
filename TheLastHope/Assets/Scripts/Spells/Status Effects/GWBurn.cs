@@ -6,9 +6,11 @@ public class GWBurn : MonoBehaviour
 {
     private int maxTicks = 5;
     public int currentTicks;
-    private float burnDmg = 10;
+    private float burnDmg = 1;
 
     private GWIStats stats;
+
+
     void Start()
     {
         if(gameObject.TryGetComponent<GWPawnStats>(out GWPawnStats pStats)){
@@ -25,6 +27,7 @@ public class GWBurn : MonoBehaviour
     }
 
     void DealBurnDmg(){
+
         stats.currentHealth -= burnDmg;
         currentTicks++;
         if(this.currentTicks>=maxTicks) Destroy(gameObject.GetComponent<GWBurn>());

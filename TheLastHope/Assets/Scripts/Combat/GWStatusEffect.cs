@@ -7,6 +7,11 @@ public class GWStatusEffect : MonoBehaviour
 
     public GWIStats stats;
 
+    public GWEnemyController enemyController;
+
+    void Awake() {
+        this.enemyController = this.gameObject.GetComponent<GWEnemyController>();
+    }
     void Start()
     {
         this.Init();

@@ -45,7 +45,9 @@ public class GWEnemyAttackor : MonoBehaviour {
 
             case GWAttackState.Roaming:
 
-                if (this.reachablePawnController != null) {
+                Debug.Log(this.enemy.stats.isDisarmed);
+
+                if (this.reachablePawnController != null && !this.enemy.stats.isDisarmed) {
                     this.attackState = GWAttackState.Loading;
                 }
 

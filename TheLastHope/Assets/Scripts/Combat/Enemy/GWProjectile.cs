@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +37,29 @@ public class GWProjectile : MonoBehaviour {
         }
         else {
             //enemyController.Hurt(this.damage);
-            enemyController.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
+
+            try {
+                enemyController.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
+
+                //Aus Testing: Slow wird immer applied!!!
+
+                foreach (GWElementEffect effect in this.correspondingInventorySlot.Spell.effects) {
+                    Debug.Log("effect: " + effect);
+                    switch (effect) {
+                        case GWElementEffect.SLOW:
+                            enemyController.gameObject.AddComponent<GWSlow>();
+                            break;
+                        case GWElementEffect.BURNING:
+                            enemyController.gameObject.AddComponent<GWBurn>();
+                            break;
+                        case GWElementEffect.DISARMED:
+                            enemyController.gameObject.AddComponent<GWDisarm>();
+                            break;
+                    }
+                }
+            }
+            catch (Exception e) {
+            }
         }
 
 

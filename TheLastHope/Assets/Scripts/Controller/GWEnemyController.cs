@@ -21,15 +21,20 @@ public class GWEnemyController : MonoBehaviour {
 
     public Transform meshParent;
 
+    public float currentMovementSpeed;
+
+
     void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
+
+        this.currentMovementSpeed = this.agent.speed;
     }
 
     void Update() {
 
         this.text.text = "" + this.stats.currentHealth;
 
-        this.agent.speed = this.stats.movementSpeed;
+        this.agent.speed = this.currentMovementSpeed;
 
         if (this.isStatic) {
             return;
@@ -99,7 +104,7 @@ public class GWEnemyController : MonoBehaviour {
         this.stats.currentHealth -= damage;
 
         this.attackor.attackState = GWAttackState.Roaming;
-        this.attackor.gameObject.SetActive(false);
+        this.attackor.weapon.gameObject.SetActive(false);
         this.agent.isStopped = false;
 
         if (this.stats.currentHealth <= 0) {

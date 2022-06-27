@@ -8,7 +8,9 @@ public enum GWEType {
     EARTH = 0, FIRE = 1, WATER = 2, AIR = 3, SAND = 4, IRON = 5, STEAM = 6, ICE = 7, LIGHTNING = 8, PLANT = 9
 }
 
-
+public enum GWElementEffect {
+    SLOW = 0, BURNING = 1, DISARMED = 2
+}
 
 //Class for combinations
 //Include EVERYTHING in a ScriptableObject - Completely describable by parameters
@@ -27,18 +29,20 @@ public class GWSpell : ScriptableObject {
 
     public Sprite sprite;
 
+    public GWElementEffect[] effects;
+
+
+    public GWFormType form;
+
     public Color Color {
         get {
             //GWElementColorManager.instance.Awake();
             return GWElementColorManager.instance.GetColor(this.element); }
     }
 
-    public GWFormType form;
-
-    //public GWStatusEffect statusEffect;
 
 
-    public void Activate() { Debug.Log(this.element + " Spell activated!"); }
+    public void Activate() { Debug.Log(this.element + " Spell activated! Name: " + this.name); }
     public void BeginCooldown() { }
     /*
     public GWEType GetCombined(GWEType first, GWEType second) {

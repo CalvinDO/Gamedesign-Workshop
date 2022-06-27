@@ -20,5 +20,5 @@ MonoBehaviour:
   onlyOneTimeEffect: 1
   effectInterval: 0.5
   sprite: {fileID: 21300000, guid: d9407c2d16d356a47a941caf6683f680, type: 3}
-  color: {r: 1, g: 1, b: 1, a: 0.41960785}
+  effects: 02000000
   form: 2
