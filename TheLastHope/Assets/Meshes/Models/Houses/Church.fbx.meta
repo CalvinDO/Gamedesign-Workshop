@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 301bdb330dc162b4b971160cc7ea5492
+guid: 23ae91e7d677f574db5a0a1f00b44fd8
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wood
-    second: {fileID: 2100000, guid: 165f17225d8a6f64cb9cc6920e15b7fe, type: 2}
+      name: Church
+    second: {fileID: 2100000, guid: 118407ddd9d0bb448a3dc62f70107943, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
