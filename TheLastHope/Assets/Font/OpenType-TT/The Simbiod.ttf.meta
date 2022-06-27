@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 1abf88e3b950a3d41a1cbe286e73a922
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - The Simbiod
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5557d9b5525305f4aa27d08fcb482483, type: 3}
+  - {fileID: 12800000, guid: a84c18ce8ed05f346a9d8d2f34d876aa, type: 3}
+  - {fileID: 12800000, guid: d9bbe001de909ad43bd57d32a1477588, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

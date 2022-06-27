@@ -5,25 +5,29 @@ using UnityEngine;
 public class GWLoot : MonoBehaviour
 {
     [SerializeField] private GWCollectableSpell collectible;
+    [SerializeField] private GameObject splitBox;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void breaking()
+    public void destroy()
     {
-        if(Random.Range(0, 100) >= 50)
+        GameObject fracturedBox = Instantiate(splitBox, this.transform.position, Quaternion.identity);
+        if(collectible)
         {
-            Vector3 pos = new Vector3(this.transform.position.x, 0, this.transform.position.z);
-            //add spell specifics here
-            Instantiate(collectible, pos, Quaternion.identity);
+            Instantiate(collectible, this.transform.position, Quaternion.identity);
         }
+        Rigidbody[] rbOfParts = fracturedBox.GetComponentsInChildren<Rigidbody>();
+        if(rbOfParts.Length > 0)
+        {
+            foreach (var rb in rbOfParts)
+            {
+                rb.AddExplosionForce(500, transform.position, 1);
+            }
+        }
+        Destroy(this.gameObject);
     }
 }

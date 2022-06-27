@@ -1,0 +1,9 @@
+/* Webfont: TheSimbiod-Regular */@font-face {
+    font-family: 'TheSimbiod';
+    src: url('The Simbiod.woff2') format('woff2'), /* Modern Browsers */
+         url('The Simbiod.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
