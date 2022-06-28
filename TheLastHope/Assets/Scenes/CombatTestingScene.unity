@@ -812,6 +812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hidableInventorySlots: {fileID: 941918976}
+  hotbarInventorySlots: {fileID: 0}
+  uiSpellPrefab: {fileID: 0}
 --- !u!1 &55443559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3889,6 +3891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSpell: {fileID: 0}
+  remainingActive: 0
   state: 0
   key: 101
   isPressed: 0
@@ -11107,7 +11110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1cfa5b9dd21a4c84799d0ef0167c7caf, type: 2}
+  - {fileID: 2100000, guid: 0a4472a713916a1449812527b3bd3203, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13521,6 +13524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSpell: {fileID: 0}
+  remainingActive: 0
   state: 0
   key: 113
   isPressed: 0
@@ -13705,6 +13709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSpell: {fileID: 0}
+  remainingActive: 0
   state: 0
   key: 0
   isPressed: 0
@@ -13723,6 +13728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSpell: {fileID: 0}
+  remainingActive: 0
   state: 0
   key: 0
   isPressed: 0
@@ -13741,6 +13747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSpell: {fileID: 0}
+  remainingActive: 0
   state: 0
   key: 0
   isPressed: 0
@@ -13759,6 +13766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSpell: {fileID: 0}
+  remainingActive: 0
   state: 0
   key: 0
   isPressed: 0
@@ -13777,6 +13785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSpell: {fileID: 0}
+  remainingActive: 0
   state: 0
   key: 0
   isPressed: 0
