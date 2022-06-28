@@ -97,7 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0e77a4b49756d4192532775a115747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: {fileID: 0}
+  collectible: {fileID: 8238796507556005685, guid: 4ee692d6579effb47967c803fd7de321, type: 3}
+  spells:
+  - {fileID: 11400000, guid: ab507ef0979c9d544a0211908a9dbae0, type: 2}
+  - {fileID: 11400000, guid: 207e544ac00decc469922af488abe7ce, type: 2}
+  - {fileID: 11400000, guid: 1c5ebedda1784674da3643184d841840, type: 2}
+  - {fileID: 11400000, guid: 64ec4037833e1b3459455ffa2f40fef3, type: 2}
   splitBox: {fileID: 1415593877417450318, guid: 867e28b9e52922842a754ef6f635a266, type: 3}
 --- !u!65 &3575237560807147333
 BoxCollider:
