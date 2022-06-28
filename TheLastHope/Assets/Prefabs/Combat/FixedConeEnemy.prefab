@@ -73,7 +73,7 @@ MonoBehaviour:
   futureAttackPos: {x: 0, y: 0, z: 0}
   animator: {fileID: 5361664729568865087}
   audioSource: {fileID: 6693401142159059322}
-  audioClips:
+  enemyHitClips:
   - {fileID: 8300000, guid: 5a0296ac079e8d245b183d45febbf628, type: 3}
   - {fileID: 8300000, guid: f1ac1fc51153a184ea1a8306f5e76981, type: 3}
   - {fileID: 8300000, guid: bb365b05486d0804db4fc145a55cd27b, type: 3}
