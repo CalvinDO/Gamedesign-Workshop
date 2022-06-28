@@ -7,9 +7,9 @@ public class GWCityScript : MonoBehaviour
 {
     [SerializeField] private GWDistrictScript[] districts;
     // Start is called before the first frame update
-/*     void Start()
+     void Start()
     {
-        
+        districts[0].closeBarriers();
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class GWCityScript : MonoBehaviour
     {
         
     }
- */
+
     public void increaseCorruption()
    {
         for(int i = 0; i < 5; i++)

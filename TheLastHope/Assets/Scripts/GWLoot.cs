@@ -61,7 +61,27 @@ public class GWLoot : MonoBehaviour
         if(Random.Range(0, 100) > 70)
         {
             int elem = elementChance[Random.Range(0, elementChance.Count)];
-            collectible.spell = spells[elem];
+            switch(elem)
+            {
+                case 0: //GWEType.EARTH: //Order: Earth, fire, water, air public Vector4 sensibilities = new Vector4( 0.8f, 0.4f, 0.1f, 0.15f);
+                    collectible.spell = spells[elem];
+                    break;
+                case 1: //GWEType.FIRE:
+                    collectible.spell = spells[elem];
+                    break;
+                case 2: //GWEType.WATER:
+                    if(Random.Range(0,1) > 0.5f)
+                    {
+                        collectible.spell = spells[elem];
+                    }else{
+                        collectible.spell = spells[4];
+                    }
+                    break;
+                default: //AIR
+                    collectible.spell = spells[elem];
+                    break;
+            }
+            
             Debug.Log(collectible.spell);
             Instantiate(collectible, this.transform.position, Quaternion.identity);
         }
