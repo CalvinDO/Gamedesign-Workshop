@@ -3347,10 +3347,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 560417396544379778}
   throwClipBuilup: {fileID: 8300000, guid: e23593558636f7044a5fdb6543eeb29b, type: 3}
-  shootClipBuildup: {fileID: 8300000, guid: 6f0aa25b5f6913740b9560bdf73e43c3, type: 3}
+  shootClipBuildup: {fileID: 8300000, guid: 0a132cd247d10d840ad2f88c7d2ef3d0, type: 3}
   stompClipBuildup: {fileID: 8300000, guid: cfae54358d996594ebc7063fa2be1e97, type: 3}
   throwClipSummon: {fileID: 8300000, guid: ee33e02f74b5fa947bec6766a5c4d45a, type: 3}
-  shootClipSummon: {fileID: 8300000, guid: 6f0aa25b5f6913740b9560bdf73e43c3, type: 3}
+  shootClipSummon: {fileID: 8300000, guid: a3ef9d8272f6c6a40862ec1245e7e761, type: 3}
   stompClipSummon: {fileID: 8300000, guid: 4ef44ce8101658a489de4b0bb87918d9, type: 3}
 --- !u!114 &4106217801744564864
 MonoBehaviour:

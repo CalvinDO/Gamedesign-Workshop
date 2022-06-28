@@ -9,7 +9,6 @@ public class GWAttackSounds : MonoBehaviour
     public AudioClip throwClipBuilup;
     public AudioClip shootClipBuildup;
     public AudioClip stompClipBuildup;
-
     public AudioClip throwClipSummon;
     public AudioClip shootClipSummon;
     public AudioClip stompClipSummon;
