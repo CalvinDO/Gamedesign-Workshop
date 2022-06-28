@@ -48,6 +48,11 @@ public class GWAttackor : MonoBehaviour {
 
     public GWAttackor originalAttackor;
 
+    public float ProgressFactor {
+        get { return (this.correspondingInventorySlot.Spell.activeTime - this.remainingActive) / this.correspondingInventorySlot.Spell.activeTime; }
+    }
+
+
     void Awake() {
 
         Debug.Log("attackor awake");
@@ -141,14 +146,24 @@ public class GWAttackor : MonoBehaviour {
 
     public void ManageFormEffect() {
 
-        if (this.form == GWFormType.PROJECTILE) {
-            return;
-        }
-
         switch (this.formEffect) {
 
             case GWFormEffect.VORTEX:
                 this.transform.Rotate(Vector3.up * 100 * Time.deltaTime);
+
+                foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
+
+                    //nearbyEnemy.agent.isStopped = true;
+
+                    nearbyEnemy.isFlying = true;
+
+                    nearbyEnemy.transform.parent = this.transform;
+                    Debug.Log(this.ProgressFactor);
+                    nearbyEnemy.transform.position = new Vector3(nearbyEnemy.transform.position.x, 10 * this.ProgressFactor, nearbyEnemy.transform.position.z);
+                }
+
+
+
                 break;
             case GWFormEffect.KNOCKBACK:
 
@@ -166,7 +181,7 @@ public class GWAttackor : MonoBehaviour {
                         nearbyEnemy.gameObject.AddComponent<GWStun>();
                     }
                 }
-               
+
                 break;
 
         }
@@ -274,13 +289,24 @@ public class GWAttackor : MonoBehaviour {
                 //Apply Form Effect
                 if (this.formEffect == GWFormEffect.KNOCKBACK) {
 
+
+                    Vector3 knockback =
+                        (
+                        (nearbyEnemy.transform.position - GWPawnController.instance.transform.position
+                        ).normalized
+                        + Vector3.up) * 1f;
+                    nearbyEnemy.rb.velocity = knockback * 5;
+                    /*
                     nearbyEnemy.rb.AddForce(
                         (
                         (nearbyEnemy.transform.position - GWPawnController.instance.transform.position
-                        ).normalized 
-                        + Vector3.up) * 10f, 
+                        ).normalized
+                        + Vector3.up) * 1f,
                         ForceMode.Impulse);
-                    nearbyEnemy.agent.enabled = false;
+
+                    */
+
+                    nearbyEnemy.isFlying = true;
                 }
 
                 if (nearbyEnemy.gameObject.GetComponent<GWEnemyStats>().currentHealth <= 0) {

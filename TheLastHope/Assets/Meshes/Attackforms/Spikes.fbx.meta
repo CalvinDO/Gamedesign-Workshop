@@ -1,50 +1,11 @@
 fileFormatVersion: 2
-guid: 23a4cd5c5d50a1740921a58d818165d9
+guid: 29dfd7c36ac352548b513375af746504
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: -1885967760015988072
-    second: Circle.005|Circle.005Action.002
-  - first:
-      74: 8077414722959339291
-    second: Circle.005|CylinderAction
-  - first:
-      74: -668254169835224784
-    second: Circle.005|CylinderAction.001
-  - first:
-      74: -8114979830508392679
-    second: Circle.005|CylinderAction.002
-  - first:
-      74: 3068334702804477522
-    second: Circle.005|CylinderAction.003
-  - first:
-      74: 1567307460079654685
-    second: Beben_1|Circle.005Action.002
-  - first:
-      74: -8881774333453515487
-    second: Beben_1|Cloud_1Action
-  - first:
-      74: 916182834157328614
-    second: Beben_1|Cloud_2Action
-  - first:
-      74: 1461113184065358751
-    second: Beben_1|Cloud_3Action
-  - first:
-      74: 3456787666373432658
-    second: Beben_1|Cloud_4Action
-  - first:
-      74: 4034341199235857726
-    second: Beben_1|CylinderAction
-  - first:
-      74: -8319650649173492244
-    second: Beben_1|CylinderAction.001
-  - first:
-      74: 1777755119820847522
-    second: Beben_1|CylinderAction.002
-  - first:
-      74: 382084439898643390
-    second: Beben_1|CylinderAction.003
+      74: -623603649343465320
+    second: Scene
   externalObjects: {}
   materials:
     materialImportMode: 2

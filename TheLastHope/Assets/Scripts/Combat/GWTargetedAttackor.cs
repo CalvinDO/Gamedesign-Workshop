@@ -19,7 +19,7 @@ public class GWTargetedAttackor : GWAttackor {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        int layerMask = LayerMask.GetMask("Default");
+        int layerMask = LayerMask.GetMask("Street");
 
 
         if (Physics.Raycast(ray, out hit, 1000, layerMask)) {

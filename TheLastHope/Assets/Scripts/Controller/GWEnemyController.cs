@@ -23,6 +23,8 @@ public class GWEnemyController : MonoBehaviour {
 
     public float currentMovementSpeed;
 
+    public bool isFlying;
+
 
     void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
@@ -47,6 +49,14 @@ public class GWEnemyController : MonoBehaviour {
         //this.meshParent.transform.LookAt(GWPawnController.instance.transform);
 
         this.attackor.animator.SetBool("running", this.agent.velocity.magnitude >= 0.001f);
+
+        if (this.isFlying) {
+            this.agent.enabled = false;
+            if (this.transform.position.y <= 0.01) {
+                this.isFlying = false;
+                this.agent.enabled = true;
+            }
+        }
     }
 
     public void RecieveElementAttack(List<GWEType> elements) {
@@ -58,6 +68,7 @@ public class GWEnemyController : MonoBehaviour {
             return;
         }
     }
+
 
     public float GetTotalElementDamage(List<GWEType> elements) {
 

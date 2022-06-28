@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8411590314780287734}
   - component: {fileID: 1364857320189594954}
-  - component: {fileID: 1637465382397750757}
+  - component: {fileID: 7305023205003639478}
   m_Layer: 6
   m_Name: AOE
   m_TagString: Untagged
@@ -56,8 +56,8 @@ MonoBehaviour:
   correspondingInventorySlot: {fileID: 0}
   isSummoned: 0
   originalAttackor: {fileID: 0}
---- !u!135 &1637465382397750757
-SphereCollider:
+--- !u!136 &7305023205003639478
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -66,9 +66,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Height: 35.57
+  m_Direction: 1
+  m_Center: {x: 0, y: 13.82, z: 0}
 --- !u!1 &620920537335293533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1293,7 @@ MonoBehaviour:
   characterCollider: {fileID: 370914387103196910}
   AttackorsContainer: {fileID: 1730765201068872345}
   animator: {fileID: 9084944507258242030}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 2077606264561924614}
 --- !u!114 &5320052059460557394
 MonoBehaviour:
   m_ObjectHideFlags: 0

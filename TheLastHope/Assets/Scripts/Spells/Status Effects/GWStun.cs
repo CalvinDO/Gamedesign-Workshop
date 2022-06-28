@@ -12,8 +12,11 @@ public class GWStun : GWStatusEffect {
     IEnumerator ApplyStun(float time) {
 
         this.enemyController.agent.isStopped = true;
+        this.enemyController.rb.isKinematic = true;
         yield return new WaitForSeconds(time);
         this.enemyController.agent.isStopped = false;
-        Destroy(this.gameObject.GetComponent<GWSlow>());
+        this.enemyController.rb.isKinematic = false;
+
+        Destroy(this.gameObject.GetComponent<GWStun>());
     }
 }

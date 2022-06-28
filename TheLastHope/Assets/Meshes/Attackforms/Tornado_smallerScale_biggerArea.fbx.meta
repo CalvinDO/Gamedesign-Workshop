@@ -648,6 +648,9 @@ ModelImporter:
   - first:
       74: -4517583833770917052
     second: Cloud_1|ConeAction
+  - first:
+      74: -623603649343465320
+    second: Scene
   externalObjects: {}
   materials:
     materialImportMode: 2

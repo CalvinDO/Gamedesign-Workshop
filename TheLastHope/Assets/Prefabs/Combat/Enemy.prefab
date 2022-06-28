@@ -77,6 +77,7 @@ MonoBehaviour:
   attackor: {fileID: 1037052678790456679}
   risingDamageTextPrefab: {fileID: 8846988209967251154}
   meshParent: {fileID: 2005965860109442441}
+  currentMovementSpeed: 0
 --- !u!195 &1037052678194698080
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -197,6 +198,8 @@ MonoBehaviour:
   weapon: {fileID: 5508290490985978134}
   futureAttackPos: {x: 0, y: 0, z: 0}
   animator: {fileID: 6150054248578061316}
+  audioSource: {fileID: 0}
+  audioClips: []
 --- !u!1 &4594271653819063972
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +641,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a5d8b73a5c1dceb45ac20fe4b9b5463d, type: 3}
   m_PrefabInstance: {fileID: 302854330835282325}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &644751115303064772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a5d8b73a5c1dceb45ac20fe4b9b5463d, type: 3}
+  m_PrefabInstance: {fileID: 302854330835282325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1179374999254448517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644751115303064772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbcb8cf5aecda14ab7014bad27238f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stop: 0
 --- !u!95 &6150054248578061316 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a5d8b73a5c1dceb45ac20fe4b9b5463d, type: 3}
