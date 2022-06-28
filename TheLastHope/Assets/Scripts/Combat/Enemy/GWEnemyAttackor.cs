@@ -140,7 +140,7 @@ public class GWEnemyAttackor : MonoBehaviour {
 
         this.animator.SetTrigger("meleeAttack");
 
-        AudioManager.PlayRandomClip(this.audioSource, this.enemyHitClips);
+        GWAudioManager.PlayRandomClip(this.audioSource, this.enemyHitClips);
 
         this.weapon.Attack();
 
