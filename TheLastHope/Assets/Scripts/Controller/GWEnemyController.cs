@@ -19,7 +19,6 @@ public class GWEnemyController : MonoBehaviour {
 
     public GameObject risingDamageTextPrefab;
 
-    public Transform meshParent;
 
     public float currentMovementSpeed;
 
@@ -41,9 +40,14 @@ public class GWEnemyController : MonoBehaviour {
         if (this.isStatic) {
             return;
         }
+        try {
+            if (Vector3.Distance(this.transform.position, GWPawnController.instance.transform.position) < this.seeCharacterRange) {
+                this.agent.destination = GWPawnController.instance.transform.position;
+            }
 
-        if (Vector3.Distance(this.transform.position, GWPawnController.instance.transform.position) < this.seeCharacterRange) {
-            this.agent.destination = GWPawnController.instance.transform.position;
+        }
+        catch (Exception e) {
+            Debug.LogWarning(e.Message);
         }
 
         //this.meshParent.transform.LookAt(GWPawnController.instance.transform);
