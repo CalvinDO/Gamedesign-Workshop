@@ -33,8 +33,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 408966852592763034}
   - {fileID: 3322221141458487614}
+  - {fileID: 408966852592763034}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,8 +97,8 @@ MonoBehaviour:
   spell: {fileID: 11400000, guid: 1c5ebedda1784674da3643184d841840, type: 2}
   image: {fileID: 1983574526172083567}
   draggable: {fileID: 9128625123320690654}
-  elementsDisplay: {fileID: 7671360522953522767}
-  resultDisplay: {fileID: 7391392701627154837}
+  elementsDisplay: {fileID: 7391392701627154837}
+  formDisplay: {fileID: 7671360522953522767}
 --- !u!114 &9128625123320690654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 3763004939830457015}
   - component: {fileID: 7671360522953522767}
   m_Layer: 5
-  m_Name: ElementsDisplay
+  m_Name: FormDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,12 +155,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1983574526172083564}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 27.5}
-  m_SizeDelta: {x: 110.62, y: 45.6}
+  m_AnchoredPosition: {x: 1.3, y: 43.1}
+  m_SizeDelta: {x: 127.7, y: 21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3763004939830457015
 CanvasRenderer:
@@ -191,19 +191,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_Font: {fileID: 12800000, guid: 1abf88e3b950a3d41a1cbe286e73a922, type: 3}
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 7
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WATER + FIRE
+  m_Text: '- BALL -'
 --- !u!1 &6352244063565421978
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 6633141917599431480}
   - component: {fileID: 7391392701627154837}
   m_Layer: 5
-  m_Name: ResultDisplay
+  m_Name: ElementDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,12 +235,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1983574526172083564}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.861, y: 62.3}
-  m_SizeDelta: {x: 63.722, y: 20.2}
+  m_AnchoredPosition: {x: -5.7, y: 73.6}
+  m_SizeDelta: {x: 115.1, y: 31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6633141917599431480
 CanvasRenderer:
@@ -271,8 +271,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_Font: {fileID: 12800000, guid: 1abf88e3b950a3d41a1cbe286e73a922, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10

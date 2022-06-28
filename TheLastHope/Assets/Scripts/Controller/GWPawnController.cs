@@ -82,7 +82,7 @@ public class GWPawnController : MonoBehaviour {
 
                 this.SwitchToLoading();
 
-               
+
                 break;
             case GWAttackState.Loading:
 
@@ -95,13 +95,28 @@ public class GWPawnController : MonoBehaviour {
 
                 float factor = this.remainingBuildUpTime / this.buildUpTime;
 
-                this.weaponMat = new Material(this.summoningAttackor.visualAttackor.material.shader);
 
-                this.weaponMat.CopyPropertiesFromMaterial(this.summoningAttackor.visualAttackor.material);
+                if (this.summoningAttackor.skinnedVisualAttackor) {
+
+                    this.weaponMat = new Material(this.summoningAttackor.skinnedVisualAttackor.material.shader);
+                    this.weaponMat.CopyPropertiesFromMaterial(this.summoningAttackor.skinnedVisualAttackor.material);
+                }
+                else {
+                    this.weaponMat = new Material(this.summoningAttackor.visualAttackor.material.shader);
+                    this.weaponMat.CopyPropertiesFromMaterial(this.summoningAttackor.visualAttackor.material);
+                }
+
                 this.weaponColor = this.weaponMat.color = this.attackingInventorySlot.Spell.Color;
                 this.weaponColor.a = 1 - factor;
                 this.weaponMat.color = this.weaponColor;
-                this.summoningAttackor.visualAttackor.material.CopyPropertiesFromMaterial(this.weaponMat);
+
+                if (this.summoningAttackor.skinnedVisualAttackor) {
+                    this.summoningAttackor.skinnedVisualAttackor.material.CopyPropertiesFromMaterial(this.weaponMat);
+                }
+                else {
+                    this.summoningAttackor.visualAttackor.material.CopyPropertiesFromMaterial(this.weaponMat);
+                }
+
 
                 //this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.y,  0);
 
@@ -145,8 +160,14 @@ public class GWPawnController : MonoBehaviour {
             }
         }
 
+        if (this.summoningAttackor.skinnedVisualAttackor) {
+            this.weaponMat = this.summoningAttackor.skinnedVisualAttackor.material;
+        }
+        else {
+            this.weaponMat = this.summoningAttackor.visualAttackor.material;
+        }
 
-        this.weaponMat = this.summoningAttackor.visualAttackor.material;
+        
         this.weaponColor = this.weaponMat.color;
         this.weaponColor.a = 0;
         this.weaponMat.color = this.weaponColor;
@@ -167,24 +188,24 @@ public class GWPawnController : MonoBehaviour {
 
     private void SetSpellAnimation() {
 
-        switch(this.attackingInventorySlot.Spell.form){
+        switch (this.attackingInventorySlot.Spell.form) {
 
-            case GWFormType.PROJECTILE:
-                this.animator.SetTrigger("shootSpell"); 
-                break;
-            case GWFormType.AOE:
-                this.animator.SetTrigger("throwSpell");
-                break;
-            case GWFormType.CONE:
+            case GWFormType.BALL:
                 this.animator.SetTrigger("shootSpell");
                 break;
-            case GWFormType.ROUNDHOUSE:
+            case GWFormType.TORNADO:
+                this.animator.SetTrigger("throwSpell");
+                break;
+            case GWFormType.PUSH:
+                this.animator.SetTrigger("shootSpell");
+                break;
+            case GWFormType.QUAKE:
                 this.animator.SetTrigger("stampSpell");
                 break;
             case GWFormType.DISTRIBUTION:
                 this.animator.SetTrigger("throwSpell");
                 break;
-            case GWFormType.HORIZONTAL_BEAM:
+            case GWFormType.SPIKES:
                 this.animator.SetTrigger("throwSpell");
                 break;
             case GWFormType.SHOOT_UP:
@@ -232,9 +253,9 @@ public class GWPawnController : MonoBehaviour {
 
     public void Hurt(float damage) {
 
-        this.attackState = GWAttackState.Roaming;
+
         //this.activeAttackor.gameObject.SetActive(false);
-        this.isMovementBlocked = false;
+
 
         if (this.attackState == GWAttackState.Loading) {
             this.AbortAttack();
@@ -257,6 +278,7 @@ public class GWPawnController : MonoBehaviour {
     public void AbortAttack() {
 
         this.attackState = GWAttackState.Roaming;
+        this.isMovementBlocked = false;
 
         this.SetTimes();
 
@@ -271,7 +293,7 @@ public class GWPawnController : MonoBehaviour {
         this.animator.SetTrigger("die");
 
         Time.timeScale = 0;
-       // GameObject.Destroy(this.gameObject);
+        // GameObject.Destroy(this.gameObject);
     }
 
     private void LookatMouse() {
@@ -328,5 +350,5 @@ public class GWPawnController : MonoBehaviour {
         this.rb.position += this.velocity;
     }
 
-   
+
 }
