@@ -9,7 +9,7 @@ public enum GWControlType {
 }
 
 public enum GWFormType {
-    PROJECTILE = 0, AOE = 1, CONE = 2, ROUNDHOUSE = 3, DISTRIBUTION = 4, HORIZONTAL_BEAM = 5, SHOOT_UP = 6
+    BALL = 0, TORNADO = 1, PUSH = 2, QUAKE = 3, DISTRIBUTION = 4, SPIKES = 5, SHOOT_UP = 6
 }
 
 public enum GWFormEffect {
@@ -23,6 +23,8 @@ public class GWAttackor : MonoBehaviour {
     public List<GWEnemyController> nearbyEnemys;
     //public List<GWLoot> lootBoxes;
     public MeshRenderer visualAttackor;
+    public SkinnedMeshRenderer skinnedVisualAttackor;
+
 
     public GWControlType control;
     public GWFormType form;
@@ -138,7 +140,15 @@ public class GWAttackor : MonoBehaviour {
 
     private void ManageTransparency() {
 
-        Material weaponMat = this.visualAttackor.material;
+        Material weaponMat;
+
+        if (this.skinnedVisualAttackor) {
+            weaponMat = this.skinnedVisualAttackor.material;
+        }
+        else {
+            weaponMat = this.visualAttackor.material;
+        }
+
         Color weaponColor = weaponMat.color;
         weaponColor.a = 0.5f + 0.2f * MathF.Sin(this.remainingActive * 5);
         weaponMat.color = weaponColor;
@@ -192,10 +202,19 @@ public class GWAttackor : MonoBehaviour {
 
         try {
 
-            Material weaponMat = this.visualAttackor.material;
+            Material weaponMat;
+
+            if (this.skinnedVisualAttackor) {
+                weaponMat = this.skinnedVisualAttackor.material;
+            }
+            else {
+                weaponMat = this.visualAttackor.material;
+            }
+
             Color weaponColor = weaponMat.color = this.spell.Color;
             weaponColor.a = 0;
             weaponMat.color = weaponColor;
+
         }
         catch (Exception e) {
             Debug.LogWarning(e.Message);
@@ -216,9 +235,18 @@ public class GWAttackor : MonoBehaviour {
         this.upbildingAttackorClone.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
 
 
+        if (this.skinnedVisualAttackor) {
 
-        this.upbildingAttackorClone.visualAttackor.material = new Material(this.visualAttackor.material.shader);
-        this.upbildingAttackorClone.visualAttackor.material.CopyPropertiesFromMaterial(this.visualAttackor.material);
+            this.upbildingAttackorClone.skinnedVisualAttackor.material = new Material(this.skinnedVisualAttackor.material.shader);
+            this.upbildingAttackorClone.skinnedVisualAttackor.material.CopyPropertiesFromMaterial(this.skinnedVisualAttackor.material);
+        }
+        else {
+            this.upbildingAttackorClone.visualAttackor.material = new Material(this.visualAttackor.material.shader);
+            this.upbildingAttackorClone.visualAttackor.material.CopyPropertiesFromMaterial(this.visualAttackor.material);
+        }
+
+
+
 
         this.upbildingAttackorClone.isSummoned = true;
 
