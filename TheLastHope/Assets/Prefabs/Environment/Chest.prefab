@@ -103,6 +103,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 207e544ac00decc469922af488abe7ce, type: 2}
   - {fileID: 11400000, guid: 1c5ebedda1784674da3643184d841840, type: 2}
   - {fileID: 11400000, guid: 64ec4037833e1b3459455ffa2f40fef3, type: 2}
+  - {fileID: 11400000, guid: aabc28957e87cd143a13e56613044d23, type: 2}
   splitBox: {fileID: 1415593877417450318, guid: 867e28b9e52922842a754ef6f635a266, type: 3}
 --- !u!65 &3575237560807147333
 BoxCollider:
