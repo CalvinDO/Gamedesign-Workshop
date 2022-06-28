@@ -30,7 +30,7 @@ public class GWProjectile : MonoBehaviour {
 
 
         GWPawnController pawnController = other.gameObject.GetComponent<GWPawnController>();
-        GWEnemyController enemyController = other.gameObject.GetComponent<GWEnemyController>();
+        GWEnemyController nearbyEnemy = other.gameObject.GetComponent<GWEnemyController>();
 
         if (pawnController) {
             pawnController.Hurt(this.damage);
@@ -39,21 +39,39 @@ public class GWProjectile : MonoBehaviour {
             //enemyController.Hurt(this.damage);
 
             try {
-                enemyController.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
 
+                if (!nearbyEnemy.gameObject.GetComponent<GWStun>()) {
+                    nearbyEnemy.gameObject.AddComponent<GWStun>();
+                }
+                else {
+                    Destroy(nearbyEnemy.gameObject.GetComponent<GWStun>());
+                    nearbyEnemy.gameObject.AddComponent<GWStun>();
+                }
+
+                nearbyEnemy.RecieveElementAttack(this.correspondingInventorySlot.Spell.containedElements);
+
+                
                 //Aus Testing: Slow wird immer applied!!!
 
                 foreach (GWElementEffect effect in this.correspondingInventorySlot.Spell.effects) {
                     Debug.Log("effect: " + effect);
                     switch (effect) {
                         case GWElementEffect.SLOW:
-                            enemyController.gameObject.AddComponent<GWSlow>();
+                            nearbyEnemy.gameObject.AddComponent<GWSlow>();
                             break;
                         case GWElementEffect.BURNING:
-                            enemyController.gameObject.AddComponent<GWBurn>();
+                            nearbyEnemy.gameObject.AddComponent<GWBurn>();
                             break;
                         case GWElementEffect.DISARMED:
-                            enemyController.gameObject.AddComponent<GWDisarm>();
+
+                            if (!nearbyEnemy.gameObject.GetComponent<GWDisarm>()) {
+                                nearbyEnemy.gameObject.AddComponent<GWDisarm>();
+                            }
+                            else {
+                                Destroy(nearbyEnemy.gameObject.GetComponent<GWDisarm>());
+                                nearbyEnemy.gameObject.AddComponent<GWDisarm>();
+                            }
+
                             break;
                     }
                 }

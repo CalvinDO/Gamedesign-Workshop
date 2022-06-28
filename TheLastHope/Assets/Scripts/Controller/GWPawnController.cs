@@ -43,6 +43,8 @@ public class GWPawnController : MonoBehaviour {
     private Material weaponMat;
     private Color weaponColor;
 
+    public AudioSource audioSource;
+
 
     void Awake() {
         GWPawnController.instance = this;
@@ -325,4 +327,6 @@ public class GWPawnController : MonoBehaviour {
 
         this.rb.position += this.velocity;
     }
+
+   
 }

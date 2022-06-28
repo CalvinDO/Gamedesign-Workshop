@@ -33,6 +33,9 @@ public class GWEnemyAttackor : MonoBehaviour {
 
     public Animator animator;
 
+    public AudioSource audioSource;
+    public AudioClip[] hitSoundClips;
+
     void Start() {
         this.remainingTime = this.cooldownTime;
         this.remainingLoadTime = this.loadTime;
@@ -136,6 +139,10 @@ public class GWEnemyAttackor : MonoBehaviour {
     public virtual void Attack() {
 
         this.animator.SetTrigger("meleeAttack");
+
+        AudioClip randClip = this.hitSoundClips[(int)Random.Range(0, this.hitSoundClips.Length)];
+
+        this.audioSource.PlayOneShot(randClip);
 
         this.weapon.Attack();
 

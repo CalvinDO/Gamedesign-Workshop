@@ -155,10 +155,18 @@ public class GWAttackor : MonoBehaviour {
                 break;
             case GWFormEffect.STUN:
 
-                foreach (GWEnemyController enemy in this.nearbyEnemys) {
-                    enemy.agent.isStopped = true;
-                }
+                foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
+                    nearbyEnemy.agent.isStopped = true;
 
+                    if (!nearbyEnemy.gameObject.GetComponent<GWStun>()) {
+                        nearbyEnemy.gameObject.AddComponent<GWStun>();
+                    }
+                    else {
+                        Destroy(nearbyEnemy.gameObject.GetComponent<GWStun>());
+                        nearbyEnemy.gameObject.AddComponent<GWStun>();
+                    }
+                }
+               
                 break;
 
         }
