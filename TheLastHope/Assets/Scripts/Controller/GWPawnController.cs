@@ -118,6 +118,8 @@ public class GWPawnController : MonoBehaviour {
                 }
 
 
+                this.attackingInventorySlot.uiSpell.overlay.fillAmount = 1 - factor;
+
                 //this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.y,  0);
 
 

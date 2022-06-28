@@ -19,7 +19,7 @@ public class GWUISpell : MonoBehaviour {
     public Text elementsDisplay;
     public Text formDisplay;
 
-
+    public Image overlay;
 
     public void Awake() {
         this.Init();
