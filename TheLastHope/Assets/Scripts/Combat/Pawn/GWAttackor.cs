@@ -21,7 +21,7 @@ public class GWAttackor : MonoBehaviour {
     private bool isPressingAttack;
     private bool isPressingHeal;
     public List<GWEnemyController> nearbyEnemys;
-    //public List<GWLoot> lootBoxes;
+    public List<GWLoot> lootBoxes;
     public MeshRenderer visualAttackor;
     public SkinnedMeshRenderer skinnedVisualAttackor;
 
@@ -358,12 +358,19 @@ public class GWAttackor : MonoBehaviour {
             this.nearbyEnemys.Remove(killedEnemy);
         }
 
-        /*
 
-        foreach (GWL) {
-            box.Destroy();
+
+        try {
+
+
+            foreach (GWLoot loot in this.lootBoxes) {
+                loot.destroy();
+            }
         }
-        */
+        catch (Exception e) {
+
+        }
+
 
         if (this.onlyOneTimeEffect) {
             this.alreadyUsed = true;
@@ -384,22 +391,43 @@ public class GWAttackor : MonoBehaviour {
 
     void OnTriggerStay(Collider other) {
 
+        try {
 
 
-        if (this.nearbyEnemys.Contains(other.gameObject.GetComponent<GWEnemyController>())) {
-            return;
+            if (this.lootBoxes.Contains(other.gameObject.GetComponent<GWLoot>())) {
+                return;
+            }
+
+            this.lootBoxes.Add(other.gameObject.GetComponent<GWLoot>());
+
+            if (this.nearbyEnemys.Contains(other.gameObject.GetComponent<GWEnemyController>())) {
+                return;
+            }
+
+            this.nearbyEnemys.Add(other.gameObject.GetComponent<GWEnemyController>());
         }
+        catch (Exception e) {
 
-        this.nearbyEnemys.Add(other.gameObject.GetComponent<GWEnemyController>());
-
+        }
     }
 
     void OnTriggerExit(Collider other) {
 
-        GWEnemyController otherEnemyController = other.gameObject.GetComponent<GWEnemyController>();
+        try {
 
-        if (this.nearbyEnemys.Contains(otherEnemyController)) {
-            this.nearbyEnemys.Remove(otherEnemyController);
+            GWEnemyController otherEnemyController = other.gameObject.GetComponent<GWEnemyController>();
+
+            if (this.nearbyEnemys.Contains(otherEnemyController)) {
+                this.nearbyEnemys.Remove(otherEnemyController);
+            }
+
+            if (this.lootBoxes.Contains(other.gameObject.GetComponent<GWLoot>())) {
+                this.lootBoxes.Remove(other.gameObject.GetComponent<GWLoot>());
+                return;
+            }
+        }
+        catch (Exception e) {
+
         }
     }
 }

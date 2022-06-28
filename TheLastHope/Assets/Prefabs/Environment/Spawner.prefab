@@ -543,7 +543,7 @@ MonoBehaviour:
   - {fileID: 1037052678194698087, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
   - {fileID: 328818376325036641, guid: 37ddc38919b8c8b47bc2395e02a2fd7e, type: 3}
   - {fileID: 1037052678194698087, guid: ee6343e164ce41041bb1f156f01fa7d6, type: 3}
-  districtLeader: {fileID: 1037052678194698087, guid: 3ba2b795d5531004abc6c61e24a8d8d1, type: 3}
+  districtLeader: {fileID: 599829950644682621, guid: 43193ed094cdb394cbde6e4624a0fa81, type: 3}
   district: {fileID: 0}
   spawnPoints:
   - {fileID: 1014011905911318840}

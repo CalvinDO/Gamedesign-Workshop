@@ -46,7 +46,12 @@ public class GWUISpell : MonoBehaviour {
         this.spellInstance.element = this.spellInstance.containedElements[0];
 
         this.elementsDisplay.text = this.spellInstance.element + "";
+        try {
+
         this.elementsDisplay.color = GWElementColorManager.instance.GetColor(this.spellInstance.element);
+        } catch (Exception e) {
+            this.elementsDisplay.color = Color.red;
+        }
         Color color = this.elementsDisplay.color;
         color.a = 1;
         this.elementsDisplay.color = color;

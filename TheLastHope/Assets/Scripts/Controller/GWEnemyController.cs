@@ -39,7 +39,7 @@ public class GWEnemyController : MonoBehaviour {
 
         this.agent.speed = this.currentMovementSpeed;
 
-        Debug.Log(this.agent.speed);
+        //Debug.Log(this.agent.speed);
 
         if (this.isStatic) {
             return;
@@ -70,7 +70,7 @@ public class GWEnemyController : MonoBehaviour {
             }
         }
 
-        Debug.Log(this.agent.speed);
+        //Debug.Log(this.agent.speed);
     }
 
     public void RecieveElementAttack(List<GWEType> elements) {

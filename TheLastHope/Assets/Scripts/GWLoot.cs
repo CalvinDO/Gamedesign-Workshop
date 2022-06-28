@@ -20,7 +20,7 @@ public class GWLoot : MonoBehaviour
             }
         }
         int elem;
-        switch(this.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<GWDistrictScript>().getElement())
+        switch(this.gameObject.GetComponentInParent<GWDistrictScript>().getElement())
         {
             case GWEType.EARTH:
                 elem = 0;
