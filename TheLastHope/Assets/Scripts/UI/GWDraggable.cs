@@ -17,8 +17,11 @@ public class GWDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnBeginDrag(PointerEventData eventData) {
 
         //this.transform.SetParent(GWAttackSlotContainer.instance.transform);
+        //if (this.originInventorySlot.state != GWInventorySlot.SpellState.)
 
-
+        if (GWSpellMenu.instance.cardMovingBlocked) {
+            return;
+        }
         this.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 

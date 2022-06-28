@@ -12,6 +12,7 @@ public class GWSpellMenu : MonoBehaviour {
 
 
     public static GWSpellMenu instance;
+    public bool cardMovingBlocked;
 
     void Awake() {
         GWSpellMenu.instance = this;
@@ -21,6 +22,7 @@ public class GWSpellMenu : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.I)) {
 
             this.hidableInventorySlots.gameObject.SetActive(!this.hidableInventorySlots.gameObject.activeSelf);
+            GWPawnController.instance.isAttackingBlocked = !GWPawnController.instance.isAttackingBlocked;
         }
     }
 
@@ -51,7 +53,7 @@ public class GWSpellMenu : MonoBehaviour {
                     Debug.Log(inventorySlot.name + " is empty and will be filled with " + spell.element);
 
                     inventorySlot.FillWithGeneratedUISpell(spell);
-                    
+
                     throw new FilledException();
                 }
             }
