@@ -20,5 +20,6 @@ MonoBehaviour:
   onlyOneTimeEffect: 1
   effectInterval: 0.5
   sprite: {fileID: 21300000, guid: e29074bf58662f441b784f6136815ae0, type: 3}
+  formSprite: {fileID: 21300000, guid: 2b14b3b5b1848ef4c86b3eb00ac36975, type: 3}
   effects: 00000000
   form: 0

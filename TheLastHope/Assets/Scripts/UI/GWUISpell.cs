@@ -12,10 +12,14 @@ public class GWUISpell : MonoBehaviour {
 
     public GWSpell spell;
     public Image image;
+    public Image formImage;
+
     public GWDraggable draggable;
 
     public Text elementsDisplay;
     public Text formDisplay;
+
+
 
     public void Awake() {
         this.Init();
@@ -32,7 +36,8 @@ public class GWUISpell : MonoBehaviour {
 
         this.spellInstance = GameObject.Instantiate(this.spell);
 
-        this.image.sprite = this.spell.sprite;
+        this.image.sprite = this.spellInstance.sprite;
+        this.formImage.sprite = this.spellInstance.formSprite;
 
         //this.elementsDisplay.text = "";
 
@@ -96,7 +101,7 @@ public class GWUISpell : MonoBehaviour {
         catch (Exception e) {
             newEffectArray[1] = this.spellInstance.effects[0];
         }
-        
+
 
         this.spellInstance.effects = newEffectArray;
 

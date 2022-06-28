@@ -28,6 +28,8 @@ public class GWSpell : ScriptableObject {
     public float effectInterval;
 
     public Sprite sprite;
+    public Sprite formSprite;
+
 
     public GWElementEffect[] effects;
 
