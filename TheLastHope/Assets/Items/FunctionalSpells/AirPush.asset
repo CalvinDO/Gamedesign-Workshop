@@ -19,6 +19,6 @@ MonoBehaviour:
   cooldownTime: 2
   onlyOneTimeEffect: 1
   effectInterval: 0.5
-  sprite: {fileID: 21300000, guid: d9407c2d16d356a47a941caf6683f680, type: 3}
+  sprite: {fileID: 21300000, guid: e29074bf58662f441b784f6136815ae0, type: 3}
   effects: 02000000
   form: 2

@@ -20,7 +20,7 @@ public class GWLoot : MonoBehaviour
             }
         }
         int elem;
-        switch(this.gameObject.transform.parent.gameObject.GetComponent<GWDistrictScript>().getElement())
+        switch(this.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<GWDistrictScript>().getElement())
         {
             case GWEType.EARTH:
                 elem = 0;
@@ -40,15 +40,6 @@ public class GWLoot : MonoBehaviour
             elementChance.Add(elem);
         }
     }
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            this.destroy();
-        }
-    }
-
 
     public void destroy()
     {
