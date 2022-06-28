@@ -164,12 +164,17 @@ public class GWAttackor : MonoBehaviour {
                 foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
 
                     //nearbyEnemy.agent.isStopped = true;
+                    try {
 
-                    nearbyEnemy.isFlying = true;
 
-                    nearbyEnemy.transform.parent = this.transform;
-                    Debug.Log(this.ProgressFactor);
-                    nearbyEnemy.transform.position = new Vector3(nearbyEnemy.transform.position.x, 10 * this.ProgressFactor, nearbyEnemy.transform.position.z);
+                        nearbyEnemy.isFlying = true;
+
+                        nearbyEnemy.transform.parent = this.transform;
+                        nearbyEnemy.transform.position = new Vector3(nearbyEnemy.transform.position.x, 10 * this.ProgressFactor, nearbyEnemy.transform.position.z);
+                    }
+                    catch (Exception e) {
+
+                    }
                 }
 
 

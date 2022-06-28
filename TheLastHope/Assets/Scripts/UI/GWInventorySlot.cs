@@ -88,15 +88,18 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
                     this.remainingCooldown = this.uiSpell.spellInstance.cooldownTime;
                 }
 
-                float factor =  this.remainingActive / this.Spell.activeTime;
-                this.uiSpell.overlay.fillAmount = factor;
+                //float factor = this.remainingActive / this.Spell.activeTime;
+                this.uiSpell.overlay.fillAmount = 1;
 
                 break;
             case SpellState.COOLDOWN:
+
                 if (this.remainingCooldown > 0) {
                     this.remainingCooldown -= Time.deltaTime;
                     this.cooldownDisplay.text = "" + this.remainingCooldown;
 
+                    float factor = this.remainingCooldown / this.Spell.cooldownTime;
+                    this.uiSpell.overlay.fillAmount = factor;
                 }
                 else {
                     this.state = SpellState.READY;
