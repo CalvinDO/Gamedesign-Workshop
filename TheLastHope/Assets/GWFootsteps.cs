@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GWFootsteps : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip[] pawnStepClips;
     public void PlayFootstep() {
-        Debug.Log("footstep");
+        AudioManager.PlayRandomClip(audioSource, pawnStepClips);
     }
 }
