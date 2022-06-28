@@ -131,6 +131,7 @@ public class GWEnemyController : MonoBehaviour {
         this.attackor.attackState = GWAttackState.Roaming;
         this.attackor.weapon.gameObject.SetActive(false);
         this.agent.isStopped = false;
+        
 
         if (this.stats.currentHealth <= 0) {
             this.Die();

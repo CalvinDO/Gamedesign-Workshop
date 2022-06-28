@@ -127,6 +127,8 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
     public void SetSpellTimes() {
         this.remainingCooldown = this.uiSpell.spellInstance.cooldownTime;
         this.remainingActive = this.uiSpell.spellInstance.activeTime;
+
+        this.uiSpell.overlay.fillAmount = 0;
     }
 
     public void OnPointerEnter(PointerEventData eventData) {

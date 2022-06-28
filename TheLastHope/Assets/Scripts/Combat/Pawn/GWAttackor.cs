@@ -227,6 +227,7 @@ public class GWAttackor : MonoBehaviour {
 
         foreach (GWEnemyController enemy in this.nearbyEnemys) {
             enemy.agent.isStopped = false;
+            enemy.transform.parent = null;
         }
 
 

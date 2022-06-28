@@ -15,7 +15,7 @@ MonoBehaviour:
   element: 1
   containedElements: 01000000
   buildUpTime: 2
-  activeTime: 10
+  activeTime: 7
   cooldownTime: 5
   onlyOneTimeEffect: 0
   effectInterval: 1

@@ -11,9 +11,16 @@ public class GWEnemyStats : MonoBehaviour, GWIStats {
     //Order: Earth, fire, water, air
     public Vector4 sensibilities = new Vector4(0.8f, 0.4f, 0.1f, 0.15f);
 
+    public float manualMaxHealth;
 
     void Start() {
-        this.maxHealth = 50;
+        if (this.manualMaxHealth == 0) {
+            this.maxHealth = 50;
+        }
+        else {
+            this.maxHealth = this.manualMaxHealth;
+        }
+
         this.currentHealth = maxHealth;
         this.movementSpeed = 2;
     }

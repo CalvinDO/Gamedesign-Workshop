@@ -160,7 +160,6 @@ MonoBehaviour:
   isStatic: 1
   attackor: {fileID: 476817793110688576}
   risingDamageTextPrefab: {fileID: 6919309668188272926}
-  meshParent: {fileID: 2005965860109442441}
   currentMovementSpeed: 0
   isFlying: 0
 --- !u!195 &1037052678194698080
@@ -286,7 +285,7 @@ MonoBehaviour:
   futureAttackPos: {x: 0, y: 0, z: 0}
   animator: {fileID: 5907338298284286685}
   audioSource: {fileID: 0}
-  audioClips: []
+  enemyHitClips: []
   projectile: {fileID: 1259796268122064314}
   flyingProjectile: {fileID: 0}
   aimLaser: {fileID: 3743118019547123330}
@@ -514,7 +513,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9fefc3cb8fe324a47ad3fc4aa5361c8b, type: 2}
+  - {fileID: 2100000, guid: adcb8490026ed82459ce5e9b34939f95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

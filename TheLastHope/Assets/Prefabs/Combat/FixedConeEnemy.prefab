@@ -251,7 +251,6 @@ MonoBehaviour:
   isStatic: 0
   attackor: {fileID: 328818375746439265}
   risingDamageTextPrefab: {fileID: 6083124301529234723}
-  meshParent: {fileID: 1234817713343475855}
   currentMovementSpeed: 0
   isFlying: 0
 --- !u!195 &328818376325036646
@@ -646,7 +645,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66dcec4c0685c9d4390616a84516b084, type: 2}
+  - {fileID: 2100000, guid: adcb8490026ed82459ce5e9b34939f95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
