@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Street_Lamp
     second: {fileID: 2100000, guid: bae90f58ace8ca24aafa86ff90ca7d9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Street_Lamp_Glas
+    second: {fileID: 2100000, guid: bae90f58ace8ca24aafa86ff90ca7d9c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
