@@ -271,7 +271,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 4.76
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1107,7 +1107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.4}
+  m_AnchoredPosition: {x: 0, y: 4.81}
   m_SizeDelta: {x: 2.85, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7818157044408533135
@@ -2238,7 +2238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4333935141525900420, guid: a17d1ebbd2c8a2c4596b1016effe9dd2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.4
+      value: 4.84
       objectReference: {fileID: 0}
     - target: {fileID: 4333935141525900420, guid: a17d1ebbd2c8a2c4596b1016effe9dd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

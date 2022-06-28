@@ -22,7 +22,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
                 }
 
                 this.aimLaser.SetActive(false);
-
+                this.projectile.gameObject.SetActive(false);
                 break;
             case GWAttackState.Loading:
 
@@ -91,6 +91,7 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
         this.flyingProjectile = GameObject.Instantiate(this.projectile, GWPoolManager.instance.projectilePool);
         this.flyingProjectile.transform.SetPositionAndRotation(this.projectile.transform.position, this.projectile.transform.rotation);
+        this.flyingProjectile.gameObject.SetActive(true);
         this.flyingProjectile.Shoot();
 
         this.remainingTime = this.cooldownTime;

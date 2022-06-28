@@ -8,18 +8,33 @@ public class GWDistrictLeaderController : GWEnemyController {
     public float switchInterval;
     public float remainingSwitchTime;
 
-    void Start() {
+    public override void Start() {
+
+        base.Start();
+
         this.remainingSwitchTime = this.switchInterval;
+        this.agent.isStopped = false;
     }
 
     // Update is called once per frame
-    void Update() {
+    public override void Update() {
+
+        /*
+        if (!this.GetComponent<GWSlow>() && !this.GetComponent<GWStun>()) {
+
+            this.currentMovementSpeed = 2;
+        }
+        */
+        base.Update();
+
         this.remainingSwitchTime -= Time.deltaTime;
 
         if (this.remainingSwitchTime <= 0) {
             this.remainingSwitchTime = this.switchInterval;
             this.SwitchAttackor();
         }
+
+        Debug.Log(this.agent.isStopped);
     }
 
     void SwitchAttackor() {
@@ -32,6 +47,6 @@ public class GWDistrictLeaderController : GWEnemyController {
         this.attackor = this.attackors[(int)Random.Range(0, this.attackors.Length)];
         this.attackor.gameObject.SetActive(true);
 
-        
+        //Debug.Log(this.agent.isStopped + " should be false");
     }
 }

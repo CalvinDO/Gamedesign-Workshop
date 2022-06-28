@@ -25,24 +25,32 @@ public class GWEnemyController : MonoBehaviour {
     public bool isFlying;
 
 
-    void Start() {
+    public virtual void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
 
         this.currentMovementSpeed = this.agent.speed;
+
+        Debug.Log(this.currentMovementSpeed);
     }
 
-    void Update() {
+    public virtual void Update() {
 
         this.text.text = "" + this.stats.currentHealth;
 
         this.agent.speed = this.currentMovementSpeed;
 
+        Debug.Log(this.agent.speed);
+
         if (this.isStatic) {
             return;
         }
+
+
+        //Debug.Log("agent destination: " + this.agent.destination);
         try {
             if (Vector3.Distance(this.transform.position, GWPawnController.instance.transform.position) < this.seeCharacterRange) {
                 this.agent.destination = GWPawnController.instance.transform.position;
+                //Debug.Log("agent destination: " + this.agent.destination);
             }
 
         }
@@ -61,6 +69,8 @@ public class GWEnemyController : MonoBehaviour {
                 this.agent.enabled = true;
             }
         }
+
+        Debug.Log(this.agent.speed);
     }
 
     public void RecieveElementAttack(List<GWEType> elements) {
