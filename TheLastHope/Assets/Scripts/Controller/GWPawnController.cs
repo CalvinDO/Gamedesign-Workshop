@@ -44,7 +44,7 @@ public class GWPawnController : MonoBehaviour {
     private Color weaponColor;
 
     public AudioSource audioSource;
-
+    public bool isAttackingBlocked;
 
     void Awake() {
         GWPawnController.instance = this;
@@ -167,7 +167,7 @@ public class GWPawnController : MonoBehaviour {
             this.weaponMat = this.summoningAttackor.visualAttackor.material;
         }
 
-        
+
         this.weaponColor = this.weaponMat.color;
         this.weaponColor.a = 0;
         this.weaponMat.color = this.weaponColor;
@@ -247,6 +247,9 @@ public class GWPawnController : MonoBehaviour {
             return false;
         }
 
+        if (this.isAttackingBlocked) {
+            return false;
+        }
 
         return true;
     }
