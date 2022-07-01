@@ -35,7 +35,7 @@ public class GWSpellMenu : MonoBehaviour {
             throw new Exception("no empty Inventory Slot found!");
         }
         catch (FilledException fe) {
-            Debug.Log(fe.Message);
+            //Debug.Log(fe.Message);
         }
     }
 
@@ -50,7 +50,7 @@ public class GWSpellMenu : MonoBehaviour {
 
                 if (!inventorySlot.uiSpell) {
 
-                    Debug.Log(inventorySlot.name + " is empty and will be filled with " + spell.element);
+                    //Debug.Log(inventorySlot.name + " is empty and will be filled with " + spell.element);
 
                     inventorySlot.FillWithGeneratedUISpell(spell);
 

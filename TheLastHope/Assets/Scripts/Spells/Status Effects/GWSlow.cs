@@ -12,7 +12,7 @@ public class GWSlow : GWStatusEffect {
 
     IEnumerator ApplySlow(float time) {
 
-        Debug.Log("slowing down!");
+        //Debug.Log("slowing down!");
         this.enemyController.currentMovementSpeed = this.stats.movementSpeed / 3;
         yield return new WaitForSeconds(time);
         this.enemyController.currentMovementSpeed = this.stats.movementSpeed;

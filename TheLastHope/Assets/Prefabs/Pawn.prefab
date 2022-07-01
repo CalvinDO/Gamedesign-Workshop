@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyEnemys: []
+  lootBoxes: []
   visualAttackor: {fileID: 5784986181349637120}
   skinnedVisualAttackor: {fileID: 0}
   control: 1
@@ -429,6 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyEnemys: []
+  lootBoxes: []
   visualAttackor: {fileID: 6246269173308041426}
   skinnedVisualAttackor: {fileID: 0}
   control: 0
@@ -583,6 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyEnemys: []
+  lootBoxes: []
   visualAttackor: {fileID: 8566382837796347759}
   skinnedVisualAttackor: {fileID: 0}
   control: 0
@@ -783,6 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyEnemys: []
+  lootBoxes: []
   visualAttackor: {fileID: 0}
   skinnedVisualAttackor: {fileID: 8066247630860378252}
   control: 2
@@ -1029,6 +1033,7 @@ MonoBehaviour:
   remainingTime: 0
   buildUpTime: 0
   remainingBuildUpTime: 0
+  isMovementBlocked: 0
   upperBoundTransform: {fileID: 4670076416118697918}
   characterCollider: {fileID: 370914387103196910}
   AttackorsContainer: {fileID: 1730765201068872345}
@@ -1075,7 +1080,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!82 &2077606264561924614
 AudioSource:
@@ -1220,6 +1225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyEnemys: []
+  lootBoxes: []
   visualAttackor: {fileID: 6738765542977781409}
   skinnedVisualAttackor: {fileID: 0}
   control: 3
@@ -1873,6 +1879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyEnemys: []
+  lootBoxes: []
   visualAttackor: {fileID: 6219292017657696460}
   skinnedVisualAttackor: {fileID: 0}
   control: 0
@@ -2237,6 +2244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearbyEnemys: []
+  lootBoxes: []
   visualAttackor: {fileID: 7729829460461297941}
   skinnedVisualAttackor: {fileID: 0}
   control: 4
@@ -3122,6 +3130,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a4efcd394561c9c4fa35ead4012dc3d4, type: 3}
   - {fileID: 8300000, guid: 7710268397026c74db0412c7782f0402, type: 3}
   - {fileID: 8300000, guid: f7abe303c1423104693bc5273d5e735d, type: 3}
+--- !u!114 &2307196463605141352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575998089329247022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961887b9bfd7c5740b9c406cd46abaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2756226743867199108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8557203427919007493, guid: cbd9012dc173085499974c62678adf83, type: 3}

@@ -29,8 +29,7 @@ public class GWEnemyController : MonoBehaviour {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
 
         this.currentMovementSpeed = this.agent.speed;
-
-        Debug.Log(this.currentMovementSpeed);
+        this.stats.movementSpeed = this.agent.speed;
     }
 
     public virtual void Update() {
@@ -39,17 +38,24 @@ public class GWEnemyController : MonoBehaviour {
 
         this.agent.speed = this.currentMovementSpeed;
 
+
         //Debug.Log(this.agent.speed);
 
         if (this.isStatic) {
             return;
         }
-
+        //this.rb.velocity = Vector3.zero;
 
         //Debug.Log("agent destination: " + this.agent.destination);
         try {
             if (Vector3.Distance(this.transform.position, GWPawnController.instance.transform.position) < this.seeCharacterRange) {
-                this.agent.destination = GWPawnController.instance.transform.position;
+                try {
+                    this.agent.destination = GWPawnController.instance.transform.position;
+                }
+                catch (Exception e) {
+                    
+                    Debug.LogWarning(e.Message);
+                }
                 //Debug.Log("agent destination: " + this.agent.destination);
             }
 
@@ -114,7 +120,7 @@ public class GWEnemyController : MonoBehaviour {
                     break;
             }
         }
-        Debug.Log("total Element damage: " + Vector4.Dot(elementAmounts * 10, this.stats.sensibilities));
+        //Debug.Log("total Element damage: " + Vector4.Dot(elementAmounts * 10, this.stats.sensibilities));
         return Vector4.Dot(elementAmounts * 10, this.stats.sensibilities);
 
     }
@@ -130,8 +136,14 @@ public class GWEnemyController : MonoBehaviour {
 
         this.attackor.attackState = GWAttackState.Roaming;
         this.attackor.weapon.gameObject.SetActive(false);
-        this.agent.isStopped = false;
-        
+        try {
+
+            this.agent.isStopped = false;
+        }
+        catch (Exception e) {
+            Debug.LogWarning("EnemyController hurt exception: " + e.Message);
+        }
+
 
         if (this.stats.currentHealth <= 0) {
             this.Die();

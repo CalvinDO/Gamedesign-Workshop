@@ -172,7 +172,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4.25
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensibilities: {x: 0.9, y: 0.8, z: 0.1, w: 0.15}
+  manualMaxHealth: 0
 --- !u!136 &7226735642109750661
 CapsuleCollider:
   m_ObjectHideFlags: 0

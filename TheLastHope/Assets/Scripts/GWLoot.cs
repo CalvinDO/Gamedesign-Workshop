@@ -2,26 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GWLoot : MonoBehaviour
-{
+public class GWLoot : MonoBehaviour {
     [SerializeField] private GWCollectableSpell collectible;
     [SerializeField] private GWSpell[] spells;
     [SerializeField] private GameObject splitBox;
-    private List<int> elementChance = new List<int>();
+    public List<int> elementChance = new List<int>();
 
     // Start is called before the first frame update
-    void Start()
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            for(int j = 0; j < 4; j++)
-            {
+    void Start() {/*
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
                 elementChance.Add(i);
             }
         }
+       
         int elem;
-        switch(this.gameObject.GetComponentInParent<GWDistrictScript>().getElement())
-        {
+        switch (this.gameObject.GetComponentInParent<GWDistrictScript>().getElement()) {
             case GWEType.EARTH:
                 elem = 0;
                 break;
@@ -35,32 +31,31 @@ public class GWLoot : MonoBehaviour
                 elem = 3;
                 break;
         }
-        for(int i = 0; i < 84; i++)
-        {
+        for (int i = 0; i < 84; i++) {
             elementChance.Add(elem);
         }
+         */
     }
 
-    public void destroy()
-    {
+    public void destroy() {
         GameObject fracturedBox = Instantiate(splitBox, this.transform.position, Quaternion.identity);
         spawnSpell();
         Rigidbody[] rbOfParts = fracturedBox.GetComponentsInChildren<Rigidbody>();
-        if(rbOfParts.Length > 0)
-        {
-            foreach (var rb in rbOfParts)
-            {
+        if (rbOfParts.Length > 0) {
+            foreach (var rb in rbOfParts) {
                 rb.AddExplosionForce(500, transform.position, 1);
             }
         }
+        Debug.Log("Lootbox destroy");
+
         Destroy(this.gameObject);
     }
 
-    private void spawnSpell()
-    {
-        if(Random.Range(0, 100) > 70)
-        {
+    private void spawnSpell() {
+        if (Random.Range(0, 100) > 70) {
             int elem = elementChance[Random.Range(0, elementChance.Count)];
+            collectible.spell = spells[elem];
+            /*
             switch(elem)
             {
                 case 0: //GWEType.EARTH: //Order: Earth, fire, water, air public Vector4 sensibilities = new Vector4( 0.8f, 0.4f, 0.1f, 0.15f);
@@ -81,7 +76,7 @@ public class GWLoot : MonoBehaviour
                     collectible.spell = spells[elem];
                     break;
             }
-            
+            */
             Debug.Log(collectible.spell);
             Instantiate(collectible, this.transform.position, Quaternion.identity);
         }

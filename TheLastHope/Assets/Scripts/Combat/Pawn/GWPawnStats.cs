@@ -14,7 +14,7 @@ public class GWPawnStats : MonoBehaviour, GWIStats
     {
         this.maxHealth = 150;
         this.currentHealth = maxHealth;
-        this.movementSpeed = 1f;
+        this.movementSpeed = 1.33f;
     }
 
     void Awake() {

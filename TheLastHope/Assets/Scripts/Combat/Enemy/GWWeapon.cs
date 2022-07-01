@@ -12,7 +12,7 @@ public class GWWeapon : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
 
-        Debug.Log("Weapon collision by: " + this.transform.root.name);
+        //Debug.Log("Weapon collision by: " + this.transform.root.name);
 
         this.pawnController = other.gameObject.GetComponent<GWPawnController>();
         this.enemyAttackor.reachablePawnController = this.pawnController;

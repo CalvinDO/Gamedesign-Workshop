@@ -30,7 +30,7 @@ public class GWCollectableSpell : GWCollectable {
 
     public override void PickUp() {
 
-        Debug.Log("picked up " + this.spell.name);
+        //Debug.Log("picked up " + this.spell.name);
 
         try {
 

@@ -44,7 +44,7 @@ public class GWSpell : ScriptableObject {
 
 
 
-    public void Activate() { Debug.Log(this.element + " Spell activated! Name: " + this.name); }
+    public void Activate() { /*Debug.Log(this.element + " Spell activated! Name: " + this.name); */ }
     public void BeginCooldown() { }
     /*
     public GWEType GetCombined(GWEType first, GWEType second) {

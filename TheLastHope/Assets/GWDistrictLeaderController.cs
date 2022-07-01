@@ -34,7 +34,7 @@ public class GWDistrictLeaderController : GWEnemyController {
             this.SwitchAttackor();
         }
 
-        Debug.Log(this.agent.isStopped);
+        //Debug.Log(this.agent.isStopped);
     }
 
     void SwitchAttackor() {

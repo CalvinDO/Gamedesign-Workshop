@@ -57,7 +57,7 @@ public class GWAttackor : MonoBehaviour {
 
     void Awake() {
 
-        Debug.Log("attackor awake");
+        //Debug.Log("attackor awake");
 
 
         this.nearbyEnemys = new List<GWEnemyController>();
@@ -186,15 +186,24 @@ public class GWAttackor : MonoBehaviour {
             case GWFormEffect.STUN:
 
                 foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
-                    nearbyEnemy.agent.isStopped = true;
 
-                    if (!nearbyEnemy.gameObject.GetComponent<GWStun>()) {
-                        nearbyEnemy.gameObject.AddComponent<GWStun>();
+                    try {
+
+                        if (!nearbyEnemy.gameObject.GetComponent<GWStun>()) {
+                            nearbyEnemy.gameObject.AddComponent<GWStun>();
+                        }
+                        else {
+                            Destroy(nearbyEnemy.gameObject.GetComponent<GWStun>());
+                            nearbyEnemy.gameObject.AddComponent<GWStun>();
+                        }
+
+                        nearbyEnemy.agent.isStopped = true;
                     }
-                    else {
-                        Destroy(nearbyEnemy.gameObject.GetComponent<GWStun>());
-                        nearbyEnemy.gameObject.AddComponent<GWStun>();
+                    catch (Exception e) {
+                        this.nearbyEnemys.Remove(nearbyEnemy);
                     }
+
+
                 }
 
                 break;
@@ -226,8 +235,15 @@ public class GWAttackor : MonoBehaviour {
         }
 
         foreach (GWEnemyController enemy in this.nearbyEnemys) {
-            enemy.agent.isStopped = false;
-            enemy.transform.parent = null;
+
+            try {
+
+                enemy.agent.isStopped = false;
+                enemy.transform.parent = null;
+            }
+            catch (Exception e) {
+                this.nearbyEnemys.Remove(enemy);
+            }
         }
 
 
@@ -291,6 +307,16 @@ public class GWAttackor : MonoBehaviour {
         List<GWEnemyController> killedEnemys = new List<GWEnemyController>();
 
         Debug.Log("damage count: " + this.nearbyEnemys.Count + " enemys");
+
+        foreach (GWLoot loot in this.lootBoxes) {
+            try {
+
+                loot.destroy();
+            }
+            catch (Exception e) {
+
+            }
+        }
 
         foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) { //throws error "InvalidOperationException: Collection was modified; enumeration operation may not execute." when multiple enemies within collider
 
@@ -360,16 +386,10 @@ public class GWAttackor : MonoBehaviour {
 
 
 
-        try {
 
 
-            foreach (GWLoot loot in this.lootBoxes) {
-                loot.destroy();
-            }
-        }
-        catch (Exception e) {
+        
 
-        }
 
 
         if (this.onlyOneTimeEffect) {
@@ -392,22 +412,18 @@ public class GWAttackor : MonoBehaviour {
     void OnTriggerStay(Collider other) {
 
         try {
-
-
-            if (this.lootBoxes.Contains(other.gameObject.GetComponent<GWLoot>())) {
-                return;
+            if (!this.lootBoxes.Contains(other.gameObject.GetComponent<GWLoot>())) {
+                this.lootBoxes.Add(other.gameObject.GetComponent<GWLoot>());
             }
 
-            this.lootBoxes.Add(other.gameObject.GetComponent<GWLoot>());
 
-            if (this.nearbyEnemys.Contains(other.gameObject.GetComponent<GWEnemyController>())) {
-                return;
+            if (!this.nearbyEnemys.Contains(other.gameObject.GetComponent<GWEnemyController>())) {
+                this.nearbyEnemys.Add(other.gameObject.GetComponent<GWEnemyController>());
             }
 
-            this.nearbyEnemys.Add(other.gameObject.GetComponent<GWEnemyController>());
         }
         catch (Exception e) {
-
+            Debug.LogWarning("OnTriggerSay Attackor Exception: " + e.Message);
         }
     }
 

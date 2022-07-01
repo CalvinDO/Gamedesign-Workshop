@@ -22,7 +22,6 @@ public class GWEnemyStats : MonoBehaviour, GWIStats {
         }
 
         this.currentHealth = maxHealth;
-        this.movementSpeed = 2;
     }
     void Update() {
         if (this.currentHealth <= 0) {

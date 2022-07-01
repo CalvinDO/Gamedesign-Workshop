@@ -26,7 +26,7 @@ public class GWPawnController : MonoBehaviour {
     public float buildUpTime;
     public float remainingBuildUpTime;
 
-    private bool isMovementBlocked;
+    public bool isMovementBlocked;
 
 
     private GWInventorySlot attackingInventorySlot;
@@ -230,7 +230,7 @@ public class GWPawnController : MonoBehaviour {
             return false;
         }
 
-        Debug.Log(this.attackingInventorySlot.state);
+        //Debug.Log(this.attackingInventorySlot.state);
         if (this.attackingInventorySlot.state != GWInventorySlot.SpellState.READY) {
 
             Debug.Log("pawncontroller says: Attacking NOT allowed!");
@@ -276,6 +276,7 @@ public class GWPawnController : MonoBehaviour {
         this.animator.SetTrigger("hurt");
     }
 
+
     private void SetTimes() {
         this.remainingBuildUpTime = this.buildUpTime;
     }
@@ -308,6 +309,24 @@ public class GWPawnController : MonoBehaviour {
         Vector2 mouseCenterVector = mousePosition - screenCenter;
         Vector3 lookatVector = new Vector3(mouseCenterVector.x, 0, mouseCenterVector.y);
 
+
+       
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        int layerMask = LayerMask.GetMask("Street");
+
+
+        if (Physics.Raycast(ray, out hit, 1000, layerMask)) {
+
+            //draw invisible ray cast/vector
+            // Debug.DrawLine(ray.origin, hit.point);
+            //log hit area to the console
+            //Debug.Log(hit.point);
+
+            lookatVector = hit.point;
+        }
         this.movingPawn.transform.LookAt(lookatVector);
     }
 
@@ -352,7 +371,13 @@ public class GWPawnController : MonoBehaviour {
 
         this.velocity = this.GetScaledDirectionInput();
 
+
+        this.animator.SetBool("isRunning", this.velocity.magnitude > 0);
+
+
         this.rb.position += this.velocity;
+        this.rb.velocity = Vector3.zero;
+        //this.rb.isKinematic = true;
     }
 
 

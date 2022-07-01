@@ -32,13 +32,11 @@ public class GWUISpell : MonoBehaviour {
 
     public void Init() {
 
-        Debug.Log("GWUISpell Init!");
 
         this.spellInstance = GameObject.Instantiate(this.spell);
 
         this.image.sprite = this.spellInstance.sprite;
         this.formImage.sprite = this.spellInstance.formSprite;
-
         //this.elementsDisplay.text = "";
 
         //this.spellInstance.containedElements.ForEach(element => this.elementsDisplay.text += element + "  ");
@@ -52,9 +50,11 @@ public class GWUISpell : MonoBehaviour {
         } catch (Exception e) {
             this.elementsDisplay.color = Color.red;
         }
+
         Color color = this.elementsDisplay.color;
         color.a = 1;
         this.elementsDisplay.color = color;
+        this.formImage.color = this.elementsDisplay.color;
 
 
         this.formDisplay.text = "- " + this.spellInstance.form + " -";
@@ -83,6 +83,7 @@ public class GWUISpell : MonoBehaviour {
         Color color = this.elementsDisplay.color;
         color.a = 1;
         this.elementsDisplay.color = color;
+        this.formImage.color = this.elementsDisplay.color;
 
 
         this.formDisplay.text = "- " + this.spellInstance.form + " -";

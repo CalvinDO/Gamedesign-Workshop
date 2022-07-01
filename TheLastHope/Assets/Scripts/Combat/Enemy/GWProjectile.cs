@@ -54,7 +54,7 @@ public class GWProjectile : MonoBehaviour {
                 //Aus Testing: Slow wird immer applied!!!
 
                 foreach (GWElementEffect effect in this.correspondingInventorySlot.Spell.effects) {
-                    Debug.Log("effect: " + effect);
+                    //Debug.Log("effect: " + effect);
                     switch (effect) {
                         case GWElementEffect.SLOW:
                             nearbyEnemy.gameObject.AddComponent<GWSlow>();
