@@ -46,7 +46,7 @@ public class GWLoot : MonoBehaviour {
                 rb.AddExplosionForce(500, transform.position, 1);
             }
         }
-        Debug.Log("Lootbox destroy");
+        //Debug.Log("Lootbox destroy");
 
         Destroy(this.gameObject);
     }

@@ -83,6 +83,7 @@ public class GWAttackor : MonoBehaviour {
         */
 
         // just copied for Mouse 2 (heal testing)
+        /*
         if (Input.GetKey(KeyCode.Mouse1)) {
 
             if (!this.isPressingHeal) {
@@ -98,7 +99,7 @@ public class GWAttackor : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Mouse1)) {
             this.isPressingHeal = false;
         }
-
+        */
 
         if (this.isSummoned) {
 
