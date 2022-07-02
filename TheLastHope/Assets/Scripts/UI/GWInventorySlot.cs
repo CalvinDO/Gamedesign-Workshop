@@ -145,10 +145,14 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
                 return;
             }
 
+          
+
             //Debug.Log("came through return");
             if (this.uiSpell) {
 
                 if (!this.previewUISpell) {
+
+                    hoveringSpell.gameObject.SetActive(false);
 
                     this.previewUISpell = GameObject.Instantiate(this.uiSpell, this.transform);
 
@@ -178,12 +182,15 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
     public void OnPointerExit(PointerEventData eventData) {
 
-        this.ResetPreview();
+        this.ResetPreview(eventData);
     }
 
-    public void ResetPreview() {
+    public void ResetPreview(PointerEventData eventData) {
 
         if (this.previewUISpell) {
+
+            GWUISpell hoveringSpell = eventData.pointerDrag.gameObject.GetComponent<GWUISpell>();
+            hoveringSpell.gameObject.SetActive(true);
 
             GameObject.Destroy(this.previewUISpell.gameObject);
             this.previewUISpell = null;
@@ -192,9 +199,22 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
         }
     }
 
+    public void ResetPreview() {
+
+        if (this.previewUISpell) {
+
+
+            GameObject.Destroy(this.previewUISpell.gameObject);
+            this.previewUISpell = null;
+
+            this.uiSpell.gameObject.SetActive(true);
+        }
+    }
+
+
     public void OnDrop(PointerEventData eventData) {
 
-        this.ResetPreview();
+        this.ResetPreview(eventData);
 
         GWUISpell droppedSpell = eventData.pointerDrag.gameObject.GetComponent<GWUISpell>();
         Debug.Log(droppedSpell);

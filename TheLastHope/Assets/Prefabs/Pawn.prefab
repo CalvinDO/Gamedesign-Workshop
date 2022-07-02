@@ -531,8 +531,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nearbyEnemys: []
   lootBoxes: []
-  visualAttackor: {fileID: 3992255722692324332}
-  skinnedVisualAttackor: {fileID: 0}
+  visualAttackor: {fileID: 0}
+  skinnedVisualAttackor: {fileID: 8620696882090636286}
   control: 0
   form: 5
   formEffect: 3
@@ -3796,6 +3796,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.07033771
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -5.1084137
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 2.0237677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2.029823
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 5.108899
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 2.0268133
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 29dfd7c36ac352548b513375af746504, type: 3}
       propertyPath: m_Controller
       value: 
@@ -3807,9 +3835,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29dfd7c36ac352548b513375af746504, type: 3}
   m_PrefabInstance: {fileID: 3603021608659470183}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &3992255722692324332 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -8833856308656673653, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+--- !u!137 &8620696882090636286 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
   m_PrefabInstance: {fileID: 3603021608659470183}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4723933521310796872
