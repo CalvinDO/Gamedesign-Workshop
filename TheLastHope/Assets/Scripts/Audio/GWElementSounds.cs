@@ -10,6 +10,7 @@ public class GWElementSounds : MonoBehaviour
     public AudioClip[] airClips;
     public static GWElementSounds instance;
     public void PlayElement(AudioSource source, GWEType type, int phase){
+        source.Stop();
         switch(type){
             case GWEType.FIRE:
                 GWAudioManager.PlayClip(source, fireClips[phase]);
@@ -22,6 +23,8 @@ public class GWElementSounds : MonoBehaviour
                 return;
             case GWEType.AIR:
                 GWAudioManager.PlayClip(source, airClips[phase]);
+                return;
+            default:
                 return;
         }
     }
