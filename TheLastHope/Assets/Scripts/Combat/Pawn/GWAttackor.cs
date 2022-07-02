@@ -61,9 +61,10 @@ public class GWAttackor : MonoBehaviour {
 
         //Debug.Log("attackor awake");
 
-        Debug.Log(this.source);
-        Debug.Log(this.spell);
+        //Debug.Log(this.source);
+        //Debug.Log(this.spell);
 
+        Debug.Log("play attackor summon or buildup");
         GWElementSounds.instance.PlayElement(this.source, this.spell.element, this.isSummoned ? 1 : 0);
         /*
         if (this.isSummoned) {
@@ -287,7 +288,7 @@ public class GWAttackor : MonoBehaviour {
         }
 
 
-
+        this.source.Stop();
 
         this.upbildingAttackorClone.isSummoned = true;
 
