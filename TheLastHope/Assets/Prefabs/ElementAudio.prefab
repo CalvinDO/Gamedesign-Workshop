@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7819002933023102265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425818619747374278}
+  - component: {fileID: -6515255124846595027}
+  m_Layer: 0
+  m_Name: ElementAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1425818619747374278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819002933023102265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6515255124846595027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819002933023102265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c594a2c98c7f4484490141640ff3fb3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireClips:
+  - {fileID: 8300000, guid: b61c7159749dc3c4b9affce0c70da18f, type: 3}
+  - {fileID: 8300000, guid: 0aa002c47deed204cb827cef57640be1, type: 3}
+  - {fileID: 8300000, guid: 119166148cd9fd14e99361e083babf8a, type: 3}
+  waterClips:
+  - {fileID: 8300000, guid: 60444229132527d46841874bba9465d2, type: 3}
+  - {fileID: 8300000, guid: c1a0ab319b8e9034f851d906c5fb261b, type: 3}
+  - {fileID: 8300000, guid: d3f77695ee3f59640b772e68933b0521, type: 3}
+  earthClips:
+  - {fileID: 8300000, guid: cfae54358d996594ebc7063fa2be1e97, type: 3}
+  - {fileID: 8300000, guid: 0c0c6d4f60be8e841bd86b97e1bf8293, type: 3}
+  - {fileID: 8300000, guid: 0be71bf9b40d7b74ab3158e2ee1cac86, type: 3}
+  airClips:
+  - {fileID: 8300000, guid: 8df845b5f22efad46a87031bfd46a813, type: 3}
+  - {fileID: 8300000, guid: abe52f431d7d6c04bb98ab0b5150f8dd, type: 3}
+  - {fileID: 8300000, guid: b227f1154d3b44243b4115f7b8b1f877, type: 3}
