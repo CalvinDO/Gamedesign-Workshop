@@ -32,7 +32,7 @@ public class GWAttackor : MonoBehaviour {
 
 
     public GWInventorySlot correspondingInventorySlot;
-    private GWSpell spell;
+    public GWSpell spell;
 
 
     private float remainingActive;
@@ -61,6 +61,18 @@ public class GWAttackor : MonoBehaviour {
 
         //Debug.Log("attackor awake");
 
+        Debug.Log(this.source);
+        Debug.Log(this.spell);
+
+        GWElementSounds.instance.PlayElement(this.source, this.spell.element, this.isSummoned ? 1 : 0);
+        /*
+        if (this.isSummoned) {
+            GWElementSounds.instance.PlayElement(this.source, this.spell.element, 0);
+        }
+        else {
+            GWElementSounds.instance.PlayElement(this.source, this.correspondingInventorySlot, 0);
+        }
+        */
 
         this.nearbyEnemys = new List<GWEnemyController>();
     }
@@ -313,7 +325,19 @@ public class GWAttackor : MonoBehaviour {
 
         List<GWEnemyController> killedEnemys = new List<GWEnemyController>();
 
+
+        foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
+            if (nearbyEnemy == null) {
+                this.nearbyEnemys.Remove(nearbyEnemy);
+            }
+        }
+
         Debug.Log("damage count: " + this.nearbyEnemys.Count + " enemys");
+
+
+        if (this.nearbyEnemys.Count > 0) {
+            GWElementSounds.instance.PlayElement(this.source, this.spell.element, 2);
+        }
 
         foreach (GWLoot loot in this.lootBoxes) {
             try {
@@ -390,14 +414,6 @@ public class GWAttackor : MonoBehaviour {
             GameObject.Destroy(killedEnemy);
             this.nearbyEnemys.Remove(killedEnemy);
         }
-
-
-
-
-
-        
-
-
 
         if (this.onlyOneTimeEffect) {
             this.alreadyUsed = true;

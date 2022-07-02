@@ -88,6 +88,8 @@ public class GWPawnController : MonoBehaviour {
 
                 this.remainingBuildUpTime -= Time.deltaTime;
 
+               
+
                 if (this.remainingBuildUpTime <= 0) {
 
                     this.SwitchToAttacking();
@@ -137,7 +139,9 @@ public class GWPawnController : MonoBehaviour {
 
                 this.attackState = GWAttackState.Roaming;
                 this.isMovementBlocked = false;
+
                 this.summoningAttackor.gameObject.SetActive(false);
+                this.summoningAttackor.spell = null;
                 this.summoningAttackor = null;
 
                 break;
@@ -176,7 +180,7 @@ public class GWPawnController : MonoBehaviour {
 
 
 
-
+        this.summoningAttackor.spell = this.attackingInventorySlot.Spell;
         this.summoningAttackor.gameObject.SetActive(true);
 
         this.isMovementBlocked = true;

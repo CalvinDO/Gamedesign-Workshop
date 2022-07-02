@@ -9,6 +9,11 @@ public class GWElementSounds : MonoBehaviour
     public AudioClip[] earthClips;
     public AudioClip[] airClips;
     public static GWElementSounds instance;
+
+    void Awake() {
+        GWElementSounds.instance = this;
+    }
+
     public void PlayElement(AudioSource source, GWEType type, int phase){
         switch(type){
             case GWEType.FIRE:
