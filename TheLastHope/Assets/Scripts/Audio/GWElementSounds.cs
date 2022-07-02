@@ -15,6 +15,7 @@ public class GWElementSounds : MonoBehaviour
     }
 
     public void PlayElement(AudioSource source, GWEType type, int phase){
+        Debug.Log(source);
         source.Stop();
         switch(type){
             case GWEType.FIRE:

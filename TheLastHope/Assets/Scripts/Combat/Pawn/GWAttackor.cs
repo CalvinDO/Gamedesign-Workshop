@@ -64,8 +64,7 @@ public class GWAttackor : MonoBehaviour {
         //Debug.Log(this.source);
         //Debug.Log(this.spell);
 
-        Debug.Log("play attackor summon or buildup");
-        GWElementSounds.instance.PlayElement(this.source, this.spell.element, this.isSummoned ? 1 : 0);
+
         /*
         if (this.isSummoned) {
             GWElementSounds.instance.PlayElement(this.source, this.spell.element, 0);
@@ -76,6 +75,13 @@ public class GWAttackor : MonoBehaviour {
         */
 
         this.nearbyEnemys = new List<GWEnemyController>();
+    }
+
+    void Start() {
+
+        //Debug.Log("play attackor summon or buildup");
+        //GWElementSounds.instance.PlayElement(this.source, this.spell.element, this.isSummoned ? 1 : 0);
+
     }
 
     virtual public void Update() {
@@ -288,7 +294,15 @@ public class GWAttackor : MonoBehaviour {
         }
 
 
+
         this.source.Stop();
+        GWElementSounds.instance.PlayElement(this.upbildingAttackorClone.source, this.spell.element, 1);
+
+        //GameObject.Destroy(this.upbildingAttackorClone.source);
+        //this.upbildingAttackorClone.source = this.source;
+        //this.upbildingAttackorClone.source.Stop();
+
+        //Debug.Log("stopped summoned sound");
 
         this.upbildingAttackorClone.isSummoned = true;
 
@@ -333,7 +347,7 @@ public class GWAttackor : MonoBehaviour {
             }
         }
 
-        Debug.Log("damage count: " + this.nearbyEnemys.Count + " enemys");
+        // Debug.Log("damage count: " + this.nearbyEnemys.Count + " enemys");
 
 
         if (this.nearbyEnemys.Count > 0) {

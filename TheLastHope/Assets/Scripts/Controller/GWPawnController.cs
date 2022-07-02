@@ -183,6 +183,8 @@ public class GWPawnController : MonoBehaviour {
         this.summoningAttackor.spell = this.attackingInventorySlot.Spell;
         this.summoningAttackor.gameObject.SetActive(true);
 
+        GWElementSounds.instance.PlayElement(this.summoningAttackor.source, this.attackingInventorySlot.Spell.element, 0);
+
         this.isMovementBlocked = true;
 
 
