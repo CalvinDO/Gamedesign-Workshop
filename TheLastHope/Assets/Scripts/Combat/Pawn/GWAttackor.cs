@@ -255,11 +255,11 @@ public class GWAttackor : MonoBehaviour {
     }
 
     public virtual void Activate(GWInventorySlot inventorySlot) {
-
+        /*
         if(this.spell.element==GWEType.FIRE || this.spell.element==GWEType.WATER || this.spell.element==GWEType.EARTH || this.spell.element==GWEType.AIR){
             GWElementSounds.instance.PlayElement(this.source, this.spell.element, 0);
         }
-
+        */
         this.upbildingAttackorClone = GameObject.Instantiate(this, GWPoolManager.instance.activeSpellPool).GetComponent<GWAttackor>();
         this.upbildingAttackorClone.transform.SetPositionAndRotation(this.transform.position, this.transform.rotation);
 

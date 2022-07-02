@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3846287563742063184}
   - component: {fileID: 4358740601452541265}
   - component: {fileID: 279456420762226280}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1796623497089188340}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_Exploded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 859436538811709863}
   - component: {fileID: 701412552889105259}
   - component: {fileID: 753134840008775467}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 2171642088108204297}
   - component: {fileID: 853634376794653357}
   - component: {fileID: 6930745004363201982}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 3828515758933032892}
   - component: {fileID: 6407996058433477404}
   - component: {fileID: 6303463960795420743}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 3568375192593148258}
   - component: {fileID: 561861056590512178}
   - component: {fileID: 8570503688706987082}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 1582207859338125877}
   - component: {fileID: 2775033092306669740}
   - component: {fileID: 874878970072898620}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 5655704325239710831}
   - component: {fileID: 2425685401987413394}
   - component: {fileID: 40758287088199022}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 2550844036601408740}
   - component: {fileID: 1425651842893953842}
   - component: {fileID: 2464769031004539882}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,7 +973,7 @@ GameObject:
   - component: {fileID: 2028976466253809752}
   - component: {fileID: 3717273733763538794}
   - component: {fileID: 3417578160020903026}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Chest_cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -6,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler {
+public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {
 
 
     public GWUISpell uiSpell;
@@ -14,6 +15,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
     private float remainingCooldown;
     public float remainingActive;
 
+    private GWUISpell previewUISpell;
 
     public GWSpell Spell {
         get { return this.uiSpell.spellInstance; }
@@ -133,11 +135,66 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData) {
 
-    }
-    public void OnPointerExit(PointerEventData eventData) {
+        try {
+
+            GWUISpell hoveringSpell = eventData.pointerDrag.gameObject.GetComponent<GWUISpell>();
+            //Debug.Log("hovered Spell: " + hoveringSpell);
+
+
+            if (hoveringSpell.draggable.originInventorySlot == this) {
+                return;
+            }
+
+            //Debug.Log("came through return");
+            if (this.uiSpell) {
+
+                if (!this.previewUISpell) {
+
+                    this.previewUISpell = GameObject.Instantiate(this.uiSpell, this.transform);
+
+
+                    this.previewUISpell.name = "PrevieUISpell";
+
+                    this.previewUISpell.Combine(hoveringSpell, true);
+
+                    //Destroy(this.previewUISpell.GetComponent<GWDraggable>());
+                    this.previewUISpell.GetComponent<CanvasGroup>().blocksRaycasts = false;
+                    this.previewUISpell.overlay.GetComponent<CanvasGroup>().blocksRaycasts = false;
+                    //Destroy(this.previewUISpell.GetComponent<CanvasGroup>());
+                    //Destroy(this.previewUISpell.overlay.GetComponent<CanvasGroup>());
+                    //Destroy(this.previewUISpell.GetComponent<GWUISpell>());
+
+                    this.uiSpell.gameObject.SetActive(false);
+
+
+                }
+            }
+        }
+        catch (Exception e) {
+
+        }
 
     }
+
+    public void OnPointerExit(PointerEventData eventData) {
+
+        this.ResetPreview();
+    }
+
+    public void ResetPreview() {
+
+        if (this.previewUISpell) {
+
+            GameObject.Destroy(this.previewUISpell.gameObject);
+            this.previewUISpell = null;
+
+            this.uiSpell.gameObject.SetActive(true);
+        }
+    }
+
     public void OnDrop(PointerEventData eventData) {
+
+        this.ResetPreview();
 
         GWUISpell droppedSpell = eventData.pointerDrag.gameObject.GetComponent<GWUISpell>();
         Debug.Log(droppedSpell);
@@ -149,8 +206,6 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
 
         this.Combine(droppedSpell);
-
-
     }
 
     public void SetUISpell(GWUISpell otherSpell) {
@@ -172,7 +227,7 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
             return;
         }
 
-        this.uiSpell.Combine(otherSpell);
+        this.uiSpell.Combine(otherSpell, false);
 
     }
 

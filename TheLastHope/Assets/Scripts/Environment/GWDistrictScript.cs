@@ -58,7 +58,7 @@ public class GWDistrictScript : MonoBehaviour
         }
 
         //Spawn Enemies
-        spawner.spawning();
+        //spawner.spawning();
     }
 
     public void corrupt()

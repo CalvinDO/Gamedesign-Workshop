@@ -46,8 +46,9 @@ public class GWUISpell : MonoBehaviour {
         this.elementsDisplay.text = this.spellInstance.element + "";
         try {
 
-        this.elementsDisplay.color = GWElementColorManager.instance.GetColor(this.spellInstance.element);
-        } catch (Exception e) {
+            this.elementsDisplay.color = GWElementColorManager.instance.GetColor(this.spellInstance.element);
+        }
+        catch (Exception e) {
             this.elementsDisplay.color = Color.red;
         }
 
@@ -61,7 +62,7 @@ public class GWUISpell : MonoBehaviour {
     }
 
 
-    public void Combine(GWUISpell otherSpell) {
+    public void Combine(GWUISpell otherSpell, bool isPreview) {
 
         if (otherSpell.spellInstance.element == this.spellInstance.element) {
             return;
@@ -74,6 +75,9 @@ public class GWUISpell : MonoBehaviour {
             this.spellInstance.containedElements.AddRange(otherSpell.spellInstance.containedElements);
         }
         catch (System.Exception e) {
+            if (isPreview) {
+                this.draggable.originInventorySlot.ResetPreview();
+            }
             Debug.LogWarning(e.Message);
             return;
         }
@@ -88,8 +92,9 @@ public class GWUISpell : MonoBehaviour {
 
         this.formDisplay.text = "- " + this.spellInstance.form + " -";
 
-
-        otherSpell.draggable.originInventorySlot.Reset();
+        if (!isPreview) {
+            otherSpell.draggable.originInventorySlot.Reset();
+        }
 
 
         GWElementEffect[] newEffectArray = new GWElementEffect[2];
@@ -111,9 +116,9 @@ public class GWUISpell : MonoBehaviour {
 
         this.spellInstance.effects = newEffectArray;
 
-
-        GameObject.Destroy(otherSpell.gameObject);
-
+        if (!isPreview) {
+            GameObject.Destroy(otherSpell.gameObject);
+        }
 
     }
 }
