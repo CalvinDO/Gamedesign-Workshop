@@ -719,6 +719,7 @@ MonoBehaviour:
   hidableInventorySlots: {fileID: 941918976}
   hotbarInventorySlots: {fileID: 0}
   uiSpellPrefab: {fileID: 0}
+  cardMovingBlocked: 0
 --- !u!4 &59786745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2927860819685505864, guid: 628a370caa7774344b3733aa57c80f8f, type: 3}
@@ -20111,7 +20112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5467231540528415936, guid: 5603b5f03c4ad5f4eb0453a7800f07d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.8
+      value: 27.3
       objectReference: {fileID: 0}
     - target: {fileID: 5467231540528415936, guid: 5603b5f03c4ad5f4eb0453a7800f07d6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20119,7 +20120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5467231540528415936, guid: 5603b5f03c4ad5f4eb0453a7800f07d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.6
+      value: 29.5
       objectReference: {fileID: 0}
     - target: {fileID: 5467231540528415936, guid: 5603b5f03c4ad5f4eb0453a7800f07d6, type: 3}
       propertyPath: m_LocalRotation.w

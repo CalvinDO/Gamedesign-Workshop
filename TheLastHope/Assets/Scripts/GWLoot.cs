@@ -47,7 +47,7 @@ public class GWLoot : MonoBehaviour {
             }
         }
         //Debug.Log("Lootbox destroy");
-
+        Destroy(fracturedBox, 5);
         Destroy(this.gameObject);
     }
 
