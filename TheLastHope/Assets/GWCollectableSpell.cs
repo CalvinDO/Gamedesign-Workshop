@@ -35,6 +35,7 @@ public class GWCollectableSpell : GWCollectable {
         try {
 
         GWSpellMenu.instance.AddSpell(this.spell);
+        GWSpellMenu.instance.cardSounds.PlayPickUp(GWSpellMenu.instance.source);
         }
         catch (System.Exception e) {
             Debug.LogWarning(e.Message);

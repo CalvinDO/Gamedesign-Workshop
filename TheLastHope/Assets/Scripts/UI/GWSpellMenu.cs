@@ -13,6 +13,8 @@ public class GWSpellMenu : MonoBehaviour {
 
     public static GWSpellMenu instance;
     public bool cardMovingBlocked;
+    public AudioSource source;
+    public GWCardSounds cardSounds;
 
     void Awake() {
         GWSpellMenu.instance = this;

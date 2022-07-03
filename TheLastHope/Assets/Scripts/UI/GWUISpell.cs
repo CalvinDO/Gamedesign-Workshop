@@ -119,6 +119,12 @@ public class GWUISpell : MonoBehaviour {
         if (!isPreview) {
             GameObject.Destroy(otherSpell.gameObject);
         }
-
+        GWSpellMenu spellMenu = GameObject.Find("SpellMenu").GetComponent<GWSpellMenu>();
+        try{
+            spellMenu.cardSounds.PlayCombine(spellMenu.source);
+        }
+        catch (Exception e) {
+            Debug.Log("spellmenu probably not found because of GameObject.Find in GWUISpell");
+        }
     }
 }
