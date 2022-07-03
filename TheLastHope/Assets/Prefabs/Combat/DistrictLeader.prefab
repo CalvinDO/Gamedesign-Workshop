@@ -255,9 +255,12 @@ MonoBehaviour:
   isStatic: 0
   attackor: {fileID: 328818375746439265}
   risingDamageTextPrefab: {fileID: 6083124301529234723}
+  mesh: {fileID: 659191320466400530}
   currentMovementSpeed: 0
   isFlying: 0
   isGrounded: 0
+  source: {fileID: 0}
+  enemySounds: {fileID: 0}
   attackors:
   - {fileID: 328818375746439265}
   - {fileID: 9158637621113759599}
@@ -2544,6 +2547,11 @@ PrefabInstance:
 --- !u!4 &157209387589117316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 192f41763d44b284e8639e4d379bc797, type: 3}
+  m_PrefabInstance: {fileID: 406516282002129519}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &659191320466400530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 901238229096589181, guid: 192f41763d44b284e8639e4d379bc797, type: 3}
   m_PrefabInstance: {fileID: 406516282002129519}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &677041561244761918 stripped

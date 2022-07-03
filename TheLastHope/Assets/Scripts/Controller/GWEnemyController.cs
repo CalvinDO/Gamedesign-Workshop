@@ -18,7 +18,8 @@ public class GWEnemyController : MonoBehaviour {
     public GWEnemyAttackor attackor;
 
     public GameObject risingDamageTextPrefab;
-
+    
+    public GameObject mesh;
 
     public float currentMovementSpeed;
 

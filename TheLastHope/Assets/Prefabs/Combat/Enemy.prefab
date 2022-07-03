@@ -80,6 +80,7 @@ MonoBehaviour:
   isStatic: 0
   attackor: {fileID: 1037052678790456679}
   risingDamageTextPrefab: {fileID: 8846988209967251154}
+  mesh: {fileID: 1908856534057000897}
   currentMovementSpeed: 0
   isFlying: 0
   isGrounded: 0
@@ -752,6 +753,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stop: 0
+--- !u!1 &1908856534057000897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7039572001907362220, guid: a5d8b73a5c1dceb45ac20fe4b9b5463d, type: 3}
+  m_PrefabInstance: {fileID: 302854330835282325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &6150054248578061316 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a5d8b73a5c1dceb45ac20fe4b9b5463d, type: 3}
