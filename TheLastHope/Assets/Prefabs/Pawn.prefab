@@ -1436,6 +1436,7 @@ MonoBehaviour:
   animator: {fileID: 9084944507258242030}
   audioSource: {fileID: 2077606264561924614}
   isAttackingBlocked: 0
+  hurtSounds: {fileID: 0}
 --- !u!114 &5320052059460557394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3585,6 +3586,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961887b9bfd7c5740b9c406cd46abaaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hurtSounds:
+  - {fileID: 8300000, guid: 48ffcf59d77e2de41994214dc06bc198, type: 3}
+  - {fileID: 8300000, guid: 375ecf59d8daab047b29919400fa74f8, type: 3}
+  - {fileID: 8300000, guid: b213ea8dcdb2f3d4f91eecccc4cf92ef, type: 3}
+  - {fileID: 8300000, guid: 1356cddf9e28f9d4c8640955eee034c3, type: 3}
 --- !u!114 &2857022983275562885
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ public class GWPawnController : MonoBehaviour {
 
     public AudioSource audioSource;
     public bool isAttackingBlocked;
+    public GWHurtSounds hurtSounds;
 
     void Awake() {
         GWPawnController.instance = this;
@@ -264,7 +265,7 @@ public class GWPawnController : MonoBehaviour {
 
     public void Hurt(float damage) {
 
-
+        hurtSounds.PlayHurt(audioSource);
         //this.activeAttackor.gameObject.SetActive(false);
 
 
