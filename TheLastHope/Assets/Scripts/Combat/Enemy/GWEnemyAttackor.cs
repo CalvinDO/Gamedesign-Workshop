@@ -89,14 +89,14 @@ public class GWEnemyAttackor : MonoBehaviour {
 
 
                 float factor = this.remainingAttackTime / this.attackTime;
-
+                /*
                 Material weaponMat = this.weapon.meshRenderer.material;
                 Color weaponColor = weaponMat.color;
                 weaponColor.a = 1 - factor;
                 weaponMat.color = weaponColor;
 
                 this.weapon.meshRenderer.material.color = weaponColor;
-
+                */
 
                 if (this.remainingAttackTime <= 0) {
 

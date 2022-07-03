@@ -10,6 +10,12 @@ public class GWPawnStats : MonoBehaviour, GWIStats
     public float movementSpeed {get; set;}
     public bool isDisarmed { get; set; }
 
+    public bool isBurning { get; set; }
+
+    public bool isSlowed { get; set; }
+
+    public bool isStunned { get; set; }
+
     void Start()
     {
         this.maxHealth = 150;

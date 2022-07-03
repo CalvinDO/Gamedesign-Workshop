@@ -28,9 +28,13 @@ public class GWBurn : MonoBehaviour
 
     void DealBurnDmg(){
 
+        this.stats.isBurning = true;
         stats.currentHealth -= burnDmg;
         currentTicks++;
-        if(this.currentTicks>=maxTicks) Destroy(gameObject.GetComponent<GWBurn>());
+        if (this.currentTicks >= maxTicks) {
+            this.stats.isBurning = false;
+            Destroy(gameObject.GetComponent<GWBurn>());
+        }
     }
 
 }

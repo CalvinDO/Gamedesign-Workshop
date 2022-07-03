@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensibilities: {x: 0.2, y: 0.1, z: 0.9, w: 0.3}
-  manualMaxHealth: 0
+  manualMaxHealth: 1000
 --- !u!136 &7226735642109750661
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttackor: {fileID: 1037052678790456679}
-  meshRenderer: {fileID: 2692021227578971527}
+  meshRenderer: {fileID: 0}
 --- !u!136 &3985299501715590237
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -811,6 +811,34 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.07033771
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -5.1084137
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 2.0237677
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2.029823
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 5.108899
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017677611575293081, guid: 29dfd7c36ac352548b513375af746504, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 2.0268133
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 29dfd7c36ac352548b513375af746504, type: 3}
       propertyPath: m_Controller
       value: 
@@ -818,11 +846,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 29dfd7c36ac352548b513375af746504, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 29dfd7c36ac352548b513375af746504, type: 3}
---- !u!23 &2692021227578971527 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -8833856308656673653, guid: 29dfd7c36ac352548b513375af746504, type: 3}
-  m_PrefabInstance: {fileID: 2322781495062378764}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2861637392211009255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29dfd7c36ac352548b513375af746504, type: 3}

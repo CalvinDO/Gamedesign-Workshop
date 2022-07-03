@@ -11,6 +11,8 @@ public class GWSpawner : MonoBehaviour
     private List<int> elementChance = new List<int>();
 
      // Start is called before the first frame update
+
+
     void Start()
     {
         for(int i = 0; i < 3; i++)

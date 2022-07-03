@@ -1436,7 +1436,7 @@ MonoBehaviour:
   animator: {fileID: 9084944507258242030}
   audioSource: {fileID: 2077606264561924614}
   isAttackingBlocked: 0
-  hurtSounds: {fileID: 0}
+  hurtSounds: {fileID: 2307196463605141352}
 --- !u!114 &5320052059460557394
 MonoBehaviour:
   m_ObjectHideFlags: 0

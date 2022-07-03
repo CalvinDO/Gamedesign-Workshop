@@ -10,8 +10,12 @@ public class GWDistrictScript : MonoBehaviour
     [SerializeField] private GWEType element;
     [SerializeField] private int corruption; // -1 equals cleared
 
-    public GameObject livingLeader;
+    public GameObject livingLeader ;
     // Start is called before the first frame update
+
+
+    public static bool isSpawningAllowed = true;
+
     void Start()
     {
         foreach(GameObject barrier in barriers)
@@ -58,7 +62,8 @@ public class GWDistrictScript : MonoBehaviour
         }
 
         //Spawn Enemies
-        //spawner.spawning();
+        if (GWDistrictScript.isSpawningAllowed)
+        spawner.spawning();
     }
 
     public void corrupt()

@@ -52,6 +52,8 @@ public class GWAttackor : MonoBehaviour {
 
     public AudioSource source;
 
+    public Animator animator;
+
     public float ProgressFactor {
         get { return (this.correspondingInventorySlot.Spell.activeTime - this.remainingActive) / this.correspondingInventorySlot.Spell.activeTime; }
     }
@@ -274,9 +276,19 @@ public class GWAttackor : MonoBehaviour {
     }
 
     public virtual void Activate(GWInventorySlot inventorySlot) {
+
+
+
+
         /*
-        if(this.spell.element==GWEType.FIRE || this.spell.element==GWEType.WATER || this.spell.element==GWEType.EARTH || this.spell.element==GWEType.AIR){
-            GWElementSounds.instance.PlayElement(this.source, this.spell.element, 0);
+        if (this.animator) {
+            switch (this.form) {
+                case GWFormType.SPIKES:
+                    this.animator.SetTrigger("activate");
+                    break;
+                default:
+                    break;
+            }
         }
         */
         this.upbildingAttackorClone = GameObject.Instantiate(this, GWPoolManager.instance.activeSpellPool).GetComponent<GWAttackor>();
@@ -320,6 +332,10 @@ public class GWAttackor : MonoBehaviour {
 
         this.upbildingAttackorClone.originalAttackor = this;
 
+        if (this.animator) {
+            this.upbildingAttackorClone.animator.SetTrigger("activate");
+
+        }
 
         try {
 
@@ -388,6 +404,8 @@ public class GWAttackor : MonoBehaviour {
                                 Destroy(nearbyEnemy.gameObject.GetComponent<GWDisarm>());
                                 nearbyEnemy.gameObject.AddComponent<GWDisarm>();
                             }
+
+
                             break;
                     }
                 }

@@ -8,6 +8,12 @@ public class GWEnemyStats : MonoBehaviour, GWIStats {
     public float movementSpeed { get; set; }
     public bool isDisarmed { get; set; }
 
+    public bool isBurning { get; set; }
+
+    public bool isSlowed { get; set; }
+
+    public bool isStunned { get; set; }
+
     //Order: Earth, fire, water, air
     public Vector4 sensibilities = new Vector4(0.8f, 0.4f, 0.1f, 0.15f);
 

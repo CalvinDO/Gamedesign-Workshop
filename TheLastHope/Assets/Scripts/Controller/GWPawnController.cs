@@ -89,7 +89,7 @@ public class GWPawnController : MonoBehaviour {
 
                 this.remainingBuildUpTime -= Time.deltaTime;
 
-               
+
 
                 if (this.remainingBuildUpTime <= 0) {
 
@@ -183,6 +183,11 @@ public class GWPawnController : MonoBehaviour {
 
         this.summoningAttackor.spell = this.attackingInventorySlot.Spell;
         this.summoningAttackor.gameObject.SetActive(true);
+
+        //this.summoningAttackor.animator.SetBool("activate", false);
+        if (this.summoningAttackor.animator) {
+            this.summoningAttackor.animator.ResetTrigger("activate");
+        }
 
         GWElementSounds.instance.PlayElement(this.summoningAttackor.source, this.attackingInventorySlot.Spell.element, 0);
 
@@ -317,7 +322,7 @@ public class GWPawnController : MonoBehaviour {
         Vector3 lookatVector = new Vector3(mouseCenterVector.x, 0, mouseCenterVector.y);
 
 
-       
+
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
