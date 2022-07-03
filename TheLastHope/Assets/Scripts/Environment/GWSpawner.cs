@@ -7,6 +7,7 @@ public class GWSpawner : MonoBehaviour
     [SerializeField] private List<GWEnemyController> enemyList;
     [SerializeField] private GWEnemyController districtLeader;
     [SerializeField] private GWDistrictScript district;
+    [SerializeField] private GWElementColorTable table;
     [SerializeField] private List<GameObject> spawnPoints;
     private List<int> elementChance = new List<int>();
 
@@ -76,6 +77,11 @@ public class GWSpawner : MonoBehaviour
     public void chooseElement(GWEnemyController enemy)
     {
         int elem = elementChance[Random.Range(0, elementChance.Count)];
+        /* 
+        Renderer enemyRenderer = enemy.gameObject.GetComponent<Renderer>();
+        Color color = table.color[elem];
+        enemyRenderer.material.color = color;
+         */
         switch(elem)
         {
             case 0: //GWEType.EARTH: //Order: Earth, fire, water, air public Vector4 sensibilities = new Vector4( 0.8f, 0.4f, 0.1f, 0.15f);
