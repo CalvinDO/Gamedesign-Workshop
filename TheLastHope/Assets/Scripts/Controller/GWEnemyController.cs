@@ -25,6 +25,9 @@ public class GWEnemyController : MonoBehaviour {
     public bool isFlying;
     public bool isGrounded;
 
+    public AudioSource source;
+    public GWEnemySounds enemySounds;
+
     public virtual void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
 
@@ -130,7 +133,7 @@ public class GWEnemyController : MonoBehaviour {
     }
 
     public void Hurt(float damage) {
-
+        enemySounds.PlayHurt(source);
         GameObject newRisingDamageText = GameObject.Instantiate(this.risingDamageTextPrefab, GWPoolManager.instance.risingDamageTextPool);
         newRisingDamageText.gameObject.SetActive(true);
         newRisingDamageText.transform.SetPositionAndRotation(this.risingDamageTextPrefab.transform.position, this.risingDamageTextPrefab.transform.rotation);

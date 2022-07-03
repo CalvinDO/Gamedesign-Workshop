@@ -46,6 +46,7 @@ public class GWLoot : MonoBehaviour {
                 rb.AddExplosionForce(500, transform.position, 1);
             }
         }
+        fracturedBox.GetComponent<GWDestroySound>().PlayBoxDestroy(fracturedBox.GetComponent<AudioSource>());
         //Debug.Log("Lootbox destroy");
 
         Destroy(this.gameObject);

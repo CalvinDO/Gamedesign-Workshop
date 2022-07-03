@@ -128,9 +128,12 @@ MonoBehaviour:
   remainingAttackTime: 0
   attackState: 0
   enemy: {fileID: 0}
-  pawnController: {fileID: 0}
+  reachablePawnController: {fileID: 0}
   weapon: {fileID: 430997971793421673}
   futureAttackPos: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
+  audioSource: {fileID: 0}
+  enemyHitClips: []
 --- !u!1 &5427770890646278476
 GameObject:
   m_ObjectHideFlags: 0

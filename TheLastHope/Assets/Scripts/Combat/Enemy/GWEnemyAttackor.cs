@@ -63,7 +63,9 @@ public class GWEnemyAttackor : MonoBehaviour {
                 this.remainingLoadTime -= Time.deltaTime;
 
                 if (this.remainingLoadTime <= 0) {
-
+                    if((int)UnityEngine.Random.Range(0, 1)==0){
+                        this.enemy.enemySounds.PlayChant(this.enemy.source);
+                    }
                     this.attackState = GWAttackState.Active;
 
                     this.remainingLoadTime = this.loadTime;
