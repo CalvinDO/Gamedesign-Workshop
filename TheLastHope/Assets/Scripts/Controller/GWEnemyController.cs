@@ -18,7 +18,7 @@ public class GWEnemyController : MonoBehaviour {
     public GWEnemyAttackor attackor;
 
     public GameObject risingDamageTextPrefab;
-    
+
     public GameObject mesh;
 
     public float currentMovementSpeed;
@@ -93,6 +93,7 @@ public class GWEnemyController : MonoBehaviour {
             this.Hurt(this.GetTotalElementDamage(elements));
         }
         catch (Exception e) {
+            Debug.LogWarning(e.Message);
             return;
         }
     }

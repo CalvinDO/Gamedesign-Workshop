@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 328818376325036644}
   - component: {fileID: 599829950644682621}
   - component: {fileID: 328818376325036646}
+  - component: {fileID: 6937193325383991301}
   - component: {fileID: 1745987288500773782}
   - component: {fileID: 7980078096886513795}
   - component: {fileID: 1761304262742546235}
@@ -259,8 +260,8 @@ MonoBehaviour:
   currentMovementSpeed: 0
   isFlying: 0
   isGrounded: 0
-  source: {fileID: 0}
-  enemySounds: {fileID: 0}
+  source: {fileID: 1761304262742546235}
+  enemySounds: {fileID: 6937193325383991301}
   attackors:
   - {fileID: 328818375746439265}
   - {fileID: 9158637621113759599}
@@ -289,6 +290,33 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6937193325383991301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328818376325036641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aff9b64e1e70c74499e73c19a93c98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurtSounds:
+  - {fileID: 8300000, guid: 3ea07fad1f6d8484ba88ac1136e9d26a, type: 3}
+  - {fileID: 8300000, guid: 2bfee886bdab1d347bf7a0b8aa80e028, type: 3}
+  - {fileID: 8300000, guid: e4f4f0e810a5c774390e14c3d55a5232, type: 3}
+  - {fileID: 8300000, guid: fcfec8269938e0847b8da9f94dfadc61, type: 3}
+  chantSounds:
+  - {fileID: 8300000, guid: 1dbf2580ed79aa24bbfe8d2b7d16b6f5, type: 3}
+  - {fileID: 8300000, guid: 1b9965918287c7642a4780bd32815a29, type: 3}
+  - {fileID: 8300000, guid: 4571664965505f740ac590005682e662, type: 3}
+  - {fileID: 8300000, guid: b06b285ccfe19d14983acd8cc10f1f37, type: 3}
+  - {fileID: 8300000, guid: 9268ef2aa65d36e4e9c8d09c3851d8be, type: 3}
+  - {fileID: 8300000, guid: 53c1396940e831142a1ffff23043535f, type: 3}
+  - {fileID: 8300000, guid: 25bbd88b0aea5af41b6acd500ffd7c84, type: 3}
+  - {fileID: 8300000, guid: 29e5d36699e1c334590814586296effa, type: 3}
+  - {fileID: 8300000, guid: 823100bb5fbfc9c42b7e5a64e6e74c39, type: 3}
 --- !u!114 &1745987288500773782
 MonoBehaviour:
   m_ObjectHideFlags: 0
