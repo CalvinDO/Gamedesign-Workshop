@@ -55,6 +55,7 @@ public class GWSpawner : MonoBehaviour
             {
                 Vector3 pos = new Vector3(point.transform.position.x,0,point.transform.position.z);
                 district.livingLeader = Instantiate(this.districtLeader.gameObject, pos, Quaternion.identity);
+                chooseElement(district.livingLeader.GetComponent<GWEnemyController>());
             }else{
                 int enemy = Random.Range(0, (enemyList.Count - 1));
                 for(int i = 0; i < (2 * (district.getCorruption() + 1)); i++)
