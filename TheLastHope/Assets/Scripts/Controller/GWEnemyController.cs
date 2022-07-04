@@ -33,6 +33,8 @@ public class GWEnemyController : MonoBehaviour {
 
     public bool isDied;
 
+
+
     public virtual void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
 
@@ -94,6 +96,17 @@ public class GWEnemyController : MonoBehaviour {
         }
 
         //Debug.Log(this.agent.speed);
+    }
+
+    public void Knockback() {
+        this.StartCoroutine(this.SetToGround());
+    }
+
+    IEnumerator SetToGround() {
+        yield return new WaitForSeconds(2);
+        this.isGrounded = true;
+        this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+        //this.isFlying = false;
     }
 
     public void RecieveElementAttack(List<GWEType> elements) {
