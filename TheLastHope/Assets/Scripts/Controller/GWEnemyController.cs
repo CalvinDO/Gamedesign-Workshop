@@ -29,6 +29,9 @@ public class GWEnemyController : MonoBehaviour {
     public AudioSource source;
     public GWEnemySounds enemySounds;
 
+    public GWEType element;
+
+
     public virtual void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
 
@@ -159,7 +162,7 @@ public class GWEnemyController : MonoBehaviour {
         }
     }
 
-    public void Die() {
+    virtual public void Die() {
         GameObject.Destroy(this.gameObject);
     }
 }

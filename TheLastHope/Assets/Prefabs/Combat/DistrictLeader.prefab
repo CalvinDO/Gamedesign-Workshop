@@ -262,12 +262,18 @@ MonoBehaviour:
   isGrounded: 0
   source: {fileID: 1761304262742546235}
   enemySounds: {fileID: 6937193325383991301}
+  element: 0
   attackors:
   - {fileID: 328818375746439265}
   - {fileID: 9158637621113759599}
   - {fileID: 8710688251889569990}
   switchInterval: 7.32
   remainingSwitchTime: 0
+  dropSpells:
+  - {fileID: 11400000, guid: ab507ef0979c9d544a0211908a9dbae0, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 1c5ebedda1784674da3643184d841840, type: 2}
+  - {fileID: 11400000, guid: a12d5cc4867014a4bb5309aa1864751d, type: 2}
 --- !u!195 &328818376325036646
 NavMeshAgent:
   m_ObjectHideFlags: 0

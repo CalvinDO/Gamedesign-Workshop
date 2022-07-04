@@ -7,6 +7,7 @@ public class GWDistrictLeaderController : GWEnemyController {
 
     public float switchInterval;
     public float remainingSwitchTime;
+    public GWSpell[] dropSpells;
 
     public override void Start() {
 
@@ -48,5 +49,16 @@ public class GWDistrictLeaderController : GWEnemyController {
         this.attackor.gameObject.SetActive(true);
 
         //Debug.Log(this.agent.isStopped + " should be false");
+    }
+
+
+    override public void Die() {
+
+        GWCollectableSpell collectible = null;
+        collectible.spell = this.dropSpells[(int)this.element];
+        Instantiate(collectible, this.transform.position, Quaternion.identity);
+       
+
+        GameObject.Destroy(this.gameObject);
     }
 }
