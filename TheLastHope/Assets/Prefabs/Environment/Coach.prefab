@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9068853190763168519}
   - component: {fileID: 6503196369179359181}
   - component: {fileID: 1212271038026378858}
+  - component: {fileID: 9122085255644681964}
   m_Layer: 0
   m_Name: Coach
   m_TagString: Untagged
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2981216415700160486, guid: 9de8f6293d759444ababc2bac76fe991, type: 3}
+--- !u!65 &9122085255644681964
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701479646747956760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2317948, y: 33.92, z: 5.821241}
+  m_Center: {x: -0.11331713, y: 1.2458378, z: 0.59223413}

@@ -420,6 +420,8 @@ public class GWAttackor : MonoBehaviour {
                         ).normalized
                         + Vector3.up) * 1f;
                     nearbyEnemy.rb.velocity = knockback * 5;
+
+                    nearbyEnemy.Knockback();
                     /*
                     nearbyEnemy.rb.AddForce(
                         (
