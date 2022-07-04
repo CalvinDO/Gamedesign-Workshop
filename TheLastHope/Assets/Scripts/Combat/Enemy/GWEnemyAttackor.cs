@@ -44,6 +44,10 @@ public class GWEnemyAttackor : MonoBehaviour {
     }
 
     public virtual void Update() {
+        if (this.enemy.isDied) {
+            this.gameObject.SetActive(false);
+            return;
+        }
 
         switch (this.attackState) {
 

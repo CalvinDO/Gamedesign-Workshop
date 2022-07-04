@@ -259,7 +259,7 @@ public class GWAttackor : MonoBehaviour {
         }
 
         foreach (GWEnemyController enemy in this.nearbyEnemys) {
-
+            enemy.transform.parent = null;
             try {
 
                 enemy.agent.isStopped = false;
@@ -444,7 +444,7 @@ public class GWAttackor : MonoBehaviour {
 
         foreach (GWEnemyController killedEnemy in killedEnemys) {
 
-            GameObject.Destroy(killedEnemy);
+            killedEnemy.Die();
             this.nearbyEnemys.Remove(killedEnemy);
         }
 

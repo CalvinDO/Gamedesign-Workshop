@@ -71,6 +71,8 @@ public class GWSpawner : MonoBehaviour {
         Color color = table.color[(int)this.district.getElement()];
         enemyRenderer.material.color = color;
 
+        enemy.element = this.district.getElement();
+
         switch ((int)this.district.getElement()) {
             case 0: //GWEType.EARTH: //Order: Earth, fire, water, air public Vector4 sensibilities = new Vector4( 0.8f, 0.4f, 0.1f, 0.15f);
                 enemy.stats.sensibilities = new Vector4(0.1f, 0.2f, 0.8f, 1.0f);
@@ -114,6 +116,6 @@ public class GWSpawner : MonoBehaviour {
         //nach Air für ins Fire Distr:
         // WaterPush
         // Firetornado
-        // (von leader) AirBeben
+        // (von leader) AirSpikes
     }
 }

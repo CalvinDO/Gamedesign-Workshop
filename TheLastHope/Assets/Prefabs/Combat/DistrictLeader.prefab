@@ -274,6 +274,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 88d3530f3b2631449908a19fd8e78992, type: 2}
   - {fileID: 11400000, guid: 1c5ebedda1784674da3643184d841840, type: 2}
   - {fileID: 11400000, guid: a12d5cc4867014a4bb5309aa1864751d, type: 2}
+  collectableSpellPrefab: {fileID: 8238796507556005685, guid: 4ee692d6579effb47967c803fd7de321, type: 3}
 --- !u!195 &328818376325036646
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -335,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbd1720bb70a854482f4da745d99a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensibilities: {x: 0.1, y: 0.6, z: 0.6, w: 0.1}
+  sensibilities: {x: 0.8, y: 1, z: 0.2, w: 0.1}
   manualMaxHealth: 150
 --- !u!136 &7980078096886513795
 CapsuleCollider:

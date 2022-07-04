@@ -31,7 +31,7 @@ public class GWEnemyStats : MonoBehaviour, GWIStats {
     }
     void Update() {
         if (this.currentHealth <= 0) {
-            Destroy(gameObject);
+            this.gameObject.GetComponent<GWEnemyController>().Die();
         }
     }
 }

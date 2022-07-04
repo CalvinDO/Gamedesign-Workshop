@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,21 @@ public class GWRangedEnemyShooter : GWEnemyAttackor {
 
     public override void Update() {
 
+        if (this.enemy.isDied) {
+            this.gameObject.SetActive(false);
+            return;
+        }
+
+        try {
+            this.TryUpdate();
+
+        }
+        catch (Exception e) {
+            Debug.LogWarning(e.Message);
+        }
+    }
+
+    public void TryUpdate() {
         switch (this.attackState) {
 
             case GWAttackState.Roaming:

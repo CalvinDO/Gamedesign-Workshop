@@ -9,6 +9,9 @@ public class GWDistrictLeaderController : GWEnemyController {
     public float remainingSwitchTime;
     public GWSpell[] dropSpells;
 
+    public GWCollectableSpell collectableSpellPrefab;
+
+
     public override void Start() {
 
         base.Start();
@@ -54,11 +57,15 @@ public class GWDistrictLeaderController : GWEnemyController {
 
     override public void Die() {
 
-        GWCollectableSpell collectible = null;
-        collectible.spell = this.dropSpells[(int)this.element];
-        Instantiate(collectible, this.transform.position, Quaternion.identity);
-       
+        if (this.isDied) {
+            return;
+        }
+        base.Die();
 
-        GameObject.Destroy(this.gameObject);
+        GWCollectableSpell collectible = Instantiate(this.collectableSpellPrefab, this.transform.position, Quaternion.identity);
+        collectible.spell = this.dropSpells[(int)this.element];
+        collectible.name = "leaderDrop";
+        
+        //GameObject.Destroy(this.gameObject);
     }
 }

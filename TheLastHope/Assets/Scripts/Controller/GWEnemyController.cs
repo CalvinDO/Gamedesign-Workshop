@@ -31,6 +31,7 @@ public class GWEnemyController : MonoBehaviour {
 
     public GWEType element;
 
+    public bool isDied;
 
     public virtual void Start() {
         this.stats = this.gameObject.GetComponent<GWEnemyStats>();
@@ -40,6 +41,11 @@ public class GWEnemyController : MonoBehaviour {
     }
 
     public virtual void Update() {
+
+        if (this.isDied) {
+            Destroy(this.agent);
+            return;
+        }
 
         this.text.text = "" + this.stats.currentHealth;
 
@@ -163,6 +169,18 @@ public class GWEnemyController : MonoBehaviour {
     }
 
     virtual public void Die() {
-        GameObject.Destroy(this.gameObject);
+
+        if (this.isDied) {
+            return;
+        }
+
+        this.isDied = true;
+
+        this.text.gameObject.SetActive(false);
+
+        this.attackor.animator.SetTrigger("die");
+
+        this.gameObject.GetComponent<CapsuleCollider>().gameObject.layer = LayerMask.NameToLayer("DeadEnemy");
+        //GameObject.Destroy(this.gameObject);
     }
 }
