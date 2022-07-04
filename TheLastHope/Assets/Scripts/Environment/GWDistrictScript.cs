@@ -14,7 +14,7 @@ public class GWDistrictScript : MonoBehaviour
     // Start is called before the first frame update
 
 
-    public static bool isSpawningAllowed = false;
+    public static bool isSpawningAllowed = true;
 
     void Start()
     {
