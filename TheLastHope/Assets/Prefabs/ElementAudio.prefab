@@ -60,3 +60,27 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8df845b5f22efad46a87031bfd46a813, type: 3}
   - {fileID: 8300000, guid: abe52f431d7d6c04bb98ab0b5150f8dd, type: 3}
   - {fileID: 8300000, guid: b227f1154d3b44243b4115f7b8b1f877, type: 3}
+  sandClips:
+  - {fileID: 8300000, guid: 054b2f764b393f34abc3fb729671836a, type: 3}
+  - {fileID: 8300000, guid: 25ea7981657634c4196ef070f84f5148, type: 3}
+  - {fileID: 8300000, guid: f7941af119876a04bb18b7b66566d875, type: 3}
+  ironClips:
+  - {fileID: 8300000, guid: 934577083bd422c4fb8199cc1a81b7d8, type: 3}
+  - {fileID: 8300000, guid: dee431e439058e14195c9b43571ac747, type: 3}
+  - {fileID: 8300000, guid: 24a9a0702f9948d47b17b0da7e5cec4a, type: 3}
+  plantClips:
+  - {fileID: 8300000, guid: 62065ec57394efc46a0bcd51fdbc1d82, type: 3}
+  - {fileID: 8300000, guid: 888036e6057d9cb49858fa041b67b362, type: 3}
+  - {fileID: 8300000, guid: b59c806098700fe4c916dec79d6204af, type: 3}
+  lightningClips:
+  - {fileID: 8300000, guid: a79bc2df259c1b04a8f7c342b1573182, type: 3}
+  - {fileID: 8300000, guid: 1f5770595b143fd418a8a595df9cf053, type: 3}
+  - {fileID: 8300000, guid: 32e7b3846f136c64daf894e61aef2cfd, type: 3}
+  steamClips:
+  - {fileID: 8300000, guid: dc7f8352c8ac7b54a93c5327516ba8ed, type: 3}
+  - {fileID: 8300000, guid: 505898cba564f474eb0df0c71e8e959d, type: 3}
+  - {fileID: 8300000, guid: 5c19a36e616927143b7dc901411f255d, type: 3}
+  iceClips:
+  - {fileID: 8300000, guid: eb384754bb2293842a072d4f5825f710, type: 3}
+  - {fileID: 8300000, guid: bb1a3b725f408b642815209ae328cd15, type: 3}
+  - {fileID: 8300000, guid: 5f1f72fef9c1b4a49be10639cec5a3b4, type: 3}

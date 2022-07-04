@@ -96,6 +96,7 @@ public class GWSpawner : MonoBehaviour
             default: //AIR
                 enemy.stats.sensibilities = new Vector4( 0.5f, 1.0f, 0.8f, 0.1f);
                 break;
+
         }
     }
 }
