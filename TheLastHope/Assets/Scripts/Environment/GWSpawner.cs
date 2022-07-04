@@ -46,7 +46,7 @@ public class GWSpawner : MonoBehaviour {
             if (point.tag == "DistrictLeader") {
                 Vector3 pos = new Vector3(point.transform.position.x, 0, point.transform.position.z);
                 district.livingLeader = Instantiate(this.districtLeader.gameObject, pos, Quaternion.identity);
-                chooseElement(district.livingLeader.GetComponent<GWEnemyController>());
+                chooseElementLeader(district.livingLeader.GetComponent<GWEnemyController>());
             }
             else {
                 int enemy = Random.Range(0, (enemyList.Count - 1));
@@ -63,6 +63,29 @@ public class GWSpawner : MonoBehaviour {
         Vector3 pos = new Vector3((origin.x + Random.Range(-5, 5)), 0, (origin.z + Random.Range(-5, 5)));
         GWEnemyController newEnemy = Instantiate(enemy.gameObject, pos, Quaternion.identity).GetComponent<GWEnemyController>();
         chooseElement(newEnemy);
+    }
+
+    public void chooseElementLeader(GWEnemyController enemy) {
+
+        Renderer enemyRenderer = enemy.mesh.GetComponent<Renderer>();
+        Color color = table.color[(int)this.district.getElement()];
+        enemyRenderer.material.color = color;
+
+        switch ((int)this.district.getElement()) {
+            case 0: //GWEType.EARTH: //Order: Earth, fire, water, air public Vector4 sensibilities = new Vector4( 0.8f, 0.4f, 0.1f, 0.15f);
+                enemy.stats.sensibilities = new Vector4(0.1f, 0.2f, 0.8f, 1.0f);
+                break;
+            case 1: //GWEType.FIRE:
+                enemy.stats.sensibilities = new Vector4(0.2f, 0.1f, 1.0f, 0.8f);
+                break;
+            case 2: //GWEType.WATER:
+                enemy.stats.sensibilities = new Vector4(1.0f, 0.8f, 0.1f, 0.2f);
+                break;
+            default: //AIR
+                enemy.stats.sensibilities = new Vector4(0.8f, 1.0f, 0.2f, 0.1f);
+                break;
+
+        }
     }
 
     public void chooseElement(GWEnemyController enemy) {

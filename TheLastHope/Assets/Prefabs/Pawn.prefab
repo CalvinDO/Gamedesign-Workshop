@@ -60,6 +60,7 @@ MonoBehaviour:
   isSummoned: 0
   originalAttackor: {fileID: 0}
   source: {fileID: 6476011297881460902}
+  animator: {fileID: 0}
 --- !u!136 &7305023205003639478
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -541,6 +542,7 @@ MonoBehaviour:
   isSummoned: 0
   originalAttackor: {fileID: 0}
   source: {fileID: 5072994890932585204}
+  animator: {fileID: 0}
 --- !u!136 &2944812023693404142
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -795,6 +797,7 @@ MonoBehaviour:
   isSummoned: 0
   originalAttackor: {fileID: 0}
   source: {fileID: 9027009166208390475}
+  animator: {fileID: 0}
   projectile: {fileID: 988346411944495611}
 --- !u!135 &8952417651827166905
 SphereCollider:
@@ -1095,6 +1098,7 @@ MonoBehaviour:
   isSummoned: 0
   originalAttackor: {fileID: 0}
   source: {fileID: 655650439694603836}
+  animator: {fileID: 0}
 --- !u!135 &1715260446866402938
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1633,6 +1637,7 @@ MonoBehaviour:
   isSummoned: 0
   originalAttackor: {fileID: 0}
   source: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!65 &3988668050329223581
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2257,7 +2262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7715278772098082018}
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.05, z: 2.546}
+  m_LocalPosition: {x: 0, y: 1.05, z: 2.283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2290,6 +2295,7 @@ MonoBehaviour:
   isSummoned: 0
   originalAttackor: {fileID: 0}
   source: {fileID: 370481135201491651}
+  animator: {fileID: 0}
 --- !u!136 &270530004709047984
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2753,6 +2759,7 @@ MonoBehaviour:
   isSummoned: 0
   originalAttackor: {fileID: 0}
   source: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!136 &4446054009552520372
 CapsuleCollider:
   m_ObjectHideFlags: 0
