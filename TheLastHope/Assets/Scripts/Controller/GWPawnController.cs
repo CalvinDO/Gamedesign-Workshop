@@ -339,6 +339,7 @@ public class GWPawnController : MonoBehaviour {
 
             lookatVector = hit.point;
         }
+
         this.movingPawn.transform.LookAt(lookatVector);
     }
 

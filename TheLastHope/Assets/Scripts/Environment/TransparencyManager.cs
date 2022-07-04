@@ -9,26 +9,33 @@ public class TransparencyManager : MonoBehaviour {
     [SerializeField] private string[] layer;
 
     private List<Renderer> lastRenderers;
+    public List<Material> originalMaterials;
+
+    public Material transparentHouseMaterial;
 
 
     void Start() {
         this.lastRenderers = new List<Renderer>();
+        this.originalMaterials = new List<Material>();
     }
     // Update is called once per frame
     void Update() {
 
 
         foreach (Renderer renderer in this.lastRenderers) {
-
+            /*
             Color color = renderer.material.color;
+            //renderer.material.re
             color.a = 1;
 
             renderer.material.color = color;
+            */
+            renderer.material = this.originalMaterials[this.lastRenderers.IndexOf(renderer)];
         }
 
 
         this.lastRenderers = new List<Renderer>();
-
+        this.originalMaterials = new List<Material>();
 
 
         //var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
@@ -50,11 +57,16 @@ public class TransparencyManager : MonoBehaviour {
 
             if (selectionRenderer) {
 
+                /*
                 Color color = selectionRenderer.material.color;
                 color.a = 0;
                 selectionRenderer.material.color = color;
+                */
 
                 this.lastRenderers.Add(selectionRenderer);
+                this.originalMaterials.Add(selectionRenderer.material);
+
+                selectionRenderer.material = this.transparentHouseMaterial;
             }
         }
 

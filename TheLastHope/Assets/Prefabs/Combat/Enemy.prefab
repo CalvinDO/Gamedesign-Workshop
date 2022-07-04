@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensibilities: {x: 0.2, y: 0.1, z: 0.9, w: 0.3}
-  manualMaxHealth: 1000
+  manualMaxHealth: 60
 --- !u!136 &7226735642109750661
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -770,6 +770,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037052678194698014}
     m_Modifications:
+    - target: {fileID: 1412717081697487608, guid: a17d1ebbd2c8a2c4596b1016effe9dd2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412717081697487608, guid: a17d1ebbd2c8a2c4596b1016effe9dd2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4333935141525900420, guid: a17d1ebbd2c8a2c4596b1016effe9dd2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
