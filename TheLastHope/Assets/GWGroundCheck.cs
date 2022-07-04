@@ -18,9 +18,11 @@ public class GWGroundCheck : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 0.1f, layerMask)) {
             this.enemyController.isGrounded = true;
+            
         }
         else {
             this.enemyController.isGrounded = false;
+            this.enemyController.transform.position = new Vector3(this.enemyController.transform.position.x, 0, this.enemyController.transform.position.z)
         }
     }
 }
