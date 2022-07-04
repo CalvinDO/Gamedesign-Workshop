@@ -9,7 +9,7 @@ public class GWLoot : MonoBehaviour {
     public List<int> elementChance = new List<int>();
 
     // Start is called before the first frame update
-    void Start() {/*
+    void Start() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
                 elementChance.Add(i);
@@ -34,7 +34,6 @@ public class GWLoot : MonoBehaviour {
         for (int i = 0; i < 84; i++) {
             elementChance.Add(elem);
         }
-         */
     }
 
     public void destroy() {
@@ -55,8 +54,6 @@ public class GWLoot : MonoBehaviour {
     private void spawnSpell() {
         if (Random.Range(0, 100) > 70) {
             int elem = elementChance[Random.Range(0, elementChance.Count)];
-            collectible.spell = spells[elem];
-            /*
             switch(elem)
             {
                 case 0: //GWEType.EARTH: //Order: Earth, fire, water, air public Vector4 sensibilities = new Vector4( 0.8f, 0.4f, 0.1f, 0.15f);
@@ -77,7 +74,7 @@ public class GWLoot : MonoBehaviour {
                     collectible.spell = spells[elem];
                     break;
             }
-            */
+            
             Debug.Log(collectible.spell);
             Instantiate(collectible, this.transform.position, Quaternion.identity);
         }
