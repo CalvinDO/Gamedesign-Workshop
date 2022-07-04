@@ -271,7 +271,7 @@ MonoBehaviour:
   remainingSwitchTime: 0
   dropSpells:
   - {fileID: 11400000, guid: ab507ef0979c9d544a0211908a9dbae0, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 88d3530f3b2631449908a19fd8e78992, type: 2}
   - {fileID: 11400000, guid: 1c5ebedda1784674da3643184d841840, type: 2}
   - {fileID: 11400000, guid: a12d5cc4867014a4bb5309aa1864751d, type: 2}
 --- !u!195 &328818376325036646
