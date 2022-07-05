@@ -52,7 +52,7 @@ public class GWLoot : MonoBehaviour {
     }
 
     private void spawnSpell() {
-        if (Random.Range(0, 100) > 70) {
+        if (Random.Range(0, 100) > 90) {
             int elem = elementChance[Random.Range(0, elementChance.Count)];
             switch(elem)
             {

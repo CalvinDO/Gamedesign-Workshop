@@ -246,6 +246,7 @@ public class GWAttackor : MonoBehaviour {
                 weaponMat = this.skinnedVisualAttackor.material;
             }
             else {
+
                 weaponMat = this.visualAttackor.material;
             }
 
@@ -259,7 +260,21 @@ public class GWAttackor : MonoBehaviour {
         }
 
         foreach (GWEnemyController enemy in this.nearbyEnemys) {
-            enemy.transform.parent = null;
+
+            
+
+            if (this.formEffect == GWFormEffect.VORTEX) {
+                enemy.transform.parent = null;
+
+                Collider[] colliders = Physics.OverlapCapsule(enemy.transform.position, enemy.transform.position + Vector3.up * 2, 0.6f);
+                if (colliders.Length > 0) {
+                    enemy.transform.position = new Vector3(this.transform.position.x, enemy.transform.position.y, this.transform.position.z);
+                }
+
+                enemy.Knockback(0.5f);
+            }
+
+            
             try {
 
                 enemy.agent.isStopped = false;
@@ -421,7 +436,7 @@ public class GWAttackor : MonoBehaviour {
                         + Vector3.up) * 1f;
                     nearbyEnemy.rb.velocity = knockback * 5;
 
-                    nearbyEnemy.Knockback();
+                    nearbyEnemy.Knockback(2);
                     /*
                     nearbyEnemy.rb.AddForce(
                         (

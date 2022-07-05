@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 1
   containedElements: 01000000
-  buildUpTime: 4
-  activeTime: 7
+  buildUpTime: 4.3
+  activeTime: 6
   cooldownTime: 5
   onlyOneTimeEffect: 0
-  effectInterval: 1
+  effectInterval: 1.5
   sprite: {fileID: 21300000, guid: e29074bf58662f441b784f6136815ae0, type: 3}
   formSprite: {fileID: 21300000, guid: 584944fd7b083ab4ca740eef13acacce, type: 3}
   effects: 01000000

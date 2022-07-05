@@ -17,8 +17,8 @@ MonoBehaviour:
   buildUpTime: 2
   activeTime: 1
   cooldownTime: 5
-  onlyOneTimeEffect: 1
-  effectInterval: 0.5
+  onlyOneTimeEffect: 0
+  effectInterval: 0.51
   sprite: {fileID: 21300000, guid: e29074bf58662f441b784f6136815ae0, type: 3}
   formSprite: {fileID: 21300000, guid: e5bb0a5c28c125249801151b79d6a008, type: 3}
   effects: 00000000

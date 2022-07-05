@@ -8,11 +8,15 @@ public class GWSpellMenu : MonoBehaviour {
     public GameObject hidableInventorySlots;
     public GameObject hotbarInventorySlots;
 
+    public GWDiscardSlot discardSlot;
+
+
     public GameObject uiSpellPrefab;
 
 
     public static GWSpellMenu instance;
     public bool cardMovingBlocked;
+
     public AudioSource source;
     public GWCardSounds cardSounds;
 
@@ -24,7 +28,9 @@ public class GWSpellMenu : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.I)) {
 
             this.hidableInventorySlots.gameObject.SetActive(!this.hidableInventorySlots.gameObject.activeSelf);
+            this.discardSlot.gameObject.SetActive(!this.discardSlot.gameObject.activeSelf);
             GWPawnController.instance.isAttackingBlocked = !GWPawnController.instance.isAttackingBlocked;
+            this.cardMovingBlocked = !this.cardMovingBlocked;
         }
     }
 

@@ -18,20 +18,34 @@ public class GWDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         //this.transform.SetParent(GWAttackSlotContainer.instance.transform);
         //if (this.originInventorySlot.state != GWInventorySlot.SpellState.)
-
         if (GWSpellMenu.instance.cardMovingBlocked) {
             return;
         }
+
         this.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData) {
-        
+        /*
+        if (GWSpellMenu.instance.cardMovingBlocked) {
+            return;
+        }
+        */
+        if (GWSpellMenu.instance.cardMovingBlocked) {
+            return;
+        }
         this.transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-
+        /*
+        if (GWSpellMenu.instance.cardMovingBlocked) {
+            return;
+        }
+        */
+        if (GWSpellMenu.instance.cardMovingBlocked) {
+            return;
+        }
         this.transform.SetParent(this.originInventorySlot.transform);
         this.rectTransform.anchoredPosition = Vector2.zero;
 

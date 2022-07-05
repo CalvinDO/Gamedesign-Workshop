@@ -135,6 +135,10 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData) {
 
+        if (GWSpellMenu.instance.cardMovingBlocked) {
+            return;
+        }
+
         try {
 
             GWUISpell hoveringSpell = eventData.pointerDrag.gameObject.GetComponent<GWUISpell>();
@@ -182,6 +186,10 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
     public void OnPointerExit(PointerEventData eventData) {
 
+        if (GWSpellMenu.instance.cardMovingBlocked) {
+            return;
+        }
+
         this.ResetPreview(eventData);
     }
 
@@ -214,6 +222,10 @@ public class GWInventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 
     public void OnDrop(PointerEventData eventData) {
 
+        if (GWSpellMenu.instance.cardMovingBlocked) {
+            return;
+
+        }
         this.ResetPreview(eventData);
 
         GWUISpell droppedSpell = eventData.pointerDrag.gameObject.GetComponent<GWUISpell>();

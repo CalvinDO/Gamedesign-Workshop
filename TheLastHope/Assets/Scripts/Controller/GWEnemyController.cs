@@ -66,10 +66,14 @@ public class GWEnemyController : MonoBehaviour {
 
         //Debug.Log("agent destination: " + this.agent.destination);
         try {
-            if (Vector3.Distance(this.transform.position, GWPawnController.instance.transform.position) < this.seeCharacterRange) {
+            float distance = Vector3.Distance(this.transform.position, GWPawnController.instance.transform.position);
+            if (distance < this.seeCharacterRange) {
 
                 try {
-                    this.agent.destination = GWPawnController.instance.transform.position;
+
+                    Vector3 connection = GWPawnController.instance.transform.position - this.transform.position;
+                    connection -= connection.normalized * 1.5f;
+                    this.agent.destination = this.transform.position + connection;
                 }
                 catch (Exception e) {
 
@@ -98,12 +102,12 @@ public class GWEnemyController : MonoBehaviour {
         //Debug.Log(this.agent.speed);
     }
 
-    public void Knockback() {
-        this.StartCoroutine(this.SetToGround());
+    public void Knockback(float seconds) {
+        this.StartCoroutine(this.SetToGround(seconds));
     }
 
-    IEnumerator SetToGround() {
-        yield return new WaitForSeconds(2);
+    IEnumerator SetToGround(float seconds) {
+        yield return new WaitForSeconds(seconds);
         this.isGrounded = true;
         this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
         //this.isFlying = false;

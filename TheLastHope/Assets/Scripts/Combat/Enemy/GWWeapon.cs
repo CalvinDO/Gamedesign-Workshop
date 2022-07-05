@@ -7,7 +7,7 @@ public class GWWeapon : MonoBehaviour {
     public GWEnemyAttackor enemyAttackor;
     private GWPawnController pawnController;
     public MeshRenderer meshRenderer;
-
+    //public SkinnedMeshRenderer
 
 
     void OnTriggerEnter(Collider other) {

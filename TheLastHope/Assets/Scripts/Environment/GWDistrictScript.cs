@@ -1,25 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GWDistrictScript : MonoBehaviour
-{
+public class GWDistrictScript : MonoBehaviour {
     [SerializeField] private GWCityScript city;
     [SerializeField] private GameObject[] barriers;
     [SerializeField] private GWSpawner spawner;
     [SerializeField] private GWEType element;
     [SerializeField] private int corruption; // -1 equals cleared
 
-    public GameObject livingLeader ;
+    public GameObject livingLeader;
     // Start is called before the first frame update
 
 
     public static bool isSpawningAllowed = true;
 
-    void Start()
-    {
-        foreach(GameObject barrier in barriers)
-        {
+    void Start() {
+        foreach (GameObject barrier in barriers) {
             Renderer barrierRenderer = barrier.gameObject.GetComponent<Renderer>();
             Color color = Color.green;
             color.a = 0;
@@ -28,18 +26,21 @@ public class GWDistrictScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(!livingLeader && !spawner && barriers[0])
-        {
-            openBarriers();
+    void Update() {
+        try {
+
+            if (livingLeader.gameObject.GetComponent<GWDistrictLeaderController>().isDied && !spawner && barriers[0]) {
+                openBarriers();
+            }
         }
-    } 
+        catch (Exception e) {
+
+        }
+    }
 
     public void openBarriers() // called on boss kill
     {
-        foreach(GameObject barrier in barriers)
-        {
+        foreach (GameObject barrier in barriers) {
             Destroy(barrier);
         }
         this.corruption = -1;
@@ -48,10 +49,8 @@ public class GWDistrictScript : MonoBehaviour
 
     public void closeBarriers() // called on collision 
     {
-        foreach(GameObject barrier in barriers)
-        {
-            if(corruption != -1)
-            {
+        foreach (GameObject barrier in barriers) {
+            if (corruption != -1) {
                 Renderer barrierRenderer = barrier.gameObject.GetComponent<Renderer>();
                 Color color = Color.red;
                 color.a = 1;
@@ -63,20 +62,17 @@ public class GWDistrictScript : MonoBehaviour
 
         //Spawn Enemies
         if (GWDistrictScript.isSpawningAllowed)
-        spawner.spawning();
+            spawner.spawning();
     }
 
-    public void corrupt()
-    {
+    public void corrupt() {
         corruption++;
     }
 
-    public int getCorruption()
-    {
+    public int getCorruption() {
         return corruption;
     }
-    public GWEType getElement()
-    {
+    public GWEType getElement() {
         return element;
     }
 }
