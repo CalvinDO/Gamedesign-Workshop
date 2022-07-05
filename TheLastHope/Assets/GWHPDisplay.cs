@@ -18,4 +18,5 @@ public class GWHPDisplay : MonoBehaviour
     {
         this.text.text =  "" + GWPawnController.instance.stats.currentHealth;
     }
+
 }

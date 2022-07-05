@@ -32,8 +32,7 @@ public class GWPawnStats : MonoBehaviour, GWIStats
     void Update()
     {
         if(this.currentHealth <= 0){
-            UnityEditor.EditorApplication.isPlaying = false;
-            Application.Quit();
+            Application.Quit(); 
         }
     }
 }

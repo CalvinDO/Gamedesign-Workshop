@@ -10,8 +10,8 @@ public class GWCollectableSpell : GWCollectable {
 
 
     void OnDrawGizmos() {
-        this.SetColor();
-    }
+       // this.SetColor();
+    } 
 
     void SetColor() {
 
