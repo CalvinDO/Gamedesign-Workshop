@@ -310,7 +310,7 @@ public class GWPawnController : MonoBehaviour {
 
         this.animator.SetTrigger("die");
 
-        Time.timeScale = 0;
+        GWPauseMenu.instance.SetGameDiedPaused();
         // GameObject.Destroy(this.gameObject);
     }
 

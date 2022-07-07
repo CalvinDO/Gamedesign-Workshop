@@ -31,8 +31,5 @@ public class GWPawnStats : MonoBehaviour, GWIStats
 
     void Update()
     {
-        if(this.currentHealth <= 0){
-            Application.Quit(); 
-        }
     }
 }
