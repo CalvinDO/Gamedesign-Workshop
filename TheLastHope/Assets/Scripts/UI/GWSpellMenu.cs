@@ -37,8 +37,8 @@ public class GWSpellMenu : MonoBehaviour {
     public void AddSpell(GWSpell spell) {
 
         try {
-            this.FillInChildren(spell, this.hidableInventorySlots.transform);
             this.FillInChildren(spell, this.hotbarInventorySlots.transform);
+            this.FillInChildren(spell, this.hidableInventorySlots.transform);
 
             throw new Exception("no empty Inventory Slot found!");
         }
