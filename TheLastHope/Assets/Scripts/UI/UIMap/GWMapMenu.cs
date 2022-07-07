@@ -5,24 +5,15 @@ using UnityEngine;
 public class GWMapMenu : MonoBehaviour
 {
     [SerializeField] private GameObject ui;
+    [SerializeField] private GWElementColorTable table;
     [SerializeField] private GWDistrictScript[] districts;
-    [SerializeField] private Material[] elementalMaterials;
-    private Color[] corColors = {new Color(0.9f,0.9f,0.4f), new Color(0.5f,0.5f,0.5f), new Color(0.8f,0.7f,1f), new Color(0.7f,0.5f,1f), new Color(0.5f,0.2f,1f), new Color(0.3f,0f,0.8f)};
-    private List<Material> corruptionMaterials;
-    private Shader shader;
+    [SerializeField] private GameObject[] districtMeshes;
+    private Color[] corColors = {new Color(0.9f,0.9f,0.4f), new Color(0.5f,0.5f,0.5f), new Color(0.8f,0.7f,1f), new Color(0.7f,0.5f,1f), new Color(0.5f,0.2f,1f), new Color(0.3f,0f,0.8f), new Color(0.8f,0.1f,0.1f)};
     private bool open = false;
     private bool corrupt = false;
     // Start is called before the first frame update
     void Start()
     {
-        shader = elementalMaterials[0].shader;
-        corruptionMaterials = new List<Material>();
-        for(int i = 0; i < corColors.Length; i++)
-        {
-            Material mat = new Material(shader);
-            mat.color = corColors[i];
-            corruptionMaterials.Add(mat);
-        }
         toggleColors(false);
     }
 
@@ -61,31 +52,33 @@ public class GWMapMenu : MonoBehaviour
     {
         if(corrupt)
         {
+            int triggered = 0;
             foreach(GWDistrictScript district in districts)
             {
-                district.gameObject.GetComponent<Renderer>().material = corruptionMaterials[(district.getCorruption() + 1)];
+                if(district.livingLeader)
+                {
+                    Renderer disRender = districtMeshes[triggered].GetComponent<Renderer>();
+                    Color color = corColors[(corColors.Length - 1)];
+                    color.a = 1;
+                    disRender.material.color = color;  
+                }else{
+                    Renderer disRender = districtMeshes[triggered].GetComponent<Renderer>();
+                    Color color = corColors[(district.getCorruption() + 1)];
+                    color.a = 1;
+                    disRender.material.color = color;  
+                }
+                triggered++;
             }
             corrupt = true;
         }else{
+            int triggered = 0;
             foreach(GWDistrictScript district in districts)
             {
-                Material mat;
-                switch(district.getElement())
-                {
-                    case GWEType.EARTH:
-                        mat = elementalMaterials[0];
-                        break;
-                    case GWEType.FIRE:
-                        mat = elementalMaterials[1];
-                        break;
-                    case GWEType.WATER:
-                        mat = elementalMaterials[2];
-                        break;
-                    default:
-                        mat = elementalMaterials[3];
-                        break;
-                }
-                district.gameObject.GetComponent<Renderer>().material = mat;
+                Renderer disRender = districtMeshes[triggered].GetComponent<Renderer>();
+                Color color = table.color[(int)district.getElement()];
+                color.a = 1;
+                disRender.material.color = color;
+                triggered++;
             }
             corrupt = false;
         }

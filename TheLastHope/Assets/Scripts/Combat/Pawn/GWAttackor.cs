@@ -123,7 +123,6 @@ public class GWAttackor : MonoBehaviour {
             this.isPressingHeal = false;
         }
         */
-
         if (this.isSummoned) {
 
             this.ManageTransparency();
@@ -357,7 +356,6 @@ public class GWAttackor : MonoBehaviour {
             this.upbildingAttackorClone.Damage();
         }
         catch (Exception e) {
-
         }
 
         this.upbildingAttackorClone = null;
@@ -371,8 +369,8 @@ public class GWAttackor : MonoBehaviour {
 
         List<GWEnemyController> killedEnemys = new List<GWEnemyController>();
 
-
-        foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
+        List<GWEnemyController> nE = new List<GWEnemyController>(this.nearbyEnemys);
+        foreach (GWEnemyController nearbyEnemy in nE) {
             if (nearbyEnemy == null) {
                 this.nearbyEnemys.Remove(nearbyEnemy);
             }
