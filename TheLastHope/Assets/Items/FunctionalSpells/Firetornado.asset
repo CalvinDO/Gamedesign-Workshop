@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 1
   containedElements: 01000000
-  buildUpTime: 3.75
+  buildUpTime: 4.3
   activeTime: 6
   cooldownTime: 5
   onlyOneTimeEffect: 0
