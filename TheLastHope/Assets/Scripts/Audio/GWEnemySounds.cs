@@ -9,6 +9,7 @@ public class GWEnemySounds : MonoBehaviour
 
     public void PlayHurt(AudioSource source){
         source.Stop();
+        source.volume = 1f;
         GWAudioManager.PlayRandomClip(source, hurtSounds);
     }
 
@@ -16,7 +17,7 @@ public class GWEnemySounds : MonoBehaviour
         source.Stop();
         AudioClip clip;
         clip = GWAudioManager.GetRandomClip(chantSounds);
-        source.volume = 0.3f;
+        source.volume = 0.5f;
         GWAudioManager.PlayClip(source, clip);
     }
 }
