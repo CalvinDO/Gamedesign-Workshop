@@ -186,21 +186,24 @@ public class GWAttackor : MonoBehaviour {
 
                 foreach (GWEnemyController nearbyEnemy in this.nearbyEnemys) {
 
-                    //nearbyEnemy.agent.isStopped = true;
-                    try {
 
 
-                        nearbyEnemy.isFlying = true;
+                    nearbyEnemy.agent.isStopped = true;
 
-                        nearbyEnemy.transform.parent = this.transform;
-                        nearbyEnemy.transform.position = new Vector3(nearbyEnemy.transform.position.x, 10 * this.ProgressFactor, nearbyEnemy.transform.position.z);
-                    }
-                    catch (Exception e) {
+                    if (!nearbyEnemy.TryGetComponent<GWDistrictLeaderController>(out _)) {
 
+                        try {
+
+                            nearbyEnemy.isFlying = true;
+
+                            nearbyEnemy.transform.parent = this.transform;
+                            nearbyEnemy.transform.position = new Vector3(nearbyEnemy.transform.position.x, 10 * this.ProgressFactor, nearbyEnemy.transform.position.z);
+                        }
+                        catch (Exception e) {
+
+                        }
                     }
                 }
-
-
 
                 break;
             case GWFormEffect.KNOCKBACK:
@@ -225,8 +228,6 @@ public class GWAttackor : MonoBehaviour {
                     catch (Exception e) {
                         this.nearbyEnemys.Remove(nearbyEnemy);
                     }
-
-
                 }
 
                 break;
@@ -258,22 +259,25 @@ public class GWAttackor : MonoBehaviour {
             Debug.LogWarning(e.Message);
         }
 
+
         foreach (GWEnemyController enemy in this.nearbyEnemys) {
 
-            
 
-            if (this.formEffect == GWFormEffect.VORTEX) {
-                enemy.transform.parent = null;
+            if (!enemy.TryGetComponent<GWDistrictLeaderController>(out _)) {
+                if (this.formEffect == GWFormEffect.VORTEX) {
 
-                Collider[] colliders = Physics.OverlapCapsule(enemy.transform.position, enemy.transform.position + Vector3.up * 2, 0.6f);
-                if (colliders.Length > 0) {
-                    enemy.transform.position = new Vector3(this.transform.position.x, enemy.transform.position.y, this.transform.position.z);
+
+                    enemy.transform.parent = null;
+
+                    Collider[] colliders = Physics.OverlapCapsule(enemy.transform.position, enemy.transform.position + Vector3.up * 2, 0.6f);
+                    if (colliders.Length > 0) {
+                        enemy.transform.position = new Vector3(this.transform.position.x, enemy.transform.position.y, this.transform.position.z);
+                    }
+
+                    enemy.Knockback(0.5f);
                 }
-
-                enemy.Knockback(0.5f);
             }
 
-            
             try {
 
                 enemy.agent.isStopped = false;
@@ -290,9 +294,6 @@ public class GWAttackor : MonoBehaviour {
     }
 
     public virtual void Activate(GWInventorySlot inventorySlot) {
-
-
-
 
         /*
         if (this.animator) {
